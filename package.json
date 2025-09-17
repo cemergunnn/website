@@ -1,0 +1,16 @@
+{
+  "name": "iphone-repair-site",
+  "version": "1.0.0",
+  "description": "iPhone tamiri sitesi",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -p $PORT",
+    "build": "echo 'No build needed for static site'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "keywords": ["iphone", "repair", "website"],
+  "author": "Your Name",
+  "license": "MIT"
+}
