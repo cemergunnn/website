@@ -1,0 +1,11 @@
+[phases.build]
+cmds = ["echo 'Building static site...'"]
+
+[phases.start]
+cmd = "serve -s . -p $PORT"
+
+[variables]
+NODE_VERSION = "18"
+
+[providers]
+node = "18"
