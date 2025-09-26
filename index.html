@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPhone Tamir Merkezi - Uzman Teknik Servis | Bakırköy</title>
-    <meta name="description" content="iPhone tamir ve bakım hizmetleri. Uzman teknisyenler, kaliteli yedek parçalar, hızlı servis. Bakırköy, İstanbul">
-    <meta name="keywords" content="iPhone tamir, cep telefonu tamiri, ekran değişimi, batarya değişimi, teknik servis, Bakırköy">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>VIPCEP SERVİS - iPhone Tamir ve Teknik Servis</title>
+    <meta name="description" content="iPhone tamir ve teknik servis hizmetleri. Uzman teknisyen, kaliteli parçalar, hızlı çözüm.">
     <style>
         * {
             margin: 0;
@@ -15,40 +12,18 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --nav-height: 48px;
-            --primary: #1a1a1a;
-            --secondary: #2c3e50;
-            --accent: #3498db;
-            --accent-hover: #2980b9;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --danger: #e74c3c;
-            --gray-01: #1d1d1f;
-            --gray-02: #333336;
-            --gray-03: #424245;
-            --gray-04: #515154;
-            --gray-05: #6e6e73;
-            --gray-06: #86868b;
-            --gray-07: #98989d;
-            --gray-08: #b0b0b6;
-            --gray-09: #c9c9d1;
-            --gray-10: #e8e8ed;
-            --gray-11: #f5f5f7;
-            --animation-curve: cubic-bezier(0.4, 0, 0.6, 1);
-            --animation-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        html {
+            font-size: 17px;
         }
 
         body {
-            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.47059;
             font-weight: 400;
-            letter-spacing: -.022em;
-            color: var(--gray-01);
-            background: #ffffff;
+            letter-spacing: -0.022em;
+            color: #1d1d1f;
+            background: #fff;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -57,1996 +32,669 @@
             top: 0;
             left: 0;
             right: 0;
-            height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.95);
+            height: 44px;
+            background: rgba(251, 251, 253, 0.94);
             backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             z-index: 9999;
-            transition: all 0.3s var(--animation-curve);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-wrapper.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 980px;
             margin: 0 auto;
-            padding: 0 22px;
-            height: var(--nav-height);
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 22px;
         }
 
-        .nav-logo {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--primary);
+        .logo {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
+        .logo img {
+            height: 32px;
+            width: auto;
         }
 
-        .nav-menu {
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 32px;
-            align-items: center;
+            gap: 34px;
         }
 
-        .nav-menu a {
-            color: var(--primary);
+        .nav-links a {
+            color: #1d1d1f;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            opacity: 0.9;
-            transition: all 0.3s var(--animation-curve);
-            position: relative;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
         }
 
-        .nav-menu a:hover {
+        .nav-links a:hover {
             opacity: 1;
-            color: var(--accent);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background: var(--accent);
-            transition: all 0.3s var(--animation-curve);
-            transform: translateX(-50%);
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            width: 48px;
-            height: 48px;
-            position: relative;
-        }
-
-        .menu-icon {
-            width: 18px;
-            height: 2px;
-            background: var(--primary);
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: all 0.3s var(--animation-curve);
-            border-radius: 1px;
-        }
-
-        .menu-icon:first-child {
-            top: 18px;
-        }
-
-        .menu-icon:last-child {
-            bottom: 18px;
         }
 
         /* Hero Section */
         .hero {
-            padding-top: var(--nav-height);
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
+            padding: 44px 0 0;
+            min-height: 692px;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23000000" fill-opacity="0.02"><circle cx="30" cy="30" r="1"/></g></svg>') repeat;
-            opacity: 0.4;
+            background: #fff;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 980px;
             margin: 0 auto;
             padding: 0 22px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            z-index: 2;
-            position: relative;
+            text-align: center;
         }
 
-        .hero-text {
-            animation: fadeInUp 1s var(--animation-smooth);
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+        .hero-eyebrow {
+            font-size: 21px;
+            line-height: 1.381;
             font-weight: 600;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.011em;
+            color: #bf4800;
+            margin-bottom: 4px;
         }
 
         .hero-headline {
-            font-size: 52px;
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -.02em;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .hero-highlight {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 56px;
+            line-height: 1.07143;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            color: #1d1d1f;
+            margin-bottom: 6px;
         }
 
         .hero-subheadline {
-            font-size: 20px;
-            line-height: 1.4;
+            font-size: 28px;
+            line-height: 1.14286;
             font-weight: 400;
-            color: var(--gray-05);
-            margin-bottom: 32px;
+            letter-spacing: 0.007em;
+            color: #1d1d1f;
+            margin-bottom: 19px;
         }
 
-        .hero-features {
+        .hero-cta {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            gap: 30px;
+            justify-content: center;
             margin-bottom: 40px;
         }
 
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 16px;
-            color: var(--gray-04);
-        }
-
-        .hero-feature-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
         .button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
+            display: inline-block;
+            min-width: 28px;
+            min-height: 44px;
+            padding: 12px 22px;
+            border-radius: 980px;
+            font-size: 17px;
+            line-height: 1.17648;
+            font-weight: 400;
             text-decoration: none;
+            transition: all 0.3s ease;
             cursor: pointer;
-            transition: all 0.3s var(--animation-curve);
             border: none;
-            white-space: nowrap;
         }
 
-        .button-primary {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        .button-blue {
+            background: #0071e3;
+            color: #fff;
         }
 
-        .button-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        .button-blue:hover {
+            background: #0077ed;
         }
 
-        .button-secondary {
-            background: white;
-            color: var(--accent);
-            border: 2px solid var(--accent);
+        .button-outline {
+            color: #0071e3;
+            border: 1px solid #0071e3;
+            background: transparent;
         }
 
-        .button-secondary:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
+        .button-outline:hover {
+            background: #0071e3;
+            color: #fff;
         }
 
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            animation: fadeInUp 1s 0.3s var(--animation-smooth) both;
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
         }
 
-        .phone-mockup {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: white;
+        .section-light {
+            background: #f5f5f7;
         }
 
         .section-content {
-            max-width: 1200px;
+            max-width: 980px;
             margin: 0 auto;
             padding: 0 22px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--gray-11);
-            color: var(--accent);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 60px;
         }
 
         .section-headline {
-            font-size: 42px;
-            line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -.02em;
+            font-size: 48px;
+            line-height: 1.08349;
+            font-weight: 600;
+            letter-spacing: -0.003em;
+            color: #1d1d1f;
             margin-bottom: 16px;
-            color: var(--primary);
         }
 
         .section-subheadline {
-            font-size: 18px;
-            line-height: 1.5;
+            font-size: 21px;
+            line-height: 1.381;
             font-weight: 400;
-            color: var(--gray-05);
+            letter-spacing: 0.011em;
+            color: #86868b;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 600;
+            letter-spacing: 0.011em;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 17px;
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            color: #86868b;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .column h2 {
+            font-size: 48px;
+            line-height: 1.08349;
+            font-weight: 600;
+            letter-spacing: -0.003em;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+        }
+
+        .column p {
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 400;
+            letter-spacing: 0.011em;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            font-size: 17px;
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #30d158;
+            font-weight: 600;
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .contact-title {
+            font-size: 19px;
+            line-height: 1.21053;
+            font-weight: 600;
+            letter-spacing: 0.012em;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            font-size: 17px;
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            color: #86868b;
+        }
+
+        .contact-info a {
+            color: #0071e3;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f5f5f7;
+            padding: 40px 0;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 22px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 24px;
+            width: auto;
+            opacity: 0.8;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            line-height: 1.33337;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: #86868b;
+            margin-bottom: 12px;
+        }
+
+        .footer-disclaimer {
+            font-size: 11px;
+            line-height: 1.36364;
+            font-weight: 400;
+            letter-spacing: 0.006em;
+            color: #86868b;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 16px;
-            padding: 40px 32px;
-            text-align: left;
-            transition: all 0.4s var(--animation-smooth);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--gray-10);
-        }
-
-        .service-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
-            transform: scaleX(0);
-            transition: transform 0.3s var(--animation-curve);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .service-icon {
+        /* Floating Call Button */
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            border-radius: 12px;
+            background: #30d158;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #fff;
+            text-decoration: none;
             font-size: 24px;
-            color: white;
-        }
-
-        .service-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 0;
-        }
-
-        .service-description {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--gray-05);
-            margin-bottom: 20px;
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--gray-04);
-        }
-
-        .service-features li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose {
-            padding: 100px 0;
-            background: var(--gray-11);
-        }
-
-        .why-choose-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 22px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .why-choose-content h2 {
-            font-size: 42px;
-            line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -.02em;
-            margin-bottom: 24px;
-            color: var(--primary);
-        }
-
-        .why-choose-content > p {
-            font-size: 18px;
-            line-height: 1.5;
-            color: var(--gray-05);
-            margin-bottom: 40px;
-        }
-
-        .advantage-list {
-            list-style: none;
-        }
-
-        .advantage-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
-            opacity: 0;
-            animation: slideInLeft 0.6s var(--animation-smooth) forwards;
-        }
-
-        .advantage-item:nth-child(1) { animation-delay: 0.1s; }
-        .advantage-item:nth-child(2) { animation-delay: 0.2s; }
-        .advantage-item:nth-child(3) { animation-delay: 0.3s; }
-        .advantage-item:nth-child(4) { animation-delay: 0.4s; }
-        .advantage-item:nth-child(5) { animation-delay: 0.5s; }
-
-        .advantage-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, var(--success) 0%, #2ecc71 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .advantage-content h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .advantage-content p {
-            font-size: 14px;
-            color: var(--gray-05);
-            line-height: 1.5;
-        }
-
-        .why-choose-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 24px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .stat-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: var(--gray-05);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-step::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            right: -20px;
-            width: 40px;
-            height: 2px;
-            background: var(--gray-10);
-            z-index: 1;
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .process-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .process-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .process-description {
-            font-size: 14px;
-            color: var(--gray-05);
-            line-height: 1.5;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: var(--gray-11);
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 22px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .contact-info h2 {
-            font-size: 42px;
-            line-height: 1.2;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--primary);
-        }
-
-        .contact-info > p {
-            font-size: 18px;
-            color: var(--gray-05);
-            line-height: 1.5;
-            margin-bottom: 40px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-item-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-            color: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .contact-item-content h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .contact-item-content p {
-            font-size: 14px;
-            color: var(--gray-05);
-            line-height: 1.4;
-        }
-
-        .contact-item-content a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-item-content a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--gray-10);
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s var(--animation-curve);
-            background: white;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 60px 0 40px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 22px;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-brand p {
-            font-size: 14px;
-            color: #b0b0b6;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .footer-section h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section ul li a {
-            color: #b0b0b6;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .footer-section ul li a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            margin-top: 40px;
-            padding-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-bottom p {
-            font-size: 12px;
-            color: #b0b0b6;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 16px;
-        }
-
-        .social-links a {
-            width: 36px;
-            height: 36px;
-            background: #333;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Floating Action Button */
-        .fab {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--success) 0%, #2ecc71 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 4px 20px rgba(39, 174, 96, 0.4);
-            transition: all 0.3s var(--animation-smooth);
+            box-shadow: 0 4px 20px rgba(48, 209, 88, 0.4);
+            transition: transform 0.3s ease;
             z-index: 1000;
         }
 
-        .fab:hover {
+        .call-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(39, 174, 96, 0.5);
-        }
-
-        .fab svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-10px) rotate(1deg);
-            }
-            75% {
-                transform: translateY(10px) rotate(-1deg);
-            }
-        }
-
-        /* Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s var(--animation-smooth);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
+            html {
+                font-size: 16px;
+            }
+
+            .nav-links {
                 display: none;
             }
 
-            .mobile-menu-button {
-                display: block;
-            }
-
-            .mobile-menu {
-                position: fixed;
-                top: var(--nav-height);
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                padding: 8px 0;
-                transform: translateY(-100%);
-                transition: transform 0.3s var(--animation-smooth);
-                border-bottom: 1px solid var(--gray-10);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .mobile-menu.active {
-                transform: translateY(0);
-            }
-
-            .mobile-menu-list {
-                list-style: none;
-                padding: 0 22px;
-            }
-
-            .mobile-menu-list li {
-                border-bottom: 1px solid var(--gray-10);
-            }
-
-            .mobile-menu-list li:last-child {
-                border-bottom: none;
-            }
-
-            .mobile-menu-list a {
-                display: block;
-                padding: 16px 0;
-                color: var(--primary);
-                text-decoration: none;
-                font-size: 16px;
-                font-weight: 500;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
             .hero-headline {
-                font-size: 36px;
+                font-size: 40px;
+                line-height: 1.1;
             }
 
-            .hero-actions {
-                justify-content: center;
+            .hero-subheadline {
+                font-size: 21px;
+                line-height: 1.2381;
+            }
+
+            .hero-cta {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
 
             .button {
                 width: 100%;
                 max-width: 280px;
-                justify-content: center;
             }
 
             .section-headline {
                 font-size: 32px;
+                line-height: 1.125;
             }
 
-            .why-choose-container,
-            .contact-container {
+            .two-column {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 40px;
+            }
+
+            .column h2 {
+                font-size: 32px;
+                line-height: 1.125;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .process-steps {
+            .contact-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .process-step::after {
-                display: none;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
+                gap: 30px;
             }
         }
 
         @media (max-width: 480px) {
+            .section-content,
+            .hero-content,
+            .footer-content {
+                padding: 0 16px;
+            }
+
             .hero-headline {
-                font-size: 28px;
+                font-size: 32px;
+            }
+
+            .hero-subheadline {
+                font-size: 19px;
             }
 
             .section-headline {
                 font-size: 28px;
             }
-
-            .service-card,
-            .contact-form {
-                padding: 24px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .process-steps {
-                gap: 30px;
-            }
         }
 
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s var(--animation-smooth);
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
-        .loader.hidden {
+        /* Animation for elements coming into view */
+        .fade-in {
             opacity: 0;
-            pointer-events: none;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .loader-icon {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--gray-10);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Trust Indicators */
-        .trust-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-top: 32px;
-            opacity: 0.7;
-        }
-
-        .trust-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--gray-05);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .trust-icon {
-            width: 16px;
-            height: 16px;
-            color: var(--success);
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loader" id="loader">
-        <div class="loader-icon"></div>
-    </div>
-
     <!-- Navigation -->
-    <div class="nav-wrapper" id="navbar">
+    <div class="nav-wrapper">
         <nav>
-            <a href="#" class="nav-logo">
-                <div class="logo-icon">📱</div>
-                vip cep servis
+            <a href="#" class="logo">
+                <img src="logo.png" alt="VIPCEP SERVİS">
             </a>
-            
-            <ul class="nav-menu">
+            <ul class="nav-links">
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#servisler">Servisler</a></li>
-                <li><a href="#neden-biz">Neden Biz</a></li>
-                <li><a href="#surec">Süreç</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
-
-            <button class="mobile-menu-button" id="mobileMenuBtn">
-                <span class="menu-icon"></span>
-                <span class="menu-icon"></span>
-            </button>
         </nav>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul class="mobile-menu-list">
-            <li><a href="#anasayfa">Ana Sayfa</a></li>
-            <li><a href="#servisler">Servisler</a></li>
-            <li><a href="#neden-biz">Neden Biz</a></li>
-            <li><a href="#surec">Süreç</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-        </ul>
     </div>
 
     <!-- Hero Section -->
     <section id="anasayfa" class="hero">
         <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">✨ Uzman Teknik Servis</div>
-                <h1 class="hero-headline">
-                    iPhone'unuz için 
-                    <span class="hero-highlight">profesyonel tamir</span> 
-                    çözümleri
-                </h1>
-                <p class="hero-subheadline">
-                    10 yıllık deneyim, kaliteli yedek parçalar ve müşteri memnuniyeti garantisi ile iPhone'unuzu yeniden hayata döndürüyoruz.
-                </p>
-                
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">✓</div>
-                        <span>Aynı gün teslimat</span>
-                    </div>
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">✓</div>
-                        <span>6 ay garanti</span>
-                    </div>
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">✓</div>
-                        <span>Ücretsiz ön inceleme</span>
-                    </div>
-                    <div class="hero-feature">
-                        <div class="hero-feature-icon">✓</div>
-                        <span>Kaliteli yedek parçalar</span>
-                    </div>
-                </div>
-
-                <div class="hero-actions">
-                    <a href="tel:+905317493693" class="button button-primary">
-                        📞 Hemen Ara
-                    </a>
-                    <a href="#iletisim" class="button button-secondary">
-                        💬 WhatsApp
-                    </a>
-                </div>
-
-                <div class="trust-indicators">
-                    <div class="trust-indicator">
-                        <span class="trust-icon">🛡️</span>
-                        <span>Güvenilir Servis</span>
-                    </div>
-                    <div class="trust-indicator">
-                        <span class="trust-icon">⭐</span>
-                        <span>5000+ Mutlu Müşteri</span>
-                    </div>
-                    <div class="trust-indicator">
-                        <span class="trust-icon">🔧</span>
-                        <span>Uzman Teknisyen</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <svg class="phone-mockup" viewBox="0 0 400 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- iPhone Frame -->
-                    <rect x="50" y="50" width="300" height="700" rx="40" fill="url(#phoneGradient)" stroke="url(#phoneStroke)" stroke-width="2"/>
-                    <rect x="55" y="55" width="290" height="690" rx="35" fill="#000000"/>
-                    
-                    <!-- Screen -->
-                    <rect x="70" y="100" width="260" height="600" rx="25" fill="url(#screenGradient)"/>
-                    
-                    <!-- Dynamic Island -->
-                    <rect x="170" y="70" width="60" height="22" rx="11" fill="#000000"/>
-                    
-                    <!-- Screen Content -->
-                    <g opacity="0.9">
-                        <!-- Status Bar -->
-                        <text x="85" y="125" font-family="-apple-system" font-size="12" fill="#ffffff" opacity="0.8">9:41</text>
-                        <g transform="translate(280, 115)">
-                            <!-- Battery -->
-                            <rect x="0" y="0" width="20" height="10" rx="2" stroke="#ffffff" fill="none" stroke-width="1" opacity="0.8"/>
-                            <rect x="2" y="2" width="12" height="6" rx="1" fill="#ffffff" opacity="0.8"/>
-                            <rect x="20" y="3" width="2" height="4" rx="1" fill="#ffffff" opacity="0.8"/>
-                        </g>
-                        
-                        <!-- Repair Interface -->
-                        <rect x="90" y="150" width="220" height="120" rx="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-                        <text x="200" y="175" font-family="-apple-system" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">vip cep servis</text>
-                        <text x="200" y="195" font-family="-apple-system" font-size="10" fill="#ffffff" text-anchor="middle" opacity="0.7">Cihaz Analizi Tamamlandı</text>
-                        
-                        <!-- Progress Bar -->
-                        <rect x="110" y="210" width="180" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
-                        <rect x="110" y="210" width="150" height="4" rx="2" fill="#00ff88"/>
-                        
-                        <!-- Checkmarks -->
-                        <g transform="translate(110, 230)">
-                            <circle cx="8" cy="8" r="6" fill="#00ff88"/>
-                            <path d="M5 8 L7 10 L11 6" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <text x="20" y="12" font-family="-apple-system" font-size="9" fill="#ffffff" opacity="0.8">Ekran Kontrolü</text>
-                        </g>
-                        
-                        <g transform="translate(110, 250)">
-                            <circle cx="8" cy="8" r="6" fill="#00ff88"/>
-                            <path d="M5 8 L7 10 L11 6" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <text x="20" y="12" font-family="-apple-system" font-size="9" fill="#ffffff" opacity="0.8">Batarya Testi</text>
-                        </g>
-                        
-                        <!-- Apps Grid -->
-                        <g transform="translate(90, 320)">
-                            <rect x="0" y="0" width="40" height="40" rx="8" fill="url(#app1)"/>
-                            <rect x="50" y="0" width="40" height="40" rx="8" fill="url(#app2)"/>
-                            <rect x="100" y="0" width="40" height="40" rx="8" fill="url(#app3)"/>
-                            <rect x="150" y="0" width="40" height="40" rx="8" fill="url(#app4)"/>
-                            <rect x="200" y="0" width="40" height="40" rx="8" fill="url(#app5)"/>
-                            
-                            <rect x="0" y="50" width="40" height="40" rx="8" fill="url(#app6)"/>
-                            <rect x="50" y="50" width="40" height="40" rx="8" fill="url(#app7)"/>
-                            <rect x="100" y="50" width="40" height="40" rx="8" fill="url(#app8)"/>
-                            <rect x="150" y="50" width="40" height="40" rx="8" fill="url(#app9)"/>
-                            <rect x="200" y="50" width="40" height="40" rx="8" fill="url(#app10)"/>
-                        </g>
-                        
-                        <!-- Dock -->
-                        <rect x="70" y="650" width="260" height="70" rx="20" fill="rgba(255,255,255,0.1)"/>
-                        <rect x="95" y="665" width="40" height="40" rx="8" fill="url(#phone)"/>
-                        <rect x="145" y="665" width="40" height="40" rx="8" fill="url(#messages)"/>
-                        <rect x="195" y="665" width="40" height="40" rx="8" fill="url(#safari)"/>
-                        <rect x="245" y="665" width="40" height="40" rx="8" fill="url(#settings)"/>
-                        <rect x="295" y="665" width="40" height="40" rx="8" fill="url(#camera)"/>
-                    </g>
-                    
-                    <!-- Side Buttons -->
-                    <rect x="45" y="200" width="5" height="60" rx="2" fill="url(#buttonGradient)"/>
-                    <rect x="45" y="270" width="5" height="35" rx="2" fill="url(#buttonGradient)"/>
-                    <rect x="45" y="315" width="5" height="35" rx="2" fill="url(#buttonGradient)"/>
-                    <rect x="350" y="250" width="5" height="80" rx="2" fill="url(#buttonGradient)"/>
-                    
-                    <!-- Gradients and Effects -->
-                    <defs>
-                        <!-- Phone Gradient -->
-                        <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#3730a3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
-                        </linearGradient>
-                        
-                        <linearGradient id="phoneStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:0.8" />
-                            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.8" />
-                        </linearGradient>
-                        
-                        <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
-                        </linearGradient>
-                        
-                        <!-- Screen Gradient -->
-                        <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#3730a3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
-                        </linearGradient>
-                        
-                        <!-- App Gradients -->
-                        <linearGradient id="app1"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient>
-                        <linearGradient id="app2"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#047857"/></linearGradient>
-                        <linearGradient id="app3"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/></linearGradient>
-                        <linearGradient id="app4"><stop offset="0%" stop-color="#ef4444"/><stop offset="100%" stop-color="#dc2626"/></linearGradient>
-                        <linearGradient id="app5"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
-                        <linearGradient id="app6"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0891b2"/></linearGradient>
-                        <linearGradient id="app7"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
-                        <linearGradient id="app8"><stop offset="0%" stop-color="#84cc16"/><stop offset="100%" stop-color="#65a30d"/></linearGradient>
-                        <linearGradient id="app9"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#db2777"/></linearGradient>
-                        <linearGradient id="app10"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4f46e5"/></linearGradient>
-                        
-                        <!-- Dock Apps -->
-                        <linearGradient id="phone"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#16a34a"/></linearGradient>
-                        <linearGradient id="messages"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#15803d"/></linearGradient>
-                        <linearGradient id="safari"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient>
-                        <linearGradient id="settings"><stop offset="0%" stop-color="#6b7280"/><stop offset="100%" stop-color="#4b5563"/></linearGradient>
-                        <linearGradient id="camera"><stop offset="0%" stop-color="#1f2937"/><stop offset="100%" stop-color="#111827"/></linearGradient>
-                    </defs>
-                </svg>
+            <div class="hero-eyebrow fade-in">VIPCEP SERVİS</div>
+            <h1 class="hero-headline fade-in">iPhone için<br>profesyonel tamir</h1>
+            <p class="hero-subheadline fade-in">Uzman teknisyen. Kaliteli parçalar. Hızlı çözüm.</p>
+            <div class="hero-cta fade-in">
+                <a href="tel:+905317493693" class="button button-blue">Hemen ara</a>
+                <a href="#servisler" class="button button-outline">Daha fazla bilgi</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="servisler" class="services reveal">
+    <section id="servisler" class="section section-light">
         <div class="section-content">
-            <div class="section-header">
-                <div class="section-badge">🔧 Servislerimiz</div>
-                <h2 class="section-headline">Kapsamlı iPhone Tamir Hizmetleri</h2>
-                <p class="section-subheadline">
-                    Her model iPhone için uzman teknisyenlerimiz ve kaliteli yedek parçalarımızla 
-                    profesyonel çözümler sunuyoruz.
-                </p>
+            <div class="section-header fade-in">
+                <h2 class="section-headline">Servislerimiz</h2>
+                <p class="section-subheadline">Her model iPhone için kapsamlı tamir hizmetleri.</p>
             </div>
-
             <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-header">
-                        <div class="service-icon">📱</div>
-                        <h3 class="service-title">Ekran Değişimi</h3>
-                    </div>
-                    <p class="service-description">
-                        Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için kaliteli LCD ve OLED ekran değişimi hizmeti.
-                    </p>
-                    <ul class="service-features">
-                        <li>Orijinal kalitede ekranlar</li>
-                        <li>30 dakikada teslimat</li>
-                        <li>6 ay garanti</li>
-                        <li>Dokunmatik testi dahil</li>
-                    </ul>
+                <div class="service-card fade-in">
+                    <span class="service-icon">📱</span>
+                    <h3 class="service-title">Ekran Değişimi</h3>
+                    <p class="service-description">Kırık veya hasarlı ekranlar için orijinal kalitede değişim.</p>
                 </div>
-
-                <div class="service-card reveal">
-                    <div class="service-header">
-                        <div class="service-icon">🔋</div>
-                        <h3 class="service-title">Batarya Değişimi</h3>
-                    </div>
-                    <p class="service-description">
-                        Batarya kapasitesi düşen cihazlar için orijinal kapasiteli batarya değişimi ve optimizasyon hizmeti.
-                    </p>
-                    <ul class="service-features">
-                        <li>%100 orijinal kapasite</li>
-                        <li>Hızla şarj desteği</li>
-                        <li>Sağlık testi ücretsiz</li>
-                        <li>Performans iyileştirmesi</li>
-                    </ul>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🔋</span>
+                    <h3 class="service-title">Batarya Değişimi</h3>
+                    <p class="service-description">Performansı artırmak için orijinal kapasiteli batarya.</p>
                 </div>
-
-                <div class="service-card reveal">
-                    <div class="service-header">
-                        <div class="service-icon">📷</div>
-                        <h3 class="service-title">Kamera Tamiri</h3>
-                    </div>
-                    <p class="service-description">
-                        Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel kamera tamiri.
-                    </p>
-                    <ul class="service-features">
-                        <li>Ön ve arka kamera</li>
-                        <li>Lens temizligi</li>
-                        <li>Odaklama ayarı</li>
-                        <li>Video kayıt testi</li>
-                    </ul>
+                <div class="service-card fade-in">
+                    <span class="service-icon">📷</span>
+                    <h3 class="service-title">Kamera Tamiri</h3>
+                    <p class="service-description">Ön ve arka kamera sorunları için profesyonel çözüm.</p>
                 </div>
-
-                <div class="service-card reveal">
-                    <div class="service-header">
-                        <div class="service-icon">💧</div>
-                        <h3 class="service-title">Su Hasarı Tamiri</h3>
-                    </div>
-                    <p class="service-description">
-                        Su ve diğer sıvı temasları sonucu oluşan hasarlar için özel temizlik ve komponent değişimi.
-                    </p>
-                    <ul class="service-features">
-                        <li>Ultrasonik temizlik</li>
-                        <li>Anakart tamiri</li>
-                        <li>Korozyon giderme</li>
-                        <li>Veri kurtarma</li>
-                    </ul>
+                <div class="service-card fade-in">
+                    <span class="service-icon">💧</span>
+                    <h3 class="service-title">Su Hasarı</h3>
+                    <p class="service-description">Sıvı teması sonucu oluşan hasarlar için özel onarım.</p>
                 </div>
-
-                <div class="service-card reveal">
-                    <div class="service-header">
-                        <div class="service-icon">⚡</div>
-                        <h3 class="service-title">Şarj Soketi Tamiri</h3>
-                    </div>
-                    <p class="service-description">
-                        Lightning port temizliği, değişimi ve kablosuz şarj sorunu çözümü için uzman müdahale.
-                    </p>
-                    <ul class="service-features">
-                        <li>Port temizliği</li>
-                        <li>Soket değişimi</li>
-                        <li>Kablosuz şarj tamiri</li>
-                        <li>Hızlı şarj testi</li>
-                    </ul>
+                <div class="service-card fade-in">
+                    <span class="service-icon">⚡</span>
+                    <h3 class="service-title">Şarj Soketi</h3>
+                    <p class="service-description">Lightning port ve kablosuz şarj problemleri.</p>
                 </div>
-
-                <div class="service-card reveal">
-                    <div class="service-header">
-                        <div class="service-icon">🔊</div>
-                        <h3 class="service-title">Ses Sistemi Tamiri</h3>
-                    </div>
-                    <p class="service-description">
-                        Hoparlör, mikrofon ve kulaklık jakı sorunları için komple ses sistemi kontrolü ve tamiri.
-                    </p>
-                    <ul class="service-features">
-                        <li>Hoparlör değişimi</li>
-                        <li>Mikrofon tamiri</li>
-                        <li>Ses kalitesi testi</li>
-                        <li>Titreşim motoru</li>
-                    </ul>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🔊</span>
+                    <h3 class="service-title">Ses Sistemi</h3>
+                    <p class="service-description">Hoparlör ve mikrofon tamiri için uzman müdahale.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="neden-biz" class="why-choose">
-        <div class="why-choose-container">
-            <div class="why-choose-content reveal">
-                <h2>Neden vip cep servis'yu Tercih Etmelisiniz?</h2>
-                <p>
-                    10 yıllık deneyimimiz ve müşteri odaklı yaklaşımımızla, iPhone'unuz için en güvenilir tamir hizmetini sunuyoruz.
-                </p>
-                
-                <ul class="advantage-list">
-                    <li class="advantage-item">
-                        <div class="advantage-icon">🔧</div>
-                        <div class="advantage-content">
-                            <h4>Uzman Teknisyenler</h4>
-                            <p>10+ yıl deneyimli, sertifikalı teknisyenlerimizle profesyonel hizmet</p>
-                        </div>
-                    </li>
-                    <li class="advantage-item">
-                        <div class="advantage-icon">⚡</div>
-                        <div class="advantage-content">
-                            <h4>Hızlı Teslimat</h4>
-                            <p>Çoğu tamir işlemini aynı gün içerisinde tamamlıyoruz</p>
-                        </div>
-                    </li>
-                    <li class="advantage-item">
-                        <div class="advantage-icon">🛡️</div>
-                        <div class="advantage-content">
-                            <h4>6 Ay Garanti</h4>
-                            <p>Tüm tamir işlemlerimiz için 6 ay boyunca garanti veriyoruz</p>
-                        </div>
-                    </li>
-                    <li class="advantage-item">
-                        <div class="advantage-icon">💎</div>
-                        <div class="advantage-content">
-                            <h4>Kaliteli Parçalar</h4>
-                            <p>Sadece orijinal kalitede, test edilmiş yedek parçalar kullanıyoruz</p>
-                        </div>
-                    </li>
-                    <li class="advantage-item">
-                        <div class="advantage-icon">🔒</div>
-                        <div class="advantage-content">
-                            <h4>Veri Güvenliği</h4>
-                            <p>Verileriniz tamir sürecinde tamamen güvende kalır</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="why-choose-visual reveal">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">5000+</div>
-                        <div class="stat-label">Mutlu Müşteri</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Yıl Deneyim</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">%98</div>
-                        <div class="stat-label">Başarı Oranı</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Destek</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="surec" class="process">
+    <!-- About Section -->
+    <section id="hakkimizda" class="section">
         <div class="section-content">
-            <div class="section-header reveal">
-                <div class="section-badge">📋 Sürecimiz</div>
-                <h2 class="section-headline">Basit ve Güvenilir Tamir Süreci</h2>
-                <p class="section-subheadline">
-                    4 adımda iPhone'unuzu tamir ediyoruz. Şeffaf süreç, güvenilir hizmet.
-                </p>
-            </div>
-
-            <div class="process-steps">
-                <div class="process-step reveal">
-                    <div class="process-number">1</div>
-                    <h3 class="process-title">Ücretsiz İnceleme</h3>
-                    <p class="process-description">
-                        Cihazınızı getirin, uzman teknisyenlerimiz ücretsiz olarak incelesin ve size detaylı bilgi versin.
-                    </p>
+            <div class="two-column">
+                <div class="column fade-in">
+                    <h2>Neden VIPCEP SERVİS?</h2>
+                    <p>10 yıllık deneyimimizle iPhone'unuz için güvenilir ve kaliteli tamir hizmeti sunuyoruz.</p>
+                    <ul class="feature-list">
+                        <li>Uzman teknisyen kadrosu</li>
+                        <li>Orijinal kaliteli yedek parçalar</li>
+                        <li>Aynı gün teslimat</li>
+                        <li>6 ay servis garantisi</li>
+                        <li>Ücretsiz ön inceleme</li>
+                        <li>Veri güvenliği garantisi</li>
+                    </ul>
                 </div>
-
-                <div class="process-step reveal">
-                    <div class="process-number">2</div>
-                    <h3 class="process-title">Fiyat Teklifi</h3>
-                    <p class="process-description">
-                        İnceleme sonrası net fiyat teklifi sunuyoruz. Onayınız olmadan hiçbir işleme başlamayız.
-                    </p>
-                </div>
-
-                <div class="process-step reveal">
-                    <div class="process-number">3</div>
-                    <h3 class="process-title">Profesyonel Tamir</h3>
-                    <p class="process-description">
-                        Onayınızın ardından uzman teknisyenlerimiz cihazınızı özenle tamir eder ve test eder.
-                    </p>
-                </div>
-
-                <div class="process-step reveal">
-                    <div class="process-number">4</div>
-                    <h3 class="process-title">Teslimat & Garanti</h3>
-                    <p class="process-description">
-                        Tamir edilen cihazınızı teslim alın ve 6 ay garanti ile gönül rahatlığıyla kullanın.
-                    </p>
+                <div class="column fade-in">
+                    <div style="text-align: center; padding: 60px 0;">
+                        <div style="width: 200px; height: 300px; background: linear-gradient(135deg, #007aff, #5ac8fa); border-radius: 40px; margin: 0 auto; position: relative;">
+                            <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; background: #000; border-radius: 30px;"></div>
+                            <div style="position: absolute; top: 40px; left: 40px; right: 40px; bottom: 60px; background: linear-gradient(135deg, #1e90ff, #00bfff); border-radius: 20px;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="iletisim" class="contact">
-        <div class="contact-container">
-            <div class="contact-info reveal">
-                <h2>Bize Ulaşın</h2>
-                <p>
-                    iPhone'unuz için profesyonel tamir hizmeti mi arıyorsunuz? Size en yakın konumdayız. 
-                    Hemen iletişime geçin, ücretsiz ön inceleme yaptıralım.
-                </p>
-
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📱</div>
-                        <div class="contact-item-content">
-                            <h4>Telefon İletişim</h4>
-                            <p>
-                                <a href="tel:+905317493693">0531 749 36 93</a><br>
-                                <small>7/24 Destek Hattı</small>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-icon">📍</div>
-                        <div class="contact-item-content">
-                            <h4>Adresimiz</h4>
-                            <p>
-                                Zeytinlik Mh. Türkçü Sk.<br>
-                                No:13 D:27 Beyazlar Pasajı<br>
-                                Bakırköy / İstanbul
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-icon">🕐</div>
-                        <div class="contact-item-content">
-                            <h4>Çalışma Saatleri</h4>
-                            <p>
-                                Pazartesi - Cumartesi: 09:00 - 19:00<br>
-                                <small>Pazar günleri acil durumlar için arayınız</small>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-item-icon">💬</div>
-                        <div class="contact-item-content">
-                            <h4>WhatsApp Destek</h4>
-                            <p>
-                                <a href="https://wa.me/905317493693">Hemen Mesaj Gönder</a><br>
-                                <small>Anında yanıt alın</small>
-                            </p>
-                        </div>
+    <section id="iletisim" class="section section-light">
+        <div class="section-content">
+            <div class="section-header fade-in">
+                <h2 class="section-headline">İletişim</h2>
+                <p class="section-subheadline">Size en iyi hizmeti sunmak için buradayız.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card fade-in">
+                    <span class="contact-icon">📞</span>
+                    <h3 class="contact-title">Telefon</h3>
+                    <div class="contact-info">
+                        <a href="tel:+905317493693">0531 749 36 93</a><br>
+                        <small>7/24 Destek</small>
                     </div>
                 </div>
-            </div>
-
-            <div class="contact-form reveal">
-                <h3 style="margin-bottom: 24px; color: var(--primary);">Hızlı İletişim Formu</h3>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Ad Soyad</label>
-                        <input type="text" id="name" name="name" required>
+                <div class="contact-card fade-in">
+                    <span class="contact-icon">📍</span>
+                    <h3 class="contact-title">Adres</h3>
+                    <div class="contact-info">
+                        Zeytinlik Mh. Türkçü Sk.<br>
+                        No:13 D:27 Beyazlar Pasajı<br>
+                        Bakırköy / İstanbul
                     </div>
-
-                    <div class="form-group">
-                        <label for="phone">Telefon Numarası</label>
-                        <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="contact-card fade-in">
+                    <span class="contact-icon">🕐</span>
+                    <h3 class="contact-title">Çalışma Saatleri</h3>
+                    <div class="contact-info">
+                        Pazartesi - Cumartesi<br>
+                        09:00 - 19:00
                     </div>
-
-                    <div class="form-group">
-                        <label for="device">Cihaz Modeli</label>
-                        <select id="device" name="device" required>
-                            <option value="">Cihazınızı seçin</option>
-                            <option value="iphone-15-pro-max">iPhone 15 Pro Max</option>
-                            <option value="iphone-15-pro">iPhone 15 Pro</option>
-                            <option value="iphone-15-plus">iPhone 15 Plus</option>
-                            <option value="iphone-15">iPhone 15</option>
-                            <option value="iphone-14-pro-max">iPhone 14 Pro Max</option>
-                            <option value="iphone-14-pro">iPhone 14 Pro</option>
-                            <option value="iphone-14-plus">iPhone 14 Plus</option>
-                            <option value="iphone-14">iPhone 14</option>
-                            <option value="iphone-13-pro-max">iPhone 13 Pro Max</option>
-                            <option value="iphone-13-pro">iPhone 13 Pro</option>
-                            <option value="iphone-13">iPhone 13</option>
-                            <option value="iphone-12-pro-max">iPhone 12 Pro Max</option>
-                            <option value="iphone-12-pro">iPhone 12 Pro</option>
-                            <option value="iphone-12">iPhone 12</option>
-                            <option value="iphone-11-pro-max">iPhone 11 Pro Max</option>
-                            <option value="iphone-11-pro">iPhone 11 Pro</option>
-                            <option value="iphone-11">iPhone 11</option>
-                            <option value="iphone-x">iPhone X/XS/XR</option>
-                            <option value="older">Daha eski model</option>
-                        </select>
+                </div>
+                <div class="contact-card fade-in">
+                    <span class="contact-icon">💬</span>
+                    <h3 class="contact-title">WhatsApp</h3>
+                    <div class="contact-info">
+                        <a href="https://wa.me/905317493693">Mesaj gönder</a><br>
+                        <small>Anında yanıt</small>
                     </div>
-
-                    <div class="form-group">
-                        <label for="problem">Sorun Açıklaması</label>
-                        <textarea id="problem" name="problem" placeholder="Cihazınızla ilgili yaşadığınız sorunu kısaca açıklayın..."></textarea>
-                    </div>
-
-                    <button type="submit" class="button button-primary" style="width: 100%;">
-                        Mesajımı Gönder
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">
-                <h3>
-                    <div class="logo-icon">📱</div>
-                    vip cep servis
-                </h3>
-                <p>
-                    10 yıllık deneyimimizle iPhone tamir ve bakım hizmetlerinde güvenilir çözüm ortağınız. 
-                    Müşteri memnuniyeti odaklı yaklaşımımızla hizmet veriyoruz.
-                </p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram">📷</a>
-                    <a href="#" aria-label="WhatsApp">💬</a>
-                    <a href="#" aria-label="Google">🔍</a>
-                </div>
+            <div class="footer-logo">
+                <img src="logo.png" alt="VIPCEP SERVİS">
             </div>
-
-            <div class="footer-section">
-                <h4>Hizmetlerimiz</h4>
-                <ul>
-                    <li><a href="#servisler">Ekran Değişimi</a></li>
-                    <li><a href="#servisler">Batarya Değişimi</a></li>
-                    <li><a href="#servisler">Kamera Tamiri</a></li>
-                    <li><a href="#servisler">Su Hasarı Tamiri</a></li>
-                    <li><a href="#servisler">Şarj Soketi</a></li>
-                    <li><a href="#servisler">Ses Sistemi</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Kurumsal</h4>
-                <ul>
-                    <li><a href="#neden-biz">Hakkımızda</a></li>
-                    <li><a href="#surec">Çalışma Sürecimiz</a></li>
-                    <li><a href="#iletisim">İletişim</a></li>
-                    <li><a href="#">Garanti Koşulları</a></li>
-                    <li><a href="#">Gizlilik Politikası</a></li>
-                    <li><a href="#">Kullanım Koşulları</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>İletişim</h4>
-                <ul>
-                    <li><a href="tel:+905317493693">0531 749 36 93</a></li>
-                    <li><a href="mailto:info@teknikservispro.com">info@teknikservispro.com</a></li>
-                    <li>Bakırköy / İstanbul</li>
-                    <li><a href="https://wa.me/905317493693">WhatsApp Destek</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2024 vip cep servis. Tüm hakları saklıdır.</p>
-            <p style="font-size: 11px; margin-top: 8px;">
-                * Bu servis merkezi bağımsız 3. parti teknik servis sağlayıcısıdır. 
-                Apple Inc. ile resmi bir bağlantısı bulunmamaktadır. iPhone, Apple Inc.'in tescilli markasıdır.
+            <p class="footer-text">© 2024 VIPCEP SERVİS. Tüm hakları saklıdır.</p>
+            <p class="footer-disclaimer">
+                Bu servis merkezi bağımsız 3. parti teknik servis sağlayıcısıdır. 
+                Apple Inc. ile resmi bağlantısı bulunmamaktadır. iPhone, Apple Inc.'in tescilli markasıdır.
             </p>
         </div>
     </footer>
 
-    <!-- Floating Action Button -->
-    <a href="tel:+905317493693" class="fab" aria-label="Hemen Ara">
-        <svg fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-        </svg>
-    </a>
+    <!-- Floating Call Button -->
+    <a href="tel:+905317493693" class="call-button">📞</a>
 
     <script>
-        // Page Loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 500);
-        });
-
-        // Smooth Scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 60;
-                    const targetPosition = target.offsetTop - offset;
+                    const offsetTop = target.offsetTop - 44; // Account for fixed nav
                     window.scrollTo({
-                        top: targetPosition,
+                        top: offsetTop,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Navbar Scroll Effect
-        let lastScroll = 0;
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        let isMenuOpen = false;
-
-        mobileMenuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.add('active');
-                mobileMenuBtn.classList.add('active');
-            } else {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            }
-        });
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.mobile-menu-list a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                isMenuOpen = false;
-            });
-        });
-
-        // Scroll Reveal Animation
-        const reveals = document.querySelectorAll('.reveal');
-        
-        function revealOnScroll() {
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 100;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
-
-        // Service Cards Hover Effect
-        const serviceCards = document.querySelectorAll('.service-card');
-        
-        serviceCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Contact Form Handler
-        const contactForm = document.querySelector('.contact-form form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const name = formData.get('name');
-                const phone = formData.get('phone');
-                const device = formData.get('device');
-                const problem = formData.get('problem');
-                
-                // WhatsApp mesajı oluştur
-                const message = `Merhaba! vip cep servis'dan tamir hizmeti almak istiyorum.
-
-👤 Ad Soyad: ${name}
-📱 Telefon: ${phone}
-📱 Cihaz: ${device}
-🔧 Sorun: ${problem}
-
-Lütfen benimle iletişime geçin.`;
-                
-                const whatsappURL = `https://wa.me/905317493693?text=${encodeURIComponent(message)}`;
-                window.open(whatsappURL, '_blank');
-                
-                // Form'u temizle
-                this.reset();
-                
-                // Başarı mesajı göster
-                alert('Mesajınız WhatsApp üzerinden gönderilecek. Teşekkürler!');
-            });
-        }
-
-        // Stats Counter Animation
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        function animateStats() {
-            statNumbers.forEach(stat => {
-                const target = stat.textContent;
-                const number = parseInt(target.replace(/\D/g, ''));
-                const suffix = target.replace(/\d/g, '');
-                let current = 0;
-                const increment = number / 50;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= number) {
-                        stat.textContent = number + suffix;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = Math.floor(current) + suffix;
-                    }
-                }, 40);
-            });
-        }
-
-        // Intersection Observer for Stats
-        const statsObserver = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateStats();
-                    statsObserver.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
 
-        const statsGrid = document.querySelector('.stats-grid');
-        if (statsGrid) {
-            statsObserver.observe(statsGrid);
-        }
-
-        // Performance Optimization
-        let scrollTimeout;
-        let isScrolling = false;
-
-        window.addEventListener('scroll', () => {
-            if (!isScrolling) {
-                window.requestAnimationFrame(() => {
-                    revealOnScroll();
-                    isScrolling = false;
-                });
-                isScrolling = true;
-            }
-        });
-
-        // Keyboard Navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isMenuOpen) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                isMenuOpen = false;
-            }
-        });
-
-        // Touch Support for Mobile
-        let touchStartY = 0;
-        let touchEndY = 0;
-
-        document.addEventListener('touchstart', (e) => {
-            touchStartY = e.changedTouches[0].screenY;
-        });
-
-        document.addEventListener('touchend', (e) => {
-            touchEndY = e.changedTouches[0].screenY;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndY < touchStartY - 50) {
-                // Swiped up
-                if (window.pageYOffset > 100) {
-                    navbar.style.transform = 'translateY(-100%)';
-                }
-            }
-            
-            if (touchEndY > touchStartY + 50) {
-                // Swiped down
-                navbar.style.transform = 'translateY(0)';
-            }
-        }
-
-        // Analytics Event Tracking
-        document.querySelector('.fab').addEventListener('click', () => {
-            console.log('FAB clicked - Call initiated');
-            // Google Analytics veya başka analytics servisi buraya eklenebilir
-        });
-
-        document.querySelectorAll('.button-primary').forEach(btn => {
-            btn.addEventListener('click', () => {
-                console.log('Primary CTA clicked');
+        // Initialize first viewport animations immediately
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hero .fade-in').forEach(el => {
+                el.classList.add('visible');
             });
-        });
-
-        // Page Visibility API
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                // Pause animations when tab is not visible
-                document.querySelectorAll('.phone-mockup').forEach(el => {
-                    el.style.animationPlayState = 'paused';
-                });
-            } else {
-                // Resume animations when tab becomes visible
-                document.querySelectorAll('.phone-mockup').forEach(el => {
-                    el.style.animationPlayState = 'running';
-                });
-            }
-        });
-
-        // Dynamic Year Update
-        const currentYear = new Date().getFullYear();
-        document.querySelector('.footer-bottom p').textContent = 
-            `© ${currentYear} vip cep servis. Tüm hakları saklıdır.`;
-
-        // Preload Critical Resources
-        const criticalResources = [
-            'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
-        ];
-
-        criticalResources.forEach(resource => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.href = resource;
-            link.as = 'style';
-            document.head.appendChild(link);
-        });
-
-        // Error Handling
-        window.addEventListener('error', (e) => {
-            console.log('Page error:', e.error);
-        });
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('vip cep servis website loaded successfully');
         });
     </script>
 </body>
