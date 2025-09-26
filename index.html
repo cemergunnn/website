@@ -879,4 +879,203 @@
             const windowHeight = window.innerHeight;
             
             // Change navbar theme based on scroll
-            if (scrollY > windowHeight * 0.
+            if (scrollY > windowHeight * 0.8) {
+                navbar.classList.add('dark');
+            } else {
+                navbar.classList.remove('dark');
+            }
+            
+            // Toggle dark sections
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollY >= sectionTop - windowHeight / 2 && 
+                    scrollY < sectionTop + sectionHeight - windowHeight / 2) {
+                    
+                    if (index % 2 === 1) {
+                        section.classList.add('dark');
+                    } else {
+                        section.classList.remove('dark');
+                    }
+                }
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section-title, .section-subtitle, .service-card, .contact-card, .features-content h2, .features-content p, .feature-item, .features-visual').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll events
+        window.addEventListener('scroll', () => {
+            updateTheme();
+            
+            // Parallax effect for background elements
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-background');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 60;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced hover effects for cards
+        const cards = document.querySelectorAll('.service-card, .contact-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Phone showcase interactive effect
+        const phoneShowcase = document.querySelector('.phone-showcase');
+        if (phoneShowcase) {
+            phoneShowcase.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(0deg) scale(1.08)';
+            });
+            
+            phoneShowcase.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotate(-5deg) scale(1)';
+            });
+        }
+
+        // Staggered animation for feature items
+        const featureItems = document.querySelectorAll('.feature-item');
+        featureItems.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Staggered animation for service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        // Dynamic color changes based on scroll position
+        function updateColors() {
+            const scrollPercent = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
+            const hue = Math.floor(220 + (scrollPercent * 40)); // From blue to purple
+            
+            document.documentElement.style.setProperty('--primary-blue', `hsl(${hue}, 100%, 60%)`);
+        }
+
+        window.addEventListener('scroll', updateColors);
+
+        // Interactive button effects
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Floating elements animation
+        function animateFloatingElements() {
+            const heroPhone = document.querySelector('.hero-phone');
+            const time = Date.now() * 0.001;
+            
+            if (heroPhone) {
+                const floatY = Math.sin(time) * 10;
+                const floatX = Math.cos(time * 0.5) * 5;
+                
+                heroPhone.style.transform = `translateY(calc(-50% + ${floatY}px)) translateX(${floatX}px) rotate(15deg)`;
+            }
+            
+            requestAnimationFrame(animateFloatingElements);
+        }
+        
+        animateFloatingElements();
+
+        // Initialize theme on load
+        window.addEventListener('load', () => {
+            updateTheme();
+            updateColors();
+        });
+
+        // Add click ripple effect
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement('span');
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+            circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+            circle.classList.add('ripple');
+
+            const ripple = button.getElementsByClassName('ripple')[0];
+            if (ripple) {
+                ripple.remove();
+            }
+
+            button.appendChild(circle);
+        }
+
+        document.querySelectorAll('.btn, .fab').forEach(btn => {
+            btn.addEventListener('click', createRipple);
+        });
+
+        // Add ripple CSS
+        const rippleCSS = `
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 600ms linear;
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+            
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = rippleCSS;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
