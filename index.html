@@ -12,18 +12,22 @@
             box-sizing: border-box;
         }
 
-        html {
-            font-size: 17px;
+        :root {
+            --primary-blue: #007AFF;
+            --primary-orange: #FF6B35;
+            --text-light: #ffffff;
+            --text-dark: #1d1d1f;
+            --gray-light: #f5f5f7;
+            --gray-medium: #86868b;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
-            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            color: #1d1d1f;
-            background: #fff;
-            -webkit-font-smoothing: antialiased;
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
         }
 
         /* Navigation */
@@ -32,185 +36,285 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 44px;
-            background: rgba(251, 251, 253, 0.94);
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: saturate(180%) blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            z-index: 9999;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-wrapper.dark {
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav {
-            max-width: 980px;
+            max-width: 1200px;
             margin: 0 auto;
             height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 22px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
+            padding: 0 40px;
         }
 
         .logo img {
-            height: 32px;
+            height: 36px;
             width: auto;
+            transition: var(--transition);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 34px;
+            gap: 40px;
         }
 
         .nav-links a {
-            color: #1d1d1f;
+            color: var(--text-dark);
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 400;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
         }
 
-        .nav-links a:hover {
-            opacity: 1;
+        .nav-wrapper.dark .nav-links a {
+            color: var(--text-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            padding: 44px 0 0;
-            min-height: 692px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
-            background: #fff;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.9) 0%, 
+                rgba(118, 75, 162, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-phone {
+            position: absolute;
+            right: -10%;
+            top: 50%;
+            transform: translateY(-50%) rotate(15deg);
+            width: 400px;
+            height: 800px;
+            opacity: 0.1;
+            z-index: 2;
+            transition: transform 0.1s ease-out;
         }
 
         .hero-content {
-            max-width: 980px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 22px;
-            text-align: center;
+            padding: 0 40px;
+            z-index: 3;
+            position: relative;
         }
 
-        .hero-eyebrow {
-            font-size: 21px;
-            line-height: 1.381;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
             font-weight: 600;
-            letter-spacing: 0.011em;
-            color: #bf4800;
-            margin-bottom: 4px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
         }
 
         .hero-headline {
-            font-size: 56px;
-            line-height: 1.07143;
-            font-weight: 600;
-            letter-spacing: -0.005em;
-            color: #1d1d1f;
-            margin-bottom: 6px;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease 0.5s forwards;
         }
 
         .hero-subheadline {
-            font-size: 28px;
-            line-height: 1.14286;
+            font-size: 24px;
             font-weight: 400;
-            letter-spacing: 0.007em;
-            color: #1d1d1f;
-            margin-bottom: 19px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
+            opacity: 0.9;
             margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease 0.7s forwards;
         }
 
-        .button {
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUp 1s ease 0.9s forwards;
+        }
+
+        .btn {
             display: inline-block;
-            min-width: 28px;
-            min-height: 44px;
-            padding: 12px 22px;
-            border-radius: 980px;
-            font-size: 17px;
-            line-height: 1.17648;
-            font-weight: 400;
+            padding: 15px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .button-blue {
-            background: #0071e3;
-            color: #fff;
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
         }
 
-        .button-blue:hover {
-            background: #0077ed;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 122, 255, 0.4);
         }
 
-        .button-outline {
-            color: #0071e3;
-            border: 1px solid #0071e3;
+        .btn-secondary {
             background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .button-outline:hover {
-            background: #0071e3;
-            color: #fff;
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
         }
 
-        /* Section Styles */
+        /* Sections */
         .section {
-            padding: 80px 0;
+            padding: 120px 0;
+            transition: var(--transition);
+            position: relative;
         }
 
-        .section-light {
-            background: #f5f5f7;
+        .section.dark {
+            background: #1a1a1a;
+            color: white;
         }
 
         .section-content {
-            max-width: 980px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 22px;
+            padding: 0 40px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
-        .section-headline {
+        .section-title {
             font-size: 48px;
-            line-height: 1.08349;
-            font-weight: 600;
-            letter-spacing: -0.003em;
-            color: #1d1d1f;
-            margin-bottom: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
         }
 
-        .section-subheadline {
-            font-size: 21px;
-            line-height: 1.381;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            color: #86868b;
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .section.dark .section-subtitle {
+            color: #999;
+        }
+
+        .section-subtitle.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
         }
 
         .service-card {
-            text-align: center;
-            padding: 40px 20px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section.dark .service-card {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
         }
 
         .service-icon {
@@ -220,283 +324,325 @@
         }
 
         .service-title {
-            font-size: 21px;
-            line-height: 1.381;
+            font-size: 24px;
             font-weight: 600;
-            letter-spacing: 0.011em;
-            color: #1d1d1f;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .service-description {
-            font-size: 17px;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            color: #86868b;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-medium);
         }
 
-        /* Two Column Layout */
-        .two-column {
+        .section.dark .service-description {
+            color: #ccc;
+        }
+
+        /* Features Section */
+        .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
 
-        .column h2 {
+        .features-content h2 {
             font-size: 48px;
-            line-height: 1.08349;
-            font-weight: 600;
-            letter-spacing: -0.003em;
-            color: #1d1d1f;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: var(--transition);
         }
 
-        .column p {
-            font-size: 21px;
-            line-height: 1.381;
-            font-weight: 400;
-            letter-spacing: 0.011em;
-            color: #86868b;
-            margin-bottom: 30px;
+        .features-content h2.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .features-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: var(--transition);
+        }
+
+        .features-content p.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .feature-list {
             list-style: none;
         }
 
-        .feature-list li {
-            font-size: 17px;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            color: #1d1d1f;
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 24px;
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: var(--transition);
         }
 
-        .feature-list li::before {
-            content: '✓';
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .features-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: var(--transition);
+        }
+
+        .features-visual.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .phone-showcase {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border-radius: 50px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .phone-showcase:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .phone-showcase::before {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #30d158;
-            font-weight: 600;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: #000;
+            border-radius: 40px;
+        }
+
+        .phone-showcase::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            bottom: 100px;
+            background: linear-gradient(135deg, #007AFF, #5AC8FA);
+            border-radius: 30px;
         }
 
         /* Contact Cards */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
-            padding: 40px 20px;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .section.dark .contact-card {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .contact-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px var(--shadow);
         }
 
         .contact-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
+            font-size: 40px;
+            margin-bottom: 20px;
             display: block;
         }
 
         .contact-title {
-            font-size: 19px;
-            line-height: 1.21053;
+            font-size: 20px;
             font-weight: 600;
-            letter-spacing: 0.012em;
-            color: #1d1d1f;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .contact-info {
-            font-size: 17px;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-            color: #86868b;
+            font-size: 16px;
+            color: var(--gray-medium);
+        }
+
+        .section.dark .contact-info {
+            color: #ccc;
         }
 
         .contact-info a {
-            color: #0071e3;
+            color: var(--primary-blue);
             text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
         }
 
         /* Footer */
         .footer {
-            background: #f5f5f7;
-            padding: 40px 0;
-            border-top: 1px solid #d2d2d7;
-        }
-
-        .footer-content {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 0 22px;
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0;
             text-align: center;
         }
 
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-
         .footer-logo img {
-            height: 24px;
-            width: auto;
+            height: 30px;
+            margin-bottom: 20px;
             opacity: 0.8;
         }
 
         .footer-text {
-            font-size: 12px;
-            line-height: 1.33337;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            color: #86868b;
-            margin-bottom: 12px;
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 15px;
         }
 
         .footer-disclaimer {
-            font-size: 11px;
-            line-height: 1.36364;
-            font-weight: 400;
-            letter-spacing: 0.006em;
-            color: #86868b;
+            font-size: 12px;
+            color: #666;
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Floating Call Button */
-        .call-button {
+        /* Floating Action Button */
+        .fab {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 56px;
-            height: 56px;
-            background: #30d158;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            text-decoration: none;
+            color: white;
             font-size: 24px;
-            box-shadow: 0 4px 20px rgba(48, 209, 88, 0.4);
-            transition: transform 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            transition: var(--transition);
             z-index: 1000;
         }
 
-        .call-button:hover {
+        .fab:hover {
             transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            html {
-                font-size: 16px;
-            }
-
             .nav-links {
                 display: none;
             }
 
             .hero-headline {
-                font-size: 40px;
-                line-height: 1.1;
+                font-size: 42px;
             }
 
             .hero-subheadline {
-                font-size: 21px;
-                line-height: 1.2381;
+                font-size: 18px;
             }
 
-            .hero-cta {
+            .hero-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
             }
 
-            .button {
+            .btn {
                 width: 100%;
-                max-width: 280px;
+                max-width: 300px;
+                text-align: center;
             }
 
-            .section-headline {
-                font-size: 32px;
-                line-height: 1.125;
+            .section-title {
+                font-size: 36px;
             }
 
-            .two-column {
+            .features-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .column h2 {
-                font-size: 32px;
-                line-height: 1.125;
+                gap: 50px;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
         }
 
-        @media (max-width: 480px) {
-            .section-content,
-            .hero-content,
-            .footer-content {
-                padding: 0 16px;
-            }
-
-            .hero-headline {
-                font-size: 32px;
-            }
-
-            .hero-subheadline {
-                font-size: 19px;
-            }
-
-            .section-headline {
-                font-size: 28px;
+        /* Animations */
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Animation for elements coming into view */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Mouse follower effect */
+        .mouse-follower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: transform 0.1s ease;
+            z-index: 9999;
+            mix-blend-mode: difference;
         }
     </style>
 </head>
 <body>
+    <!-- Mouse Follower -->
+    <div class="mouse-follower"></div>
+
     <!-- Navigation -->
-    <div class="nav-wrapper">
+    <div class="nav-wrapper" id="navbar">
         <nav>
             <a href="#" class="logo">
                 <img src="logo.png" alt="VIPCEP SERVİS">
@@ -512,104 +658,138 @@
 
     <!-- Hero Section -->
     <section id="anasayfa" class="hero">
+        <div class="hero-background"></div>
+        <svg class="hero-phone" viewBox="0 0 400 800" fill="none">
+            <rect x="50" y="50" width="300" height="700" rx="50" fill="url(#phoneGradient)" stroke="url(#phoneStroke)" stroke-width="3"/>
+            <rect x="60" y="60" width="280" height="680" rx="40" fill="#000"/>
+            <rect x="75" y="100" width="250" height="600" rx="30" fill="url(#screenGradient)"/>
+            <rect x="160" y="70" width="80" height="25" rx="12" fill="#000"/>
+            <defs>
+                <linearGradient id="phoneGradient">
+                    <stop offset="0%" stop-color="#c7d2fe"/>
+                    <stop offset="100%" stop-color="#a5b4fc"/>
+                </linearGradient>
+                <linearGradient id="phoneStroke">
+                    <stop offset="0%" stop-color="#e0e7ff"/>
+                    <stop offset="100%" stop-color="#c7d2fe"/>
+                </linearGradient>
+                <linearGradient id="screenGradient">
+                    <stop offset="0%" stop-color="#3b82f6"/>
+                    <stop offset="100%" stop-color="#1e40af"/>
+                </linearGradient>
+            </defs>
+        </svg>
         <div class="hero-content">
-            <div class="hero-eyebrow fade-in">VIPCEP SERVİS</div>
-            <h1 class="hero-headline fade-in">iPhone için<br>profesyonel tamir</h1>
-            <p class="hero-subheadline fade-in">Uzman teknisyen. Kaliteli parçalar. Hızlı çözüm.</p>
-            <div class="hero-cta fade-in">
-                <a href="tel:+905317493693" class="button button-blue">Hemen ara</a>
-                <a href="#servisler" class="button button-outline">Daha fazla bilgi</a>
+            <div class="hero-badge">VİPCEP SERVİS</div>
+            <h1 class="hero-headline">iPhone'unuz için<br>profesyonel çözümler</h1>
+            <p class="hero-subheadline">Uzman teknisyen. Kaliteli parçalar. Hızlı teslimat. Güvenilir servis.</p>
+            <div class="hero-buttons">
+                <a href="tel:+905317493693" class="btn btn-primary">Hemen Ara</a>
+                <a href="#servisler" class="btn btn-secondary">Servislerimiz</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="servisler" class="section section-light">
+    <section id="servisler" class="section">
         <div class="section-content">
-            <div class="section-header fade-in">
-                <h2 class="section-headline">Servislerimiz</h2>
-                <p class="section-subheadline">Her model iPhone için kapsamlı tamir hizmetleri.</p>
+            <div class="section-header">
+                <h2 class="section-title">Servislerimiz</h2>
+                <p class="section-subtitle">Her model iPhone için kapsamlı tamir ve bakım hizmetleri sunuyoruz.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
-                    <p class="service-description">Kırık veya hasarlı ekranlar için orijinal kalitede değişim.</p>
+                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <span class="service-icon">🔋</span>
                     <h3 class="service-title">Batarya Değişimi</h3>
-                    <p class="service-description">Performansı artırmak için orijinal kapasiteli batarya.</p>
+                    <p class="service-description">Batarya kapasitesi düşen cihazlar için orijinal kapasiteli batarya değişimi ve performans optimizasyonu.</p>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <span class="service-icon">📷</span>
                     <h3 class="service-title">Kamera Tamiri</h3>
-                    <p class="service-description">Ön ve arka kamera sorunları için profesyonel çözüm.</p>
+                    <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <span class="service-icon">💧</span>
-                    <h3 class="service-title">Su Hasarı</h3>
-                    <p class="service-description">Sıvı teması sonucu oluşan hasarlar için özel onarım.</p>
+                    <h3 class="service-title">Su Hasarı Tamiri</h3>
+                    <p class="service-description">Su ve diğer sıvı temasları sonucu oluşan hasarlar için özel temizlik ve komponent değişimi hizmeti.</p>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <span class="service-icon">⚡</span>
                     <h3 class="service-title">Şarj Soketi</h3>
-                    <p class="service-description">Lightning port ve kablosuz şarj problemleri.</p>
+                    <p class="service-description">Lightning port temizliği, değişimi ve kablosuz şarj sorunları için uzman müdahale ve çözüm.</p>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card">
                     <span class="service-icon">🔊</span>
                     <h3 class="service-title">Ses Sistemi</h3>
-                    <p class="service-description">Hoparlör ve mikrofon tamiri için uzman müdahale.</p>
+                    <p class="service-description">Hoparlör, mikrofon ve kulaklık jakı sorunları için komple ses sistemi kontrolü ve tamiri.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="hakkimizda" class="section">
+    <section id="hakkimizda" class="section dark">
         <div class="section-content">
-            <div class="two-column">
-                <div class="column fade-in">
+            <div class="features-grid">
+                <div class="features-content">
                     <h2>Neden VIPCEP SERVİS?</h2>
-                    <p>10 yıllık deneyimimizle iPhone'unuz için güvenilir ve kaliteli tamir hizmeti sunuyoruz.</p>
+                    <p>10 yıllık deneyimimiz ve müşteri odaklı yaklaşımımızla, iPhone'unuz için en güvenilir tamir hizmetini sunuyoruz.</p>
                     <ul class="feature-list">
-                        <li>Uzman teknisyen kadrosu</li>
-                        <li>Orijinal kaliteli yedek parçalar</li>
-                        <li>Aynı gün teslimat</li>
-                        <li>6 ay servis garantisi</li>
-                        <li>Ücretsiz ön inceleme</li>
-                        <li>Veri güvenliği garantisi</li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>10+ yıl deneyimli uzman teknisyen kadrosu</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Orijinal kaliteli yedek parçalar</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Aynı gün teslimat garantisi</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>6 ay kapsamlı servis garantisi</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Ücretsiz ön inceleme ve teşhis</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>%100 veri güvenliği garantisi</span>
+                        </li>
                     </ul>
                 </div>
-                <div class="column fade-in">
-                    <div style="text-align: center; padding: 60px 0;">
-                        <div style="width: 200px; height: 300px; background: linear-gradient(135deg, #007aff, #5ac8fa); border-radius: 40px; margin: 0 auto; position: relative;">
-                            <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; background: #000; border-radius: 30px;"></div>
-                            <div style="position: absolute; top: 40px; left: 40px; right: 40px; bottom: 60px; background: linear-gradient(135deg, #1e90ff, #00bfff); border-radius: 20px;"></div>
-                        </div>
-                    </div>
+                <div class="features-visual">
+                    <div class="phone-showcase"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="iletisim" class="section section-light">
+    <section id="iletisim" class="section">
         <div class="section-content">
-            <div class="section-header fade-in">
-                <h2 class="section-headline">İletişim</h2>
-                <p class="section-subheadline">Size en iyi hizmeti sunmak için buradayız.</p>
+            <div class="section-header">
+                <h2 class="section-title">İletişim</h2>
+                <p class="section-subtitle">Size en iyi hizmeti sunmak için buradayız. Hemen iletişime geçin.</p>
             </div>
             <div class="contact-grid">
-                <div class="contact-card fade-in">
+                <div class="contact-card">
                     <span class="contact-icon">📞</span>
                     <h3 class="contact-title">Telefon</h3>
                     <div class="contact-info">
                         <a href="tel:+905317493693">0531 749 36 93</a><br>
-                        <small>7/24 Destek</small>
+                        <small>7/24 Destek Hattı</small>
                     </div>
                 </div>
-                <div class="contact-card fade-in">
+                <div class="contact-card">
                     <span class="contact-icon">📍</span>
                     <h3 class="contact-title">Adres</h3>
                     <div class="contact-info">
@@ -618,7 +798,7 @@
                         Bakırköy / İstanbul
                     </div>
                 </div>
-                <div class="contact-card fade-in">
+                <div class="contact-card">
                     <span class="contact-icon">🕐</span>
                     <h3 class="contact-title">Çalışma Saatleri</h3>
                     <div class="contact-info">
@@ -626,12 +806,12 @@
                         09:00 - 19:00
                     </div>
                 </div>
-                <div class="contact-card fade-in">
+                <div class="contact-card">
                     <span class="contact-icon">💬</span>
                     <h3 class="contact-title">WhatsApp</h3>
                     <div class="contact-info">
-                        <a href="https://wa.me/905317493693">Mesaj gönder</a><br>
-                        <small>Anında yanıt</small>
+                        <a href="https://wa.me/905317493693">Hemen Mesaj Gönder</a><br>
+                        <small>Anında yanıt alın</small>
                     </div>
                 </div>
             </div>
@@ -640,7 +820,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
+        <div class="section-content">
             <div class="footer-logo">
                 <img src="logo.png" alt="VIPCEP SERVİS">
             </div>
@@ -652,50 +832,51 @@
         </div>
     </footer>
 
-    <!-- Floating Call Button -->
-    <a href="tel:+905317493693" class="call-button">📞</a>
+    <!-- Floating Action Button -->
+    <a href="tel:+905317493693" class="fab">📞</a>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 44; // Account for fixed nav
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        // Mouse follower effect
+        const mouseFollower = document.querySelector('.mouse-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            
+            mouseFollower.style.left = followerX + 'px';
+            mouseFollower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        // Parallax effect for hero phone
+        const heroPhone = document.querySelector('.hero-phone');
+        
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const rotateX = (mouseY - 0.5) * 10;
+            const rotateY = (mouseX - 0.5) * -10;
+            
+            heroPhone.style.transform = `translateY(-50%) rotate(15deg) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
 
-        // Initialize first viewport animations immediately
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.hero .fade-in').forEach(el => {
-                el.classList.add('visible');
-            });
-        });
-    </script>
-</body>
-</html>
+        // Scroll-based theme change
+        const navbar = document.getElementById('navbar');
+        const sections = document.querySelectorAll('.section');
+        
+        function updateTheme() {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            // Change navbar theme based on scroll
+            if (scrollY > windowHeight * 0.
