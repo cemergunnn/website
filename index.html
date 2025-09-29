@@ -891,7 +891,7 @@
                 <li><a href="#servisler">Servisler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
-                <li><a href="ustama-sor.html" target="_blank" class="ask-expert">(Teknisyenler için) USTAMA SOR?</a></li>
+                <li><a href="#teknisyen-bolumu" class="ask-expert">(Teknisyenler için) USTAMA SOR?</a></li>
             </ul>
         </nav>
     </div>
@@ -1079,6 +1079,77 @@
         </div>
     </footer>
 
+    <!-- Hidden Technician Section -->
+    <section id="teknisyen-bolumu" class="section" style="background: #0a0a0a; padding: 200px 0; margin-top: 100px;">
+        <div class="section-content">
+            <div class="container" style="display: grid; grid-template-columns: 1fr 2px 1fr; gap: 60px; max-width: 1200px; width: 100%; align-items: center;">
+                <!-- Mobile / Web Platform -->
+                <div class="platform mobile-platform" style="text-align: center; padding: 40px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
+                    <h2 style="font-size: 48px; font-weight: 700; margin-bottom: 40px; color: white;">mobil / web</h2>
+                    
+                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" 
+                       target="_blank" 
+                       class="btn btn-primary"
+                       style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #2196F3, #1976D2); color: white; box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4); min-width: 200px;">
+                        TIKLA
+                    </a>
+                    
+                    <a href="#" 
+                       class="btn btn-id"
+                       onclick="openWhatsApp('mobile')"
+                       style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
+                        ID oluştur
+                    </a>
+
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.2); border-radius: 15px; font-size: 14px; line-height: 1.6; border-left: 4px solid rgba(255, 255, 255, 0.5);">
+                        <strong style="color: #FFD700;">Mobilden (Chrome, Safari):</strong><br>
+                        <div style="background: rgba(0, 0, 0, 0.3); padding: 10px 15px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 16px; margin: 10px 0; border: 1px solid rgba(255, 255, 255, 0.3); color: #00E5FF;">vipcepservis.com.tr/ustama-sor</div>
+                        adresine girdikten sonra <strong style="color: #FFD700;">TIKLA</strong> ya basın, açılan sayfayı, 
+                        paylaş 📤 / ana ekrana ekle'ye tıklayın.
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div style="width: 2px; height: 400px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.8), transparent); justify-self: center; position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: white; border-radius: 50%; box-shadow: 0 0 20px rgba(255,255,255,0.5);"></div>
+                </div>
+
+                <!-- Windows PC Platform -->
+                <div class="platform desktop-platform" style="text-align: center; padding: 40px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
+                    <h2 style="font-size: 48px; font-weight: 700; margin-bottom: 40px; color: white;">windows Pc</h2>
+                    
+                    <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" 
+                       target="_blank" 
+                       class="btn btn-secondary"
+                       style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #4CAF50, #388E3C); color: white; box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4); min-width: 200px;">
+                        İNDİR
+                    </a>
+                    
+                    <a href="#" 
+                       class="btn btn-id"
+                       onclick="openWhatsApp('desktop')"
+                       style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
+                        ID oluştur
+                    </a>
+
+                    <div style="margin-top: 20px; text-align: left; font-size: 14px;">
+                        <h4 style="color: #FFD700; margin-bottom: 10px; font-size: 16px;">Gereksinimler:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 5px 0; position: relative; padding-left: 20px;">
+                                <span style="position: absolute; left: 0; color: #4CAF50; font-size: 18px;">•</span>
+                                Mikrofon
+                            </li>
+                            <li style="padding: 5px 0; position: relative; padding-left: 20px;">
+                                <span style="position: absolute; left: 0; color: #4CAF50; font-size: 18px;">•</span>
+                                Hoparlör/Kulaklık
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Floating Action Button -->
     <a href="tel:+905317493693" class="fab">📞</a>
 
@@ -1107,6 +1178,16 @@
         // FAQ Functionality - removed since FAQ is now on separate page
 
         // Expert Form Submission - removed since form is now on separate page
+
+        // WhatsApp function for ID creation
+        function openWhatsApp(platform) {
+            const phoneNumber = '905374792403';
+            const message = 'ID ve Kullanıcı adı oluşturmak istiyorum';
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
 
         // Parallax effect for hero phone
         const heroPhone = document.querySelector('.hero-phone');
