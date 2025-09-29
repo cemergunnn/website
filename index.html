@@ -897,7 +897,7 @@
     </div>
 
     <!-- Success Message -->
-    <div class="success-message" id="successMessage">
+    <div class="success-message" id="successMessage" style="display: none;">
         Sorunuz başarıyla gönderildi! En kısa sürede yanıtlanacak.
     </div>
 
@@ -977,10 +977,7 @@
         </div>
     </section>
 
-    <!-- Ask Expert Section -->
-    <section id="ustama-sor" class="section ask-expert-section" style="display: none;">
-        <!-- This section is now hidden since it will be on a separate page -->
-    </section>
+    <!-- Ask Expert Section removed - now on separate page -->
 
     <!-- About Section -->
     <section id="hakkimizda" class="section dark">
@@ -1107,58 +1104,9 @@
         }
         animateFollower();
 
-        // FAQ Functionality
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
-        });
+        // FAQ Functionality - removed since FAQ is now on separate page
 
-        // Expert Form Submission
-        document.getElementById('expertForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send the data to your server
-            // For now, we'll just show a success message
-            showSuccessMessage();
-            
-            // Reset form
-            this.reset();
-            
-            // You can also integrate with WhatsApp or email
-            const message = `Yeni Uzman Sorusu:
-Adı: ${data.userName}
-Telefon: ${data.userPhone}
-Model: ${data.deviceModel}
-Kategori: ${data.problemCategory}
-Soru: ${data.userQuestion}`;
-            
-            // Optional: Open WhatsApp with the message
-            // window.open(`https://wa.me/905317493693?text=${encodeURIComponent(message)}`);
-        });
-
-        function showSuccessMessage() {
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
-            
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 4000);
-        }
+        // Expert Form Submission - removed since form is now on separate page
 
         // Parallax effect for hero phone
         const heroPhone = document.querySelector('.hero-phone');
