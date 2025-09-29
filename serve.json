@@ -1,8 +1,6 @@
 {
   "rewrites": [
-    { "source": "/ustama-sor", "destination": "/ustama-sor.html" }
-  ],
-  "redirects": [
-    { "source": "/ustama-sor/", "destination": "/ustama-sor" }
+    { "source": "/ustama-sor", "destination": "/ustama-sor.html" },
+    { "source": "/ustama-sor/", "destination": "/ustama-sor.html" }
   ]
 }
