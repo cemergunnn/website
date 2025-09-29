@@ -108,6 +108,7 @@
             border-radius: 20px;
             font-weight: 600;
             animation: pulse 2s infinite;
+            position: relative;
         }
 
         .nav-links a.ask-expert::after {
@@ -117,6 +118,24 @@
         .nav-links a.ask-expert:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(52, 199, 89, 0.4);
+        }
+
+        /* Rotating question mark animation */
+        .nav-links a.ask-expert::before {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E") center/contain no-repeat;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
         }
 
         @keyframes pulse {
@@ -870,9 +889,9 @@
             <ul class="nav-links">
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#servisler">Servisler</a></li>
-                <li><a href="#ustama-sor" class="ask-expert">USTAMA SOR? 🤔</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="ustama-sor.html" target="_blank" class="ask-expert">(Teknisyenler için) USTAMA SOR?</a></li>
             </ul>
         </nav>
     </div>
@@ -959,144 +978,8 @@
     </section>
 
     <!-- Ask Expert Section -->
-    <section id="ustama-sor" class="section ask-expert-section">
-        <div class="section-content">
-            <div class="section-header">
-                <h2 class="section-title">USTAMA SOR? 🤔</h2>
-                <p class="section-subtitle">iPhone'unuzla ilgili herhangi bir sorunuz mu var? Uzman teknisyenimize sorun, hemen yanıt alın!</p>
-            </div>
-            
-            <div class="qa-container">
-                <div class="question-form">
-                    <h3 style="margin-bottom: 30px; font-size: 24px;">Sorunuzu Sorun</h3>
-                    <form id="expertForm">
-                        <div class="form-group">
-                            <label for="userName">Adınız *</label>
-                            <input type="text" id="userName" name="userName" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="userPhone">Telefon Numaranız *</label>
-                            <input type="tel" id="userPhone" name="userPhone" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="deviceModel">iPhone Modeliniz</label>
-                            <select id="deviceModel" name="deviceModel">
-                                <option value="">Seçiniz</option>
-                                <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
-                                <option value="iPhone 15 Pro">iPhone 15 Pro</option>
-                                <option value="iPhone 15 Plus">iPhone 15 Plus</option>
-                                <option value="iPhone 15">iPhone 15</option>
-                                <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
-                                <option value="iPhone 14 Pro">iPhone 14 Pro</option>
-                                <option value="iPhone 14 Plus">iPhone 14 Plus</option>
-                                <option value="iPhone 14">iPhone 14</option>
-                                <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
-                                <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-                                <option value="iPhone 13 Mini">iPhone 13 Mini</option>
-                                <option value="iPhone 13">iPhone 13</option>
-                                <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
-                                <option value="iPhone 12 Pro">iPhone 12 Pro</option>
-                                <option value="iPhone 12 Mini">iPhone 12 Mini</option>
-                                <option value="iPhone 12">iPhone 12</option>
-                                <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
-                                <option value="iPhone 11 Pro">iPhone 11 Pro</option>
-                                <option value="iPhone 11">iPhone 11</option>
-                                <option value="iPhone XS Max">iPhone XS Max</option>
-                                <option value="iPhone XS">iPhone XS</option>
-                                <option value="iPhone XR">iPhone XR</option>
-                                <option value="iPhone X">iPhone X</option>
-                                <option value="Diğer">Diğer Model</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="problemCategory">Sorun Kategorisi</label>
-                            <select id="problemCategory" name="problemCategory">
-                                <option value="">Seçiniz</option>
-                                <option value="Ekran Sorunu">Ekran Sorunu</option>
-                                <option value="Batarya Sorunu">Batarya Sorunu</option>
-                                <option value="Kamera Sorunu">Kamera Sorunu</option>
-                                <option value="Su Hasarı">Su Hasarı</option>
-                                <option value="Şarj Sorunu">Şarj Sorunu</option>
-                                <option value="Ses Sorunu">Ses Sorunu</option>
-                                <option value="Yazılım Sorunu">Yazılım Sorunu</option>
-                                <option value="Genel Bakım">Genel Bakım</option>
-                                <option value="Diğer">Diğer</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="userQuestion">Sorunuzun Detayı *</label>
-                            <textarea id="userQuestion" name="userQuestion" placeholder="iPhone'unuzda yaşadığınız sorunu detaylı bir şekilde açıklayın. Ne zaman başladı, nasıl oluştu gibi detayları paylaşırsanız daha iyi yardımcı olabiliriz." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">
-                            Soruyu Gönder 📨
-                        </button>
-                    </form>
-                </div>
-                
-                <div class="expert-info">
-                    <div class="expert-card">
-                        <div class="expert-avatar">👨‍🔧</div>
-                        <div class="expert-name">Ahmet Yılmaz</div>
-                        <div class="expert-title">Uzman iPhone Teknisyeni</div>
-                        <div class="expert-experience">
-                            <strong>10+ Yıl Deneyim</strong><br>
-                            • 5000+ Başarılı Tamir<br>
-                            • Apple Sertifikalı<br>
-                            • Anlık Destek
-                        </div>
-                    </div>
-                    
-                    <div class="faq-section">
-                        <h3 style="margin-bottom: 20px; font-size: 20px;">Sık Sorulan Sorular</h3>
-                        
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                Ekranım çatladı, ne kadar sürede tamir edilir?
-                                <span class="faq-icon">▼</span>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Ekran değişimi işlemi genellikle 30-45 dakika sürer. Parça tedarik durumuna göre aynı gün teslimat yapabiliyoruz.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                Bataryam çok hızlı bitiyor, değiştirmeli miyim?
-                                <span class="faq-icon">▼</span>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Batarya kapasitesi %80'in altına düştüyse değiştirmenizi öneririz. Ücretsiz test ile kesin durumunu öğrenebilirsiniz.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                Su hasarı durumunda ne yapmalıyım?
-                                <span class="faq-icon">▼</span>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Hemen kapatın, şarja takmayın ve en kısa sürede servisimize getirin. Hızlı müdahale kurtarma şansını artırır.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <button class="faq-question">
-                                Garanti süresi ne kadar?
-                                <span class="faq-icon">▼</span>
-                            </button>
-                            <div class="faq-answer">
-                                <p>Tüm tamir işlemlerimize 6 ay kapsamlı garanti veriyoruz. Parça ve işçilik garantilidir.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="ustama-sor" class="section ask-expert-section" style="display: none;">
+        <!-- This section is now hidden since it will be on a separate page -->
     </section>
 
     <!-- About Section -->
