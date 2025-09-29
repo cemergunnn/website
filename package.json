@@ -2,12 +2,12 @@
   "name": "iphone-repair-site",
   "version": "1.0.0",
   "description": "iPhone tamiri sitesi",
-  "main": "server.js",
+  "main": "index.html",
   "scripts": {
-    "start": "node server.js"
+    "start": "serve -s . -p $PORT"
   },
   "dependencies": {
-    "express": "^4.18.0"
+    "serve": "^14.2.0"
   },
   "keywords": ["iphone", "repair", "website"],
   "author": "Your Name",
