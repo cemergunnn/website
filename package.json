@@ -4,7 +4,7 @@
   "description": "iPhone tamiri sitesi",
   "main": "index.html",
   "scripts": {
-    "start": "serve -s . -p $PORT --single"
+    "start": "serve -s . -p $PORT --single",
     "build": "echo 'No build needed for static site'"
   },
   "dependencies": {
