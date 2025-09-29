@@ -1,6 +1,6 @@
 {
+  "public": ".",
   "rewrites": [
-    { "source": "/ustama-sor", "destination": "/ustama-sor.html" },
-    { "source": "/ustama-sor/", "destination": "/ustama-sor.html" }
+    { "source": "/ustama-sor", "destination": "/ustama-sor.html" }
   ]
 }
