@@ -108,6 +108,7 @@
             position: relative;
             overflow: hidden;
             color: white;
+            margin-top: 132px;
         }
 
         .hero-background {
@@ -635,6 +636,74 @@
             z-index: 9999;
             mix-blend-mode: difference;
         }
+                .top-banner {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            padding: 16px 0;
+            z-index: 999;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+            transition: var(--transition);
+        }
+        
+        .top-banner:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.4);
+        }
+        
+        .banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .banner-logo {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .banner-text {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .banner-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        .banner-subtitle {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .banner-arrow {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            animation: slideRight 1s ease-in-out infinite;
+        }
+        
+        @keyframes slideRight {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(8px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -655,6 +724,16 @@
             </ul>
         </nav>
     </div>
+    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="top-banner">
+    <div class="banner-content">
+        <img src="logo.png" alt="VIPCEP SERVİS" class="banner-logo">
+        <div class="banner-text">
+            <span class="banner-title">TEKNİSYENLER İÇİN</span>
+            <span class="banner-subtitle">USTAMA SOR</span>
+        </div>
+        <span class="banner-arrow">→</span>
+    </div>
+</a>
 
     <!-- Hero Section -->
     <section id="anasayfa" class="hero">
