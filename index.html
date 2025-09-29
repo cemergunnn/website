@@ -15,6 +15,7 @@
         :root {
             --primary-blue: #007AFF;
             --primary-orange: #FF6B35;
+            --primary-green: #34C759;
             --text-light: #ffffff;
             --text-dark: #1d1d1f;
             --gray-light: #f5f5f7;
@@ -97,6 +98,30 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Special styling for "USTAMA SOR?" link */
+        .nav-links a.ask-expert {
+            background: linear-gradient(135deg, var(--primary-green), #30D158);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        .nav-links a.ask-expert::after {
+            display: none;
+        }
+
+        .nav-links a.ask-expert:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 199, 89, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         /* Hero Section */
@@ -271,6 +296,181 @@
         .section-subtitle.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Ask Expert Section */
+        .ask-expert-section {
+            background: linear-gradient(135deg, #34C759, #30D158);
+            color: white;
+        }
+
+        .qa-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .question-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: white;
+            color: var(--primary-green);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .expert-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .expert-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .expert-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        .expert-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .expert-title {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .expert-experience {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 20px 20px 20px;
+        }
+
+        .faq-icon {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
         }
 
         /* Services Grid */
@@ -600,7 +800,8 @@
                 font-size: 36px;
             }
 
-            .features-grid {
+            .features-grid,
+            .qa-container {
                 grid-template-columns: 1fr;
                 gap: 50px;
             }
@@ -635,6 +836,25 @@
             z-index: 9999;
             mix-blend-mode: difference;
         }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 80px;
+            right: 30px;
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .success-message.show {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body>
@@ -650,10 +870,16 @@
             <ul class="nav-links">
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#servisler">Servisler</a></li>
+                <li><a href="#ustama-sor" class="ask-expert">USTAMA SOR? 🤔</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        Sorunuz başarıyla gönderildi! En kısa sürede yanıtlanacak.
     </div>
 
     <!-- Hero Section -->
@@ -727,6 +953,147 @@
                     <span class="service-icon">🔊</span>
                     <h3 class="service-title">Ses Sistemi</h3>
                     <p class="service-description">Hoparlör, mikrofon ve kulaklık jakı sorunları için komple ses sistemi kontrolü ve tamiri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ask Expert Section -->
+    <section id="ustama-sor" class="section ask-expert-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">USTAMA SOR? 🤔</h2>
+                <p class="section-subtitle">iPhone'unuzla ilgili herhangi bir sorunuz mu var? Uzman teknisyenimize sorun, hemen yanıt alın!</p>
+            </div>
+            
+            <div class="qa-container">
+                <div class="question-form">
+                    <h3 style="margin-bottom: 30px; font-size: 24px;">Sorunuzu Sorun</h3>
+                    <form id="expertForm">
+                        <div class="form-group">
+                            <label for="userName">Adınız *</label>
+                            <input type="text" id="userName" name="userName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userPhone">Telefon Numaranız *</label>
+                            <input type="tel" id="userPhone" name="userPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="deviceModel">iPhone Modeliniz</label>
+                            <select id="deviceModel" name="deviceModel">
+                                <option value="">Seçiniz</option>
+                                <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
+                                <option value="iPhone 15 Pro">iPhone 15 Pro</option>
+                                <option value="iPhone 15 Plus">iPhone 15 Plus</option>
+                                <option value="iPhone 15">iPhone 15</option>
+                                <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+                                <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+                                <option value="iPhone 14 Plus">iPhone 14 Plus</option>
+                                <option value="iPhone 14">iPhone 14</option>
+                                <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+                                <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+                                <option value="iPhone 13 Mini">iPhone 13 Mini</option>
+                                <option value="iPhone 13">iPhone 13</option>
+                                <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
+                                <option value="iPhone 12 Pro">iPhone 12 Pro</option>
+                                <option value="iPhone 12 Mini">iPhone 12 Mini</option>
+                                <option value="iPhone 12">iPhone 12</option>
+                                <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
+                                <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+                                <option value="iPhone 11">iPhone 11</option>
+                                <option value="iPhone XS Max">iPhone XS Max</option>
+                                <option value="iPhone XS">iPhone XS</option>
+                                <option value="iPhone XR">iPhone XR</option>
+                                <option value="iPhone X">iPhone X</option>
+                                <option value="Diğer">Diğer Model</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="problemCategory">Sorun Kategorisi</label>
+                            <select id="problemCategory" name="problemCategory">
+                                <option value="">Seçiniz</option>
+                                <option value="Ekran Sorunu">Ekran Sorunu</option>
+                                <option value="Batarya Sorunu">Batarya Sorunu</option>
+                                <option value="Kamera Sorunu">Kamera Sorunu</option>
+                                <option value="Su Hasarı">Su Hasarı</option>
+                                <option value="Şarj Sorunu">Şarj Sorunu</option>
+                                <option value="Ses Sorunu">Ses Sorunu</option>
+                                <option value="Yazılım Sorunu">Yazılım Sorunu</option>
+                                <option value="Genel Bakım">Genel Bakım</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="userQuestion">Sorunuzun Detayı *</label>
+                            <textarea id="userQuestion" name="userQuestion" placeholder="iPhone'unuzda yaşadığınız sorunu detaylı bir şekilde açıklayın. Ne zaman başladı, nasıl oluştu gibi detayları paylaşırsanız daha iyi yardımcı olabiliriz." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            Soruyu Gönder 📨
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="expert-info">
+                    <div class="expert-card">
+                        <div class="expert-avatar">👨‍🔧</div>
+                        <div class="expert-name">Ahmet Yılmaz</div>
+                        <div class="expert-title">Uzman iPhone Teknisyeni</div>
+                        <div class="expert-experience">
+                            <strong>10+ Yıl Deneyim</strong><br>
+                            • 5000+ Başarılı Tamir<br>
+                            • Apple Sertifikalı<br>
+                            • Anlık Destek
+                        </div>
+                    </div>
+                    
+                    <div class="faq-section">
+                        <h3 style="margin-bottom: 20px; font-size: 20px;">Sık Sorulan Sorular</h3>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Ekranım çatladı, ne kadar sürede tamir edilir?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Ekran değişimi işlemi genellikle 30-45 dakika sürer. Parça tedarik durumuna göre aynı gün teslimat yapabiliyoruz.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Bataryam çok hızlı bitiyor, değiştirmeli miyim?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Batarya kapasitesi %80'in altına düştüyse değiştirmenizi öneririz. Ücretsiz test ile kesin durumunu öğrenebilirsiniz.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Su hasarı durumunda ne yapmalıyım?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Hemen kapatın, şarja takmayın ve en kısa sürede servisimize getirin. Hızlı müdahale kurtarma şansını artırır.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Garanti süresi ne kadar?
+                                <span class="faq-icon">▼</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Tüm tamir işlemlerimize 6 ay kapsamlı garanti veriyoruz. Parça ve işçilik garantilidir.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -857,6 +1224,59 @@
         }
         animateFollower();
 
+        // FAQ Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Expert Form Submission
+        document.getElementById('expertForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to your server
+            // For now, we'll just show a success message
+            showSuccessMessage();
+            
+            // Reset form
+            this.reset();
+            
+            // You can also integrate with WhatsApp or email
+            const message = `Yeni Uzman Sorusu:
+Adı: ${data.userName}
+Telefon: ${data.userPhone}
+Model: ${data.deviceModel}
+Kategori: ${data.problemCategory}
+Soru: ${data.userQuestion}`;
+            
+            // Optional: Open WhatsApp with the message
+            // window.open(`https://wa.me/905317493693?text=${encodeURIComponent(message)}`);
+        });
+
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 4000);
+        }
+
         // Parallax effect for hero phone
         const heroPhone = document.querySelector('.hero-phone');
         
@@ -893,7 +1313,7 @@
                 if (scrollY >= sectionTop - windowHeight / 2 && 
                     scrollY < sectionTop + sectionHeight - windowHeight / 2) {
                     
-                    if (index % 2 === 1) {
+                    if (section.classList.contains('dark') || section.classList.contains('ask-expert-section')) {
                         section.classList.add('dark');
                     } else {
                         section.classList.remove('dark');
