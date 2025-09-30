@@ -505,6 +505,7 @@
             transition: transform 0.1s ease;
             animation: slideMove 20s ease-in-out infinite;
             filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            cursor: pointer;
         }
 
         .phone-showcase:hover {
@@ -621,11 +622,10 @@
             text-decoration: none;
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
             transition: var(--transition);
-            z-index: 1000;
+            z-index: 9999;
             border: 2px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             overflow: hidden;
-            position: relative;
         }
 
         .fab::before {
@@ -811,6 +811,13 @@
 
             #teknisyen-bolumu {
                 padding: 100px 0 !important;
+            }
+
+            .fab {
+                bottom: 20px !important;
+                right: 20px !important;
+                width: 65px !important;
+                height: 65px !important;
             }
         }
 
