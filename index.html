@@ -502,15 +502,9 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             animation: slideMove 20s ease-in-out infinite;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
             cursor: pointer;
-        }
-
-        .phone-showcase:hover {
-            transform: scale(1.15) rotate(3deg);
-            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
         }
 
         @keyframes slideMove {
@@ -1252,25 +1246,27 @@
             });
         });
 
-        // Phone showcase with simple but effective mouse interaction
+        // Phone showcase with click-based 3D tilt animation
         const phoneShowcase = document.querySelector('.phone-showcase');
         if (phoneShowcase) {
-            phoneShowcase.addEventListener('mousemove', function(e) {
+            phoneShowcase.addEventListener('click', function(e) {
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                // Calculate tilt based on mouse position
-                const tiltX = ((y - centerY) / centerY) * -15;
-                const tiltY = ((x - centerX) / centerX) * 15;
+                // Calculate tilt based on click position
+                const tiltX = ((y - centerY) / centerY) * -30; // Max 30 degrees
+                const tiltY = ((x - centerX) / centerX) * 30;   // Max 30 degrees
                 
-                this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)`;
-            });
-            
-            phoneShowcase.addEventListener('mouseleave', function() {
-                this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                // Apply 3D transformation
+                this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
+                
+                // Return to normal after 2 seconds
+                setTimeout(() => {
+                    this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                }, 2000);
             });
         }
 
