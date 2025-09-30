@@ -623,31 +623,32 @@
             overflow: hidden;
         }
 
-        .fab::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: fab-glow 3s ease-in-out infinite;
-        }
-
         .fab::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(45deg);
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 20px;
             background: rgba(255, 255, 255, 0.9);
-            clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 25%, 100% 0%);
+            border-radius: 4px 4px 0 0;
             animation: fab-morph 2s ease-in-out infinite;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .fab::before {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 8px 8px;
+            z-index: 2;
+            animation: fab-glow 3s ease-in-out infinite;
         }
 
         .fab:hover {
@@ -1246,29 +1247,45 @@
             });
         });
 
-        // Phone showcase with click-based 3D tilt animation
-        const phoneShowcase = document.querySelector('.phone-showcase');
-        if (phoneShowcase) {
-            phoneShowcase.addEventListener('click', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
+        // Phone showcase with click-based 3D tilt animation - FIXED
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneShowcase = document.querySelector('.phone-showcase');
+            console.log('Phone showcase element found:', phoneShowcase); // Debug
+            
+            if (phoneShowcase) {
+                phoneShowcase.addEventListener('click', function(e) {
+                    console.log('Click detected!'); // Debug
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Calculate tilt based on click position
+                    const tiltX = ((y - centerY) / centerY) * -30; // Max 30 degrees
+                    const tiltY = ((x - centerX) / centerX) * 30;   // Max 30 degrees
+                    
+                    console.log('Tilt values:', tiltX, tiltY); // Debug
+                    
+                    // Apply 3D transformation
+                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
+                    
+                    // Return to normal after 2 seconds
+                    setTimeout(() => {
+                        this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+                    }, 2000);
+                });
                 
-                // Calculate tilt based on click position
-                const tiltX = ((y - centerY) / centerY) * -30; // Max 30 degrees
-                const tiltY = ((x - centerX) / centerX) * 30;   // Max 30 degrees
+                // Visual feedback for debugging
+                phoneShowcase.addEventListener('mouseenter', function() {
+                    this.style.opacity = '0.9';
+                });
                 
-                // Apply 3D transformation
-                this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
-                
-                // Return to normal after 2 seconds
-                setTimeout(() => {
-                    this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-                }, 2000);
-            });
-        }
+                phoneShowcase.addEventListener('mouseleave', function() {
+                    this.style.opacity = '1';
+                });
+            }
+        });
 
         // Staggered animation for feature items
         const featureItems = document.querySelectorAll('.feature-item');
