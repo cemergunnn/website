@@ -484,9 +484,10 @@
             opacity: 0;
             transform: translateX(50px);
             transition: var(--transition);
-            height: 400px;
+            height: 500px;
             align-items: center;
-            overflow: hidden;
+            overflow: visible;
+            padding: 50px;
         }
 
         .features-visual.visible {
@@ -502,7 +503,7 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
@@ -1246,42 +1247,29 @@
             });
         });
 
-        // Phone showcase with click-based 3D tilt animation - FIXED
+        // Phone showcase with mouse hover 3D tilt animation - WORKING
         document.addEventListener('DOMContentLoaded', function() {
             const phoneShowcase = document.querySelector('.phone-showcase');
-            console.log('Phone showcase element found:', phoneShowcase); // Debug
             
             if (phoneShowcase) {
-                phoneShowcase.addEventListener('click', function(e) {
-                    console.log('Click detected!'); // Debug
+                phoneShowcase.addEventListener('mousemove', function(e) {
                     const rect = this.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    // Calculate tilt based on click position
-                    const tiltX = ((y - centerY) / centerY) * -30; // Max 30 degrees
-                    const tiltY = ((x - centerX) / centerX) * 30;   // Max 30 degrees
+                    // Calculate tilt based on mouse position (smaller values for smooth effect)
+                    const tiltX = ((y - centerY) / centerY) * -20; // Max 20 degrees
+                    const tiltY = ((x - centerX) / centerX) * 20;   // Max 20 degrees
                     
-                    console.log('Tilt values:', tiltX, tiltY); // Debug
-                    
-                    // Apply 3D transformation
-                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
-                    
-                    // Return to normal after 2 seconds
-                    setTimeout(() => {
-                        this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-                    }, 2000);
-                });
-                
-                // Visual feedback for debugging
-                phoneShowcase.addEventListener('mouseenter', function() {
-                    this.style.opacity = '0.9';
+                    // Apply 3D transformation with scale
+                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)`;
                 });
                 
                 phoneShowcase.addEventListener('mouseleave', function() {
-                    this.style.opacity = '1';
+                    // Return to normal when mouse leaves
+                    this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
                 });
             }
         });
