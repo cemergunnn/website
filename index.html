@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIP CEP SERVİS - iPhone & iPad servisi </title>
     <meta name="description" content="iPhone tamir ve teknik servis hizmetleri. Uzman teknisyen, kaliteli parçalar, hızlı çözüm.">
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
         * {
             margin: 0;
@@ -779,41 +780,99 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary-orange), #FF8C42);
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
             transition: var(--transition);
             z-index: 1000;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .fab:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.6);
-            background: linear-gradient(135deg, #FF8C42, var(--primary-orange));
-        }
-
-        .fab:active {
-            transform: scale(1.05) rotate(5deg);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            position: relative;
         }
 
         .fab::before {
-            content: '📞';
-            font-size: 28px;
-            animation: pulse-phone 2s infinite;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: fab-glow 3s ease-in-out infinite;
         }
 
-        @keyframes pulse-phone {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        .fab::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 25%, 100% 0%);
+            animation: fab-morph 2s ease-in-out infinite;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%);
+        }
+
+        .fab:hover::after {
+            animation: fab-morph-hover 0.8s ease-in-out infinite;
+            transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
+        }
+
+        .fab:active {
+            transform: scale(1.05);
+        }
+
+        @keyframes fab-glow {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        @keyframes fab-morph {
+            0%, 100% { 
+                clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 25%, 100% 0%);
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            25% { 
+                clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 50% 30%, 80% 60%, 100% 40%);
+                transform: translate(-50%, -50%) rotate(60deg);
+            }
+            50% { 
+                clip-path: polygon(0% 40%, 20% 0%, 60% 30%, 40% 60%, 80% 80%, 60% 100%);
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+            75% { 
+                clip-path: polygon(30% 20%, 50% 0%, 80% 40%, 60% 70%, 90% 90%, 70% 100%);
+                transform: translate(-50%, -50%) rotate(120deg);
+            }
+        }
+
+        @keyframes fab-morph-hover {
+            0%, 100% { 
+                clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+                opacity: 1;
+            }
+            50% { 
+                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                opacity: 0.8;
+            }
         }
 
         /* Mobile Responsive */
@@ -1364,27 +1423,39 @@
         const phoneShowcase = document.querySelector('.phone-showcase');
         if (phoneShowcase) {
             phoneShowcase.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1)';
+                this.style.transform = 'scale(1.15)';
             });
             
             phoneShowcase.addEventListener('mouseleave', function() {
                 this.style.transform = 'scale(1)';
             });
 
-            // Mouse parallax effect for smooth left-right movement
+            // Mouse parallax effect for dramatic left-right movement
             phoneShowcase.addEventListener('mousemove', function(e) {
                 const rect = this.getBoundingClientRect();
                 const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
                 
-                // Calculate movement based on mouse position (-20px to +20px)
-                const moveX = ((x - centerX) / centerX) * 20;
+                // Calculate movement based on mouse position (-60px to +60px horizontal)
+                const moveX = ((x - centerX) / centerX) * 60;
+                const moveY = ((y - centerY) / centerY) * 20;
                 
-                this.style.transform = `translateX(${moveX}px) scale(1.1)`;
+                // Add rotation for more dramatic effect
+                const rotateY = ((x - centerX) / centerX) * 15;
+                
+                this.style.transform = `translateX(${moveX}px) translateY(${moveY}px) rotateY(${rotateY}deg) scale(1.15)`;
             });
 
             phoneShowcase.addEventListener('mouseleave', function() {
                 this.style.transform = 'scale(1)';
+                this.style.transition = 'transform 0.5s ease';
+                
+                // Reset transition after animation
+                setTimeout(() => {
+                    this.style.transition = 'transform 0.1s ease';
+                }, 500);
             });
         }
 
