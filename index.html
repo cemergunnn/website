@@ -789,24 +789,41 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-orange);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-orange), #FF8C42);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
             transition: var(--transition);
             z-index: 1000;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .fab:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.6);
+            background: linear-gradient(135deg, #FF8C42, var(--primary-orange));
+        }
+
+        .fab:active {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .fab::before {
+            content: '📞';
+            font-size: 28px;
+            animation: pulse-phone 2s infinite;
+        }
+
+        @keyframes pulse-phone {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         /* Mobile Responsive */
@@ -1007,32 +1024,32 @@
                 <p class="section-subtitle">Her model iPhone için kapsamlı tamir ve bakım hizmetleri sunuyoruz.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="callService()">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
                     <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔋</span>
                     <h3 class="service-title">Batarya Değişimi</h3>
                     <p class="service-description">Batarya kapasitesi düşen cihazlar için orijinal kapasiteli batarya değişimi ve performans optimizasyonu.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="callService()">
                     <span class="service-icon">📷</span>
                     <h3 class="service-title">Kamera Tamiri</h3>
                     <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="callService()">
                     <span class="service-icon">💧</span>
                     <h3 class="service-title">Su Hasarı Tamiri</h3>
                     <p class="service-description">Su ve diğer sıvı temasları sonucu oluşan hasarlar için özel temizlik ve komponent değişimi hizmeti.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="callService()">
                     <span class="service-icon">⚡</span>
                     <h3 class="service-title">Şarj Soketi</h3>
                     <p class="service-description">Lightning port temizliği, değişimi ve kablosuz şarj sorunları için uzman müdahale ve çözüm.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔊</span>
                     <h3 class="service-title">Ses Sistemi</h3>
                     <p class="service-description">Hoparlör, mikrofon ve kulaklık jakı sorunları için komple ses sistemi kontrolü ve tamiri.</p>
@@ -1215,7 +1232,7 @@
     </section>
 
     <!-- Floating Action Button -->
-    <a href="tel:+905317493693" class="fab">📞</a>
+    <a href="tel:+905317493693" class="fab"></a>
 
     <script>
         // Mouse follower effect
@@ -1251,6 +1268,11 @@
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             
             window.open(whatsappUrl, '_blank');
+        }
+
+        // Service card click to call
+        function callService() {
+            window.location.href = 'tel:+905317493693';
         }
 
         // Parallax effect removed since hero phone is gone
