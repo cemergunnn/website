@@ -58,6 +58,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 40px;
+            position: relative;
         }
 
         .logo img {
@@ -70,6 +71,19 @@
             display: flex;
             list-style: none;
             gap: 40px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .nav-wrapper.dark .mobile-menu-btn {
+            color: var(--text-light);
         }
 
         .nav-links a {
@@ -792,8 +806,42 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            nav {
+                padding: 0 10px;
+                flex-wrap: wrap;
+                height: auto;
+                min-height: 60px;
+            }
+
             .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 15px;
+                padding: 10px 0;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+                padding: 8px 12px;
+                white-space: nowrap;
+            }
+
+            .nav-links a.ask-expert {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+
+            .mobile-menu-btn {
                 display: none;
+            }
+
+            .nav-wrapper {
+                height: auto;
+            }
+
+            .hero {
+                padding-top: 80px;
             }
 
             .hero-headline {
@@ -917,7 +965,7 @@
             <a href="#" class="logo">
                 <img src="logo.png" alt="VIPCEP SERVİS">
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#servisler">Servisler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
