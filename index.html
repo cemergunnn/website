@@ -7,14 +7,19 @@
     <meta name="description" content="iPhone - iPad tamir ve teknik servis hizmetleri. Uzman teknisyen, kaliteli parçalar, hızlı çözüm.">
     <link rel="icon" type="image/png" href="logo.png">
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T69WBEE9W"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
+        // Google Analytics yapılandırması
         gtag('config', 'G-8T69WBEE9W');
+
+        // 🟢 Google Ads / Dönüşüm İzleme / Yeniden Pazarlama için AW-708952879 yapılandırması EKLENDİ.
+        gtag('config', 'AW-708952879'); 
     </script>
+    
     <style>
         * {
             margin: 0;
@@ -870,10 +875,8 @@
     </style>
 </head>
 <body>
-    <!-- Mouse Follower -->
     <div class="mouse-follower"></div>
 
-    <!-- Navigation -->
     <div class="nav-wrapper" id="navbar">
         <nav>
             <a href="#" class="logo">
@@ -889,12 +892,10 @@
         </nav>
     </div>
 
-    <!-- Success Message -->
     <div class="success-message" id="successMessage">
         Sorunuz başarıyla gönderildi! En kısa sürede yanıtlanacak.
     </div>
 
-    <!-- Hero Section -->
     <section id="anasayfa" class="hero">
         <div class="hero-background"></div>
         <div class="hero-content">
@@ -908,7 +909,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="servisler" class="section">
         <div class="section-content">
             <div class="section-header">
@@ -955,7 +955,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="hakkimizda" class="section dark">
         <div class="section-content">
             <div class="features-grid">
@@ -996,7 +995,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="iletisim" class="section">
         <div class="section-content">
             <div class="section-header">
@@ -1041,7 +1039,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="section-content">
             <div class="footer-logo">
@@ -1055,7 +1052,6 @@
         </div>
     </footer>
 
-    <!-- Hidden Technician Section -->
     <section id="teknisyen-bolumu" class="section" style="background: #0a0a0a; padding: 200px 0; margin-top: 100px;">
         <div class="section-content">
             <div class="section-header">
@@ -1063,21 +1059,20 @@
                 <p class="section-subtitle" style="color: #999;">iPhone ve iPad anakart tamircilerine özel görüntülü, sesli ve ekran paylaşımlı teknik destek uygulaması.</p>
             </div>
             <div class="container" style="display: grid; grid-template-columns: 1fr 2px 1fr; gap: 60px; max-width: 1200px; width: 100%; align-items: center;">
-                <!-- Mobile / Web Platform -->
                 <div class="platform mobile-platform" style="text-align: center; padding: 40px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
                     <h2 style="font-size: 48px; font-weight: 700; margin-bottom: 40px; color: white;">mobil / web</h2>
                     
                     <a href="https://vipcep-server-production.up.railway.app/customer-app.html" 
-                       target="_blank" 
-                       class="btn btn-primary"
-                       style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #2196F3, #1976D2); color: white; box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4); min-width: 200px;">
+                        target="_blank" 
+                        class="btn btn-primary"
+                        style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #2196F3, #1976D2); color: white; box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4); min-width: 200px;">
                         TIKLA
                     </a>
                     
                     <a href="#" 
-                       class="btn btn-id"
-                       onclick="openWhatsApp('mobile')"
-                       style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
+                        class="btn btn-id"
+                        onclick="openWhatsApp('mobile')"
+                        style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
                         ID oluştur
                     </a>
 
@@ -1089,26 +1084,24 @@
                     </div>
                 </div>
 
-                <!-- Divider -->
                 <div style="width: 2px; height: 400px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.8), transparent); justify-self: center; position: relative;">
                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: white; border-radius: 50%; box-shadow: 0 0 20px rgba(255,255,255,0.5);"></div>
                 </div>
 
-                <!-- Windows PC Platform -->
                 <div class="platform desktop-platform" style="text-align: center; padding: 40px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
                     <h2 style="font-size: 48px; font-weight: 700; margin-bottom: 40px; color: white;">windows Pc</h2>
                     
                     <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" 
-                       target="_blank" 
-                       class="btn btn-secondary"
-                       style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #4CAF50, #388E3C); color: white; box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4); min-width: 200px;">
+                        target="_blank" 
+                        class="btn btn-secondary"
+                        style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #4CAF50, #388E3C); color: white; box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4); min-width: 200px;">
                         İNDİR
                     </a>
                     
                     <a href="#" 
-                       class="btn btn-id"
-                       onclick="openWhatsApp('desktop')"
-                       style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
+                        class="btn btn-id"
+                        onclick="openWhatsApp('desktop')"
+                        style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
                         ID oluştur
                     </a>
 
@@ -1130,7 +1123,6 @@
         </div>
     </section>
 
-    <!-- Floating Action Button -->
     <a href="tel:+905317493693" class="fab"></a>
 
     <script>
