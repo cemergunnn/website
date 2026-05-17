@@ -13,7 +13,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        // Google Analytics ve Ads Yapılandırmaları
         gtag('config', 'G-8T69WBEE9W');
         gtag('config', 'AW-708952879'); 
     </script>
@@ -35,7 +34,6 @@
             --gray-medium: #86868b;
             --shadow: rgba(0, 0, 0, 0.1);
             --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            /* VIP CEP Academy Kurumsal Renkleri */
             --academy-dark: #111113;
             --academy-gold: #f05a28; 
         }
@@ -98,9 +96,7 @@
             cursor: pointer;
         }
 
-        .nav-wrapper.dark .mobile-menu-btn {
-            color: var(--text-light);
-        }
+        .nav-wrapper.dark .mobile-menu-btn { color: var(--text-light); }
 
         .nav-links a {
             color: var(--text-dark);
@@ -111,9 +107,7 @@
             position: relative;
         }
 
-        .nav-wrapper.dark .nav-links a {
-            color: var(--text-light);
-        }
+        .nav-wrapper.dark .nav-links a { color: var(--text-light); }
 
         .nav-links a::after {
             content: '';
@@ -126,9 +120,35 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a:hover::after { width: 100%; }
+
+        /* 🎓 Akademi Kep İmgesi ve Manyakça Uçuş Animasyonu */
+        .nav-links a.academy-link {
+            position: relative;
+            padding-right: 25px;
         }
+
+        .nav-links a.academy-link::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6B35'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E") center/contain no-repeat;
+            animation: float-cap 2.5s ease-in-out infinite;
+        }
+
+        @keyframes float-cap {
+            0% { transform: translateY(-50%) translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 53, 0)); }
+            30% { transform: translateY(-50%) translateY(-12px) rotate(15deg) scale(1.2); filter: drop-shadow(0 5px 10px rgba(255, 107, 53, 0.6)); }
+            50% { transform: translateY(-50%) translateY(-15px) rotate(-10deg) scale(1.25); }
+            70% { transform: translateY(-50%) translateY(-5px) rotate(5deg) scale(1.1); }
+            100% { transform: translateY(-50%) translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 53, 0)); }
+        }
+
+        .nav-links a.academy-link:hover::before { animation: float-cap 0.8s ease-in-out infinite; }
 
         /* "USTAMA SOR?" Link Stili */
         .nav-links a.ask-expert {
@@ -141,14 +161,8 @@
             position: relative;
         }
 
-        .nav-links a.ask-expert::after {
-            display: none;
-        }
-
-        .nav-links a.ask-expert:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(52, 199, 89, 0.4);
-        }
+        .nav-links a.ask-expert::after { display: none; }
+        .nav-links a.ask-expert:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(52, 199, 89, 0.4); }
 
         .nav-links a.ask-expert::before {
             content: '';
@@ -162,19 +176,7 @@
             animation: spin 2s linear infinite;
         }
 
-        @media (max-width: 768px) {
-            .nav-links a.ask-expert::before { display: none; }
-        }
-
-        @keyframes spin {
-            from { transform: translateY(-50%) rotate(0deg); }
-            to { transform: translateY(-50%) rotate(360deg); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
         /* Hero Section */
         .hero {
@@ -202,22 +204,9 @@
             animation: slowMove 20s ease-in-out infinite;
         }
 
-        @keyframes slowMove {
-            0%, 100% { transform: scale(1) translateX(0); }
-            50% { transform: scale(1.05) translateX(-20px); }
-        }
-
-        .hero-phone {
-            display: none;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            z-index: 3;
-            position: relative;
-        }
+        @keyframes slowMove { 0%, 100% { transform: scale(1) translateX(0); } 50% { transform: scale(1.05) translateX(-20px); } }
+        .hero-phone { display: none; }
+        .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 40px; z-index: 3; position: relative; }
 
         .hero-badge {
             display: inline-block;
@@ -256,76 +245,22 @@
             animation: slideUp 1s ease 0.7s forwards;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: slideUp 1s ease 0.9s forwards;
-        }
+        .hero-buttons { display: flex; gap: 20px; opacity: 0; transform: translateY(50px); animation: slideUp 1s ease 0.9s forwards; }
 
         /* Sections */
-        .section {
-            padding: 120px 0;
-            transition: var(--transition);
-            position: relative;
-        }
+        .section { padding: 120px 0; transition: var(--transition); position: relative; }
+        .section.dark { background: #1a1a1a; color: white; }
+        .section-content { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .section-header { text-align: center; margin-bottom: 80px; }
 
-        .section.dark {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-
-        .section-title.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-subtitle {
-            font-size: 20px;
-            color: var(--gray-medium);
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-
-        .section.dark .section-subtitle {
-            color: #999;
-        }
-
-        .section-subtitle.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .section-title { font-size: 48px; font-weight: 700; margin-bottom: 20px; opacity: 0; transform: translateY(50px); transition: var(--transition); }
+        .section-title.visible { opacity: 1; transform: translateY(0); }
+        .section-subtitle { font-size: 20px; color: var(--gray-medium); max-width: 600px; margin: 0 auto; opacity: 0; transform: translateY(50px); transition: var(--transition); }
+        .section.dark .section-subtitle { color: #999; }
+        .section-subtitle.visible { opacity: 1; transform: translateY(0); }
 
         /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
 
         .service-card {
             background: white;
@@ -340,223 +275,45 @@
             cursor: pointer;
         }
 
-        .section.dark .service-card {
-            background: #2a2a2a;
-            color: white;
-        }
+        .section.dark .service-card { background: #2a2a2a; color: white; }
+        .service-card.visible { opacity: 1; transform: translateY(0); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px var(--shadow); }
+        .service-card:active { transform: translateY(-5px) scale(0.98); }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange)); }
 
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px var(--shadow);
-        }
-
-        .service-card:active {
-            transform: translateY(-5px) scale(0.98);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
-        }
-
-        .service-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .service-description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--gray-medium);
-        }
-
-        .section.dark .service-description {
-            color: #ccc;
-        }
+        .service-icon { font-size: 48px; margin-bottom: 20px; display: block; }
+        .service-title { font-size: 24px; font-weight: 600; margin-bottom: 15px; }
+        .service-description { font-size: 16px; line-height: 1.6; color: var(--gray-medium); }
+        .section.dark .service-description { color: #ccc; }
 
         /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .features-content h2 { font-size: 48px; font-weight: 700; margin-bottom: 30px; opacity: 0; transform: translateX(-50px); transition: var(--transition); }
+        .features-content h2.visible { opacity: 1; transform: translateX(0); }
+        .features-content p { font-size: 18px; line-height: 1.7; margin-bottom: 40px; opacity: 0; transform: translateX(-50px); transition: var(--transition); }
+        .features-content p.visible { opacity: 1; transform: translateX(0); }
 
-        .features-content h2 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: var(--transition);
-        }
+        .feature-list { list-style: none; }
+        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 16px; opacity: 0; transform: translateX(-50px); transition: var(--transition); }
+        .feature-item.visible { opacity: 1; transform: translateX(0); }
+        .feature-check { width: 24px; height: 24px; background: var(--primary-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: bold; }
 
-        .features-content h2.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .features-content p {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: var(--transition);
-        }
-
-        .features-content p.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: var(--transition);
-        }
-
-        .feature-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .feature-check {
-            width: 24px;
-            height: 24px;
-            background: var(--primary-orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .features-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: var(--transition);
-            height: 500px;
-            align-items: center;
-            overflow: visible;
-            padding: 50px;
-        }
-
-        .features-visual.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .phone-showcase {
-            width: 100%;
-            height: 400px;
-            background-image: url('backpro1.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+        .features-visual { position: relative; display: flex; justify-content: center; opacity: 0; transform: translateX(50px); transition: var(--transition); height: 500px; align-items: center; overflow: visible; padding: 50px; }
+        .features-visual.visible { opacity: 1; transform: translateX(0); }
+        .phone-showcase { width: 100%; height: 400px; background-image: url('backpro1.png'); background-size: contain; background-position: center; background-repeat: no-repeat; position: relative; transition: all 0.3s ease; cursor: pointer; }
 
         /* 🎓 VIP CEP ACADEMY & WORKSHOP STİLLERİ */
-        .academy-section {
-            background-color: var(--academy-dark);
-            color: white;
-            border-top: 3px solid var(--primary-orange);
-        }
-        
-        .academy-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            margin-top: 40px;
-        }
+        .academy-section { background-color: var(--academy-dark); color: white; border-top: 3px solid var(--primary-orange); }
+        .academy-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; margin-top: 40px; }
+        .calendar-container { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
 
-        .calendar-container {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
+        .academy-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .academy-table th { color: var(--primary-orange); font-weight: 600; padding: 15px; border-bottom: 2px solid rgba(255, 255, 255, 0.1); text-transform: uppercase; font-size: 14px; }
+        .academy-table td { padding: 20px 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 15px; }
 
-        .academy-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        .academy-table th {
-            color: var(--primary-orange);
-            font-weight: 600;
-            padding: 15px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-
-        .academy-table td {
-            padding: 20px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 15px;
-        }
-
-        .academy-table tr.active-row {
-            background: rgba(0, 122, 255, 0.08);
-        }
-
-        .status-pill {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .status-pill.urgent {
-            background: rgba(255, 77, 77, 0.15);
-            color: #ff4d4d;
-            border: 1px solid #ff4d4d;
-        }
-
-        .status-pill.open {
-            background: rgba(52, 199, 89, 0.15);
-            color: var(--primary-green);
-            border: 1px solid var(--primary-green);
-        }
+        .status-pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .status-pill.urgent { background: rgba(255, 77, 77, 0.15); color: #ff4d4d; border: 1px solid #ff4d4d; }
+        .status-pill.open { background: rgba(52, 199, 89, 0.15); color: var(--primary-green); border: 1px solid var(--primary-green); }
 
         .academy-btn-table {
             color: var(--primary-blue);
@@ -569,330 +326,141 @@
             font-family: inherit;
             font-size: inherit;
         }
+        .academy-btn-table:hover { color: white; text-decoration: underline; }
 
-        .academy-btn-table:hover {
-            color: white;
-            text-decoration: underline;
+        /* 🎬 APPLE STYLE MODAL (SİNEMA SALONU PENCERESİ) */
+        .seat-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
         }
 
-        /* 🎬 TABLO İÇİ DİNAMİK SİNEMA PANELİ */
-        .seat-dropdown-row {
-            display: none; /* JS ile dinamik açılacak */
-            background: rgba(255, 255, 255, 0.01) !important;
+        .seat-modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .seat-dropdown-container {
-            padding: 30px !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .seat-modal-window {
+            background: #1c1c1e;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 90%;
+            max-width: 700px;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            transform: scale(0.9);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
+
+        .seat-modal-overlay.open .seat-modal-window {
+            transform: scale(1);
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: none; color: white;
+            width: 36px; height: 36px;
+            border-radius: 50%; cursor: pointer;
+            font-size: 18px; font-weight: bold;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.2s;
+        }
+        .close-modal-btn:hover { background: rgba(255, 77, 77, 0.2); color: #ff4d4d; }
 
         .screen {
-            width: 70%;
-            height: 6px;
+            width: 80%; height: 6px;
             background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
-            margin: 0 auto 30px;
-            border-radius: 50%;
-            box-shadow: 0 10px 25px rgba(0, 122, 255, 0.4);
-            text-align: center;
-            color: var(--gray-medium);
-            font-size: 11px;
-            letter-spacing: 5px;
-            line-height: 25px;
-            text-transform: uppercase;
+            margin: 0 auto 35px; border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0, 122, 255, 0.5);
+            text-align: center; color: var(--gray-medium);
+            font-size: 11px; letter-spacing: 5px; line-height: 25px; text-transform: uppercase;
         }
 
-        .cinema-room {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .seat-row {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .row-label {
-            font-weight: bold;
-            color: var(--primary-orange);
-            width: 20px;
-            font-size: 14px;
-        }
+        .cinema-room { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+        .seat-row { display: flex; gap: 10px; align-items: center; justify-content: center; width: 100%; }
+        .row-label { font-weight: bold; color: var(--primary-orange); width: 20px; font-size: 14px; text-align: center; }
 
         .seat {
-            width: 28px;
-            height: 26px;
+            width: 30px; height: 28px;
             background-color: rgba(52, 199, 89, 0.15);
             border: 1px solid rgba(52, 199, 89, 0.4);
-            border-radius: 5px 5px 0 0;
-            cursor: pointer;
+            border-radius: 5px 5px 0 0; cursor: pointer;
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 600;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9px; color: rgba(255, 255, 255, 0.6); font-weight: 600;
         }
+        .seat:hover:not(.occupied) { transform: scale(1.15); background-color: var(--primary-green); color: white; box-shadow: 0 0 12px rgba(52, 199, 89, 0.4); }
+        .seat.selected { background-color: var(--primary-orange) !important; border-color: #ff8c00 !important; color: white !important; box-shadow: 0 0 12px rgba(255, 107, 53, 0.5); }
+        .seat.occupied { background-color: #2c2c2e !important; border-color: #48484a !important; color: #48484a !important; cursor: not-allowed; }
 
-        .seat:hover:not(.occupied) {
-            transform: scale(1.15);
-            background-color: var(--primary-green);
-            color: white;
-            box-shadow: 0 0 12px rgba(52, 199, 89, 0.4);
-        }
-
-        .seat.selected {
-            background-color: var(--primary-orange) !important;
-            border-color: #ff8c00 !important;
-            color: white !important;
-            box-shadow: 0 0 12px rgba(255, 107, 53, 0.5);
-        }
-
-        .seat.occupied {
-            background-color: #2c2c2e !important;
-            border-color: #48484a !important;
-            color: #48484a !important;
-            cursor: not-allowed;
-        }
-
-        .seat-legend {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin-top: 25px;
-            font-size: 13px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
 
         .portal-container {
             background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 40px;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-
-        .portal-list {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .portal-list li {
-            padding: 10px 0;
-            font-size: 15px;
-            color: #ccc;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .portal-list li::before {
-            content: "✓";
-            color: var(--primary-orange);
-            font-weight: bold;
-        }
+        .portal-list { list-style: none; margin: 25px 0; }
+        .portal-list li { padding: 10px 0; font-size: 15px; color: #ccc; display: flex; align-items: center; gap: 10px; }
+        .portal-list li::before { content: "✓"; color: var(--primary-orange); font-weight: bold; }
 
         /* Contact Cards */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .contact-card { background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px var(--shadow); transition: var(--transition); opacity: 0; transform: translateY(50px); }
+        .section.dark .contact-card { background: #2a2a2a; color: white; }
+        .contact-card.visible { opacity: 1; transform: translateY(0); }
+        .contact-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px var(--shadow); }
 
-        .contact-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px var(--shadow);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .section.dark .contact-card {
-            background: #2a2a2a;
-            color: white;
-        }
-
-        .contact-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px var(--shadow);
-        }
-
-        .contact-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .contact-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            font-size: 16px;
-            color: var(--gray-medium);
-        }
-
-        .section.dark .contact-info {
-            color: #ccc;
-        }
-
-        .contact-info a {
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
+        .contact-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+        .contact-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; }
+        .contact-info { font-size: 16px; color: var(--gray-medium); }
+        .section.dark .contact-info { color: #ccc; }
+        .contact-info a { color: var(--primary-blue); text-decoration: none; }
 
         /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
+        .footer { background: #1a1a1a; color: white; padding: 60px 0; text-align: center; }
+        .footer-logo img { height: 30px; margin-bottom: 20px; opacity: 0.8; }
+        .footer-text { font-size: 14px; color: #999; margin-bottom: 15px; }
 
-        .footer-logo img {
-            height: 30px;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .footer-text {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 15px;
-        }
-
-        /* Floating Action Button */
+        /* FAB Button */
         .fab {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 75px;
-            height: 75px;
+            position: fixed; bottom: 30px; right: 30px; width: 75px; height: 75px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-            transition: var(--transition);
-            z-index: 9999;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            overflow: hidden;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none; box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            transition: var(--transition); z-index: 9999; border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px); overflow: hidden;
         }
+        .fab::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 32px; height: 20px; background: rgba(255, 255, 255, 0.9); border-radius: 4px 4px 0 0; animation: fab-morph 2s ease-in-out infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+        .fab::before { content: ''; position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); width: 24px; height: 8px; background: rgba(255, 255, 255, 0.9); border-radius: 0 0 8px 8px; z-index: 2; animation: fab-glow 3s ease-in-out infinite; }
+        .fab:hover { transform: scale(1.1); box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5); background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%); }
+        .fab:hover::after { animation: fab-morph-hover 0.8s ease-in-out infinite; transform: translate(-50%, -50%) rotate(90deg) scale(1.1); }
 
-        .fab::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            width: 32px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 4px 4px 0 0;
-            animation: fab-morph 2s ease-in-out infinite;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .fab::before {
-            content: '';
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 24px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 0 0 8px 8px;
-            z-index: 2;
-            animation: fab-glow 3s ease-in-out infinite;
-        }
-
-        .fab:hover {
-            transform: scale(1.1);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5);
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%);
-        }
-
-        .fab:hover::after {
-            animation: fab-morph-hover 0.8s ease-in-out infinite;
-            transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
-        }
-
-        @keyframes fab-glow {
-            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); }
-        }
-
+        @keyframes fab-glow { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); } }
         @keyframes fab-morph {
-            0%, 100% { 
-                clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 25%, 100% 0%);
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
-            25% { 
-                clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 50% 30%, 80% 60%, 100% 40%);
-                transform: translate(-50%, -50%) rotate(60deg);
-            }
-            50% { 
-                clip-path: polygon(0% 40%, 20% 0%, 60% 30%, 40% 60%, 80% 80%, 60% 100%);
-                transform: translate(-50%, -50%) rotate(90deg);
-            }
-            75% { 
-                clip-path: polygon(30% 20%, 50% 0%, 80% 40%, 60% 70%, 90% 90%, 70% 100%);
-                transform: translate(-50%, -50%) rotate(120deg);
-            }
+            0%, 100% { clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 25%, 100% 0%); transform: translate(-50%, -50%) rotate(45deg); }
+            25% { clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 50% 30%, 80% 60%, 100% 40%); transform: translate(-50%, -50%) rotate(60deg); }
+            50% { clip-path: polygon(0% 40%, 20% 0%, 60% 30%, 40% 60%, 80% 80%, 60% 100%); transform: translate(-50%, -50%) rotate(90deg); }
+            75% { clip-path: polygon(30% 20%, 50% 0%, 80% 40%, 60% 70%, 90% 90%, 70% 100%); transform: translate(-50%, -50%) rotate(120deg); }
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 0 10px;
-                flex-wrap: wrap;
-                height: auto;
-                min-height: 60px;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                gap: 10px;
-                padding: 10px 0;
-                flex-wrap: wrap;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-                padding: 8px 10px;
-                white-space: nowrap;
-            }
-
+            nav { padding: 0 10px; flex-wrap: wrap; height: auto; min-height: 60px; }
+            .nav-links { width: 100%; justify-content: center; gap: 10px; padding: 10px 0; flex-wrap: wrap; }
+            .nav-links a { font-size: 12px; padding: 8px 10px; white-space: nowrap; }
             .nav-links a.ask-expert { font-size: 11px; padding: 6px 10px; }
             .hero-headline { font-size: 42px; }
             .hero-subheadline { font-size: 18px; }
@@ -900,35 +468,18 @@
             .btn { width: 100%; max-width: 300px; text-align: center; }
             .section-title { font-size: 36px; }
 
-            .features-grid, .academy-grid, .qa-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
+            .features-grid, .academy-grid, .qa-container { grid-template-columns: 1fr; gap: 40px; }
             .services-grid, .contact-grid { grid-template-columns: 1fr; }
             #teknisyen-bolumu .container { grid-template-columns: 1fr !important; gap: 40px !important; }
             #teknisyen-bolumu .divider { display: none !important; }
 
-            .seat {
-                width: 22px;
-                height: 20px;
-                font-size: 8px;
-            }
+            .seat-modal-window { padding: 25px 15px; }
+            .seat { width: 22px; height: 20px; font-size: 8px; }
+            .row-label { font-size: 11px; width: 15px; }
         }
 
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
-        .mouse-follower {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.6;
-            transition: transform 0.1s ease;
-            z-index: 9999;
-            mix-blend-mode: difference;
-        }
+        .mouse-follower { position: fixed; width: 20px; height: 20px; background: var(--primary-blue); border-radius: 50%; pointer-events: none; opacity: 0.6; transition: transform 0.1s ease; z-index: 99999; mix-blend-mode: difference; }
     </style>
 </head>
 <body>
@@ -943,7 +494,7 @@
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#servisler">Servisler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#akademi">VIP CEP Academy</a></li>
+                <li><a href="#akademi" class="academy-link">VIP CEP Academy</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
                 <li><a href="#teknisyen-bolumu" class="ask-expert">(Teknisyenler için) USTAMA SOR?</a></li>
             </ul>
@@ -990,7 +541,7 @@
                     <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
-                    <span class="service-icon">📷</span>
+                    <span class="service-icon">💧</span>
                     <h3 class="service-title">Su Hasarı Tamiri</h3>
                     <p class="service-description">Su ve diğer sıvı temasları sonucu oluşan hasarlar için özel temizlik ve komponent değişimi hizmeti.</p>
                 </div>
@@ -1055,46 +606,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id="row-juni">
+                            <tr>
                                 <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
                                 <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
-                                <td><span class="status-pill urgent">Son 3 Koltuk</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="toggleSeatDropdown('Haziran', 'row-juni')">Koltuk Seç</button></td>
+                                <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
+                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')">Koltuk Seç</button></td>
                             </tr>
-                            <tr id="dropdown-juni" class="seat-dropdown-row">
-                                <td colspan="4" class="seat-dropdown-container">
-                                    <div class="screen">LABORATUVAR / VİZYON PERDESİ (HAZİRAN)</div>
-                                    <div class="cinema-room" id="room-Haziran"></div>
-                                    <div class="seat-legend">
-                                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15);"></div> <span>Müsait</span></div>
-                                        <div class="legend-item"><div class="seat selected"></div> <span>Seçiminiz</span></div>
-                                        <div class="legend-item"><div class="seat occupied"></div> <span>Dolu</span></div>
-                                    </div>
-                                    <div style="text-align: center; margin-top: 25px;">
-                                        <button class="btn btn-primary ws-confirm-btn" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 20px rgba(37,211,102,0.3); border: none; padding: 12px 35px; font-size: 15px; display: none;">Onayla ve WhatsApp'tan Bildir</button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr id="row-july">
+                            <tr>
                                 <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
                                 <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="toggleSeatDropdown('Temmuz', 'row-july')">Koltuk Seç</button></td>
-                            </tr>
-                            <tr id="dropdown-july" class="seat-dropdown-row">
-                                <td colspan="4" class="seat-dropdown-container">
-                                    <div class="screen">LABORATUVAR / VİZYON PERDESİ (TEMMUZ)</div>
-                                    <div class="cinema-room" id="room-Temmuz"></div>
-                                    <div class="seat-legend">
-                                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15);"></div> <span>Müsait</span></div>
-                                        <div class="legend-item"><div class="seat selected"></div> <span>Seçiminiz</span></div>
-                                        <div class="legend-item"><div class="seat occupied"></div> <span>Dolu</span></div>
-                                    </div>
-                                    <div style="text-align: center; margin-top: 25px;">
-                                        <button class="btn btn-primary ws-confirm-btn" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 20px rgba(37,211,102,0.3); border: none; padding: 12px 35px; font-size: 15px; display: none;">Onayla ve WhatsApp'tan Bildir</button>
-                                    </div>
-                                </td>
+                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')">Koltuk Seç</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1115,6 +637,30 @@
             </div>
         </div>
     </section>
+
+    <div class="seat-modal-overlay" id="seatModalOverlay">
+        <div class="seat-modal-window">
+            <button type="button" class="close-modal-btn" onclick="closeSeatModal()">✕</button>
+            <h3 id="modalTitle" style="color: white; text-align: center; margin-bottom: 5px; font-weight: 600; font-size: 20px;"></h3>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 13px; margin-bottom: 25px;">Lütfen oturmak istediğiniz boş koltuğu seçin.</p>
+            
+            <div class="screen">LABORATUVAR / VİZYON PERDESİ</div>
+            
+            <div class="cinema-room" id="modalCinemaRoom"></div>
+
+            <div class="seat-legend">
+                <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15);"></div> <span>Müsait</span></div>
+                <div class="legend-item"><div class="seat selected"></div> <span>Seçiminiz</span></div>
+                <div class="legend-item"><div class="seat occupied"></div> <span>Dolu</span></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button type="button" id="modalConfirmBtn" class="btn btn-primary" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 25px rgba(37,211,102,0.4); border: none; padding: 14px 40px; font-size: 16px; display: none; border-radius: 50px;">
+                    Rezervasyonu WhatsApp ile Tamamla
+                </button>
+            </div>
+        </div>
+    </div>
 
     <section id="iletisim" class="section">
         <div class="section-content">
@@ -1210,42 +756,30 @@
     <a href="tel:+905317493693" class="fab"></a>
 
     <script>
-        // --- 🎬 JAVASCRIPT WORKSHOP DİNAMİK SATIR ALTI AKORDREON SİSTEMİ ---
+        // --- 🎬 PENCERE İÇİ REZERVASYON VE SALON KODLARI ---
         let selectedPeriod = '';
         let selectedSeatNumber = '';
 
+        // 17 Boş koltuk eşleşmesi için Haziran ayına tam 13 dolu koltuk koordinatı yerleştirildi (30 - 13 = 17 Boş)
         const occupiedSeatsData = {
-            'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10'],
+            'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10', 'A10'],
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
         };
 
-        function toggleSeatDropdown(period, parentRowId) {
-            const dropdownId = period === 'Haziran' ? 'dropdown-juni' : 'dropdown-july';
-            const dropdownRow = document.getElementById(dropdownId);
-            
-            // Eğer tıklanan zaten açıksa, kapat ve çık
-            if (dropdownRow.style.display === 'table-row') {
-                dropdownRow.style.display = 'none';
-                document.getElementById(parentRowId).classList.remove('active-row');
-                return;
-            }
-
-            // Önce tüm dropdown satırlarını ve aktif arka planları temizle
-            document.querySelectorAll('.seat-dropdown-row').forEach(row => row.style.display = 'none');
-            document.querySelectorAll('.academy-table tbody tr').forEach(tr => tr.classList.remove('active-row'));
-
-            // Değişkenleri eşitle
+        function openSeatModal(period) {
             selectedPeriod = period;
             selectedSeatNumber = '';
 
-            // İlgili satırı renklendir ve dropdown'ı aç
-            document.getElementById(parentRowId).classList.add('active-row');
-            dropdownRow.style.display = 'table-row';
+            const overlay = document.getElementById('seatModalOverlay');
+            const title = document.getElementById('modalTitle');
+            const room = document.getElementById('modalCinemaRoom');
+            const confirmBtn = document.getElementById('modalConfirmBtn');
 
-            // Salonu oluştur
-            const roomContainer = document.getElementById(`room-${period}`);
-            roomContainer.innerHTML = '';
-            
+            const dateDetail = period === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
+            title.innerText = `🎬 VIP CEP Academy — ${dateDetail} Oturma Planı`;
+            confirmBtn.style.display = 'none';
+            room.innerHTML = '';
+
             const rows = ['A', 'B', 'C'];
             const occupiedSeats = occupiedSeatsData[period] || [];
 
@@ -1269,32 +803,29 @@
                         seat.classList.add('occupied');
                     } else {
                         seat.addEventListener('click', function() {
-                            selectSeat(seatId, dropdownRow);
+                            selectModalSeat(seatId);
                         });
                     }
                     rowDiv.appendChild(seat);
                 }
-                roomContainer.appendChild(rowDiv);
+                room.appendChild(rowDiv);
             });
 
-            // Akıcı kaydırma efekti
-            setTimeout(() => {
-                window.scrollTo({
-                    top: document.getElementById(parentRowId).offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }, 100);
+            overlay.classList.add('open');
         }
 
-        function selectSeat(seatId, containerContext) {
-            containerContext.querySelectorAll('.seat').forEach(s => s.classList.remove('selected'));
-            
-            const targetSeat = containerContext.querySelector(`[data-seat-id="${seatId}"]`);
+        function closeSeatModal() {
+            document.getElementById('seatModalOverlay').classList.remove('open');
+        }
+
+        function selectModalSeat(seatId) {
+            document.querySelectorAll('#modalCinemaRoom .seat').forEach(s => s.classList.remove('selected'));
+            const targetSeat = document.querySelector(`#modalCinemaRoom [data-seat-id="${seatId}"]`);
             targetSeat.classList.add('selected');
             
             selectedSeatNumber = seatId;
             
-            const confirmBtn = containerContext.querySelector('.ws-confirm-btn');
+            const confirmBtn = document.getElementById('modalConfirmBtn');
             confirmBtn.innerText = `Koltuk ${seatId} Rezervasyonunu WhatsApp ile Onayla`;
             confirmBtn.style.display = 'inline-block';
         }
@@ -1302,28 +833,22 @@
         function redirectToWhatsApp() {
             if(!selectedPeriod || !selectedSeatNumber) return;
             const phoneNumber = '905317493693';
-            
             const dateTxt = selectedPeriod === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
             const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeatNumber} ile kaydımı oluşturmak ve detayları görüşmek istiyorum.`;
             
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- 📱 APLE/VIP STYLE ARKA PLAN VE ANİMASYON EFECTLERİ ---
+        // --- 📱 ANİMASYONLAR VE TEMEL SİTE MOTİFLERİ ---
         const mouseFollower = document.querySelector('.mouse-follower');
         let mouseX = 0, mouseY = 0;
         let followerX = 0, followerY = 0;
 
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
+        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
 
         function animateFollower() {
-            followerX += (mouseX - followerX) * 0.1;
-            followerY += (mouseY - followerY) * 0.1;
-            mouseFollower.style.left = followerX + 'px';
-            mouseFollower.style.top = followerY + 'px';
+            followerX += (mouseX - followerX) * 0.1; followerY += (mouseY - followerY) * 0.1;
+            mouseFollower.style.left = followerX + 'px'; mouseFollower.style.top = followerY + 'px';
             requestAnimationFrame(animateFollower);
         }
         animateFollower();
@@ -1342,29 +867,21 @@
         function updateTheme() {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
-            
-            if (scrollY > windowHeight * 0.8) navbar.classList.add('dark');
-            else navbar.classList.remove('dark');
+            if (scrollY > windowHeight * 0.8) navbar.classList.add('dark'); else navbar.classList.remove('dark');
             
             themeSections.forEach((section) => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
-                
                 if (scrollY >= sectionTop - windowHeight / 2 && scrollY < sectionTop + sectionHeight - windowHeight / 2) {
-                    if (section.classList.contains('dark') || section.classList.contains('academy-section')) {
-                        section.classList.add('dark');
-                    } else {
-                        section.classList.remove('dark');
-                    }
+                    if (section.classList.contains('dark') || section.classList.contains('academy-section')) section.classList.add('dark');
+                    else section.classList.remove('dark');
                 }
             });
         }
 
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, observerOptions);
 
         document.querySelectorAll('.section-title, .section-subtitle, .service-card, .contact-card, .features-content h2, .features-content p, .feature-item, .features-visual, .calendar-container, .portal-container').forEach(el => observer.observe(el));
@@ -1380,9 +897,7 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
-                }
+                if (target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
             });
         });
 
@@ -1401,9 +916,7 @@
                     const tiltY = ((e.clientX - rect.left - (rect.width / 2)) / (rect.width / 2)) * 20;
                     this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)`;
                 });
-                phoneShowcase.addEventListener('mouseleave', function() {
-                    this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-                });
+                phoneShowcase.addEventListener('mouseleave', function() { this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)'; });
             }
         });
 
