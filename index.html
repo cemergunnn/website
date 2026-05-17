@@ -159,6 +159,7 @@
             font-weight: 600;
             animation: pulse 2s infinite;
             position: relative;
+            text-decoration: none !important;
         }
 
         .nav-links a.ask-expert::after { display: none; }
@@ -175,8 +176,6 @@
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E") center/contain no-repeat;
             animation: spin 2s linear infinite;
         }
-
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
         /* Hero Section */
         .hero {
@@ -246,6 +245,60 @@
         }
 
         .hero-buttons { display: flex; gap: 20px; opacity: 0; transform: translateY(50px); animation: slideUp 1s ease 0.9s forwards; }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none !important; /* Alt çizgiler zorla temizlendi */
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white !important;
+            box-shadow: 0 10px 30px rgba(27, 67, 124, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(27, 67, 124, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white !important;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* 🎓 PREMIUM ÖĞRENCİ GİRİŞİ BUTONU */
+        .btn-student-portal {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #ff7a45 100%);
+            color: white !important;
+            box-shadow: 0 8px 25px rgba(240, 90, 40, 0.3);
+            border-radius: 50px;
+            margin-top: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-student-portal:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(240, 90, 40, 0.5);
+            background: linear-gradient(135deg, #ff7a45 0%, var(--primary-orange) 100%);
+        }
 
         /* Sections */
         .section { padding: 120px 0; transition: var(--transition); position: relative; }
@@ -317,7 +370,7 @@
 
         .academy-btn-table {
             color: var(--primary-blue);
-            text-decoration: none;
+            text-decoration: none !important;
             font-weight: 600;
             transition: 0.3s;
             cursor: pointer;
@@ -326,9 +379,9 @@
             font-family: inherit;
             font-size: inherit;
         }
-        .academy-btn-table:hover { color: white; text-decoration: underline; }
+        .academy-btn-table:hover { color: white; text-decoration: underline !important; }
 
-        /* 🎬 MODAL (SİNEMA SALONU PENCERESİ) */
+        /* 🎬 MODAL (SİNEMA SALONU PENCERESI) */
         .seat-modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -405,7 +458,7 @@
         .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
         .legend-item { display: flex; align-items: center; gap: 8px; color: #eaeaea; font-weight: 500; }
 
-        /* 📋 DİNAMİK MÜFREDAT KARTLARI (AFİŞ TASARIMI ENTEGRASYONU) */
+        /* 📋 DİNAMİK WORKSHOP KARTLARI (AFİŞ TASARIMI ENTEGRASYONU) */
         .curriculum-container {
             margin-top: 30px;
             display: flex;
@@ -490,16 +543,6 @@
         .curriculum-card.border-purple .bullet-grid li::before { color: var(--primary-purple); }
         .curriculum-card.border-blue .bullet-grid li::before { color: var(--primary-blue); }
 
-        .portal-container {
-            background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
-            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 40px;
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .portal-list { list-style: none; margin: 25px 0; }
-        .portal-list li { padding: 10px 0; font-size: 15px; color: #ccc; display: flex; align-items: center; gap: 10px; }
-        .portal-list li::before { content: "✓"; color: var(--primary-orange); font-weight: bold; }
-
-        /* Contact Cards */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .contact-card { background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px var(--shadow); transition: var(--transition); opacity: 0; transform: translateY(50px); }
         .section.dark .contact-card { background: #2a2a2a; color: white; }
@@ -729,7 +772,7 @@
                             <tr>
                                 <td>
                                     <strong>Konaklamalı İleri Seviye Anakart Onarımı</strong><br>
-                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Müfredatı İncele</span>
+                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Workshop İçeriğini İncele</span>
                                 </td>
                                 <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
@@ -738,7 +781,7 @@
                             <tr>
                                 <td>
                                     <strong>Konaklamalı İleri Seviye Anakart Onarımı</strong><br>
-                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Müfredatı İncele</span>
+                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Workshop İçeriğini İncele</span>
                                 </td>
                                 <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
@@ -758,7 +801,7 @@
                             <li>Şema okuma ve arıza tespit mantığı</li>
                         </ul>
                     </div>
-                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="background: var(--primary-blue); box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3); text-align: center; margin-top: 15px; border-radius: 50px;">Öğrenci Girişi</a>
+                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-student-portal" style="width: 100%;">Öğrenci Girişi</a>
                 </div>
             </div>
         </div>
@@ -790,8 +833,8 @@
     <div class="seat-modal-overlay" id="curriculumModalOverlay">
         <div class="seat-modal-window" style="max-width: 750px;">
             <button type="button" class="close-modal-btn" onclick="closeCurriculumModal()">✕</button>
-            <h3 style="color: white; text-align: center; margin-bottom: 5px; font-weight: 700; font-size: 24px; letter-spacing: 0.5px;">TEKNİK EĞİTİM PROGRAMI MÜFREDATI</h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden işlemci swap uzmanlığına giden tam yol haritası.</p>
+            <h3 style="color: white; text-align: center; margin-bottom: 5px; font-weight: 700; font-size: 24px; letter-spacing: 0.5px;">WORKSHOP İÇERİĞİ VE YOL HARİTASI</h3>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma ve aktarım uzmanlığına giden süreç.</p>
             
             <div class="curriculum-container">
                 <div class="curriculum-card border-orange">
@@ -812,30 +855,30 @@
 
                 <div class="curriculum-card border-purple">
                     <span class="card-tag bg-purple">Orta Seviye</span>
-                    <h4>Yazılım Desteği ve Arıza Teşhis Stratejileri</h4>
-                    <p class="desc">Arıza bulma sürecinde şema okumanın önemine odaklanarak cihazın dilini çözmeyi ve hata payını sıfıra indirmeyi öğreneceğiniz aşama.</p>
+                    <h4>Yazılım Desteği, Teşhis ve Donanım Programlama</h4>
+                    <p class="desc">Şema okuma süreçlerine odaklanarak arıza bulmayı, güncel BOX yazılımlarını ve Apple parça uyarılarını kaldırma metotlarını öğreneceğiniz aşama.</p>
                     <h5>🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
-                        <li>ZXW, JCID ve JC Repair ile şema takibi</li>
-                        <li>iTunes hata kodları analizi</li>
+                        <li>ZXW ve Boardview ile şema takibi</li>
+                        <li>Güncel BOX (Programlayıcı) kullanımı</li>
+                        <li>Parça uyarısı kaldırma metotları</li>
+                        <li>Ekran, Batarya, Kamera entegre aktarımı</li>
                         <li>Panic Log okuma ile nokta atışı tespit</li>
                         <li>Amper değerlerine göre arıza yorumlama</li>
                         <li>Kısa devre hat analizi teknikleri</li>
-                        <li>Çift katmanlı (sandwich) kart ayırma</li>
-                        <li>Orta katman temizleme ve birleştirme</li>
                     </ul>
                 </div>
 
                 <div class="curriculum-card border-blue">
                     <span class="card-tag bg-blue">İleri Seviye</span>
-                    <h4>İşlemci Uzmanlığı ve Swap Mühendisliği</h4>
-                    <p class="desc">En yüksek riskli onarımlarda, işlemci işçiliğini ve sistem aktarımını (swap) profesyonel bir endüstri standardına taşıyacağınız zirve aşama.</p>
+                    <h4>İşlemci Onarımı ve Swap Mühendisliği</h4>
+                    <p class="desc">En yüksek riskli onarımlarda, karmaşık işlemci yollarını ve sistem aktarımını (swap) profesyonel bir endüstri standardına taşıyacağınız zirve aşama.</p>
                     <h5>🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
                         <li>İşlemci sökme, takma ve kalıplama</li>
-                        <li>Katmanlı işlemci (CPU + RAM) ayırma</li>
                         <li>İşlemci altı kopuk hatların onarımı</li>
-                        <li>Şematik üzerinden derinlemesine analiz</li>
+                        <li>Çift katmanlı (sandwich) kart ayırma</li>
+                        <li>Orta katman temizleme ve birleştirme</li>
                         <li>Isı hasarı vermeden çalışma teknikleri</li>
                         <li>Swap işlemlerinde aksaklık giderme</li>
                         <li>%100 başarılı aktarım mühendisliği</li>
@@ -883,8 +926,10 @@
         </div>
     </section>
 
+    <a href="tel:+905317493693" class="fab"></a>
+
     <script>
-        // --- 🎬 JAVASCRIPT REZERVASYON VE ÇOKLU KOLTUK PANELİ ---
+        // --- 🎬 JAVASCRIPT WORKSHOP & ÇOKLU REZERVASYON MODAL KODLARI ---
         let selectedPeriod = '';
         let selectedSeats = [];
 
@@ -976,7 +1021,7 @@
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- 📚 MÜFREDAT MODAL FONKSYONLARI ---
+        // --- 📚 MÜFREDAT MODAL FONKSİYONLARI ---
         function openCurriculumModal() {
             document.getElementById('curriculumModalOverlay').classList.add('open');
         }
