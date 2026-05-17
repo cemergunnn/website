@@ -13,10 +13,8 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        // Google Analytics yapılandırması
+        // Google Analytics ve Ads Yapılandırmaları
         gtag('config', 'G-8T69WBEE9W');
-
-        // 🟢 Google Ads / Dönüşüm İzleme / Yeniden Pazarlama için AW-708952879 yapılandırması EKLENDİ.
         gtag('config', 'AW-708952879'); 
     </script>
     
@@ -37,7 +35,7 @@
             --gray-medium: #86868b;
             --shadow: rgba(0, 0, 0, 0.1);
             --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            /* Akademi için eklenen kurumsal renkler */
+            /* VIP CEP Academy Kurumsal Renkleri */
             --academy-dark: #111113;
             --academy-gold: #f05a28; 
         }
@@ -165,6 +163,10 @@
             animation: spin 2s linear infinite;
         }
 
+        @media (max-width: 768px) {
+            .nav-links a.ask-expert::before { display: none; }
+        }
+
         @keyframes spin {
             from { transform: translateY(-50%) rotate(0deg); }
             to { transform: translateY(-50%) rotate(360deg); }
@@ -261,41 +263,6 @@
             opacity: 0;
             transform: translateY(50px);
             animation: slideUp 1s ease 0.9s forwards;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: var(--primary-blue);
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 122, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
         }
 
         /* Sections */
@@ -567,6 +534,10 @@
             font-size: 15px;
         }
 
+        .academy-table tr.active-row {
+            background: rgba(0, 122, 255, 0.08);
+        }
+
         .status-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -593,11 +564,118 @@
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
+            cursor: pointer;
         }
 
-        .academy-btn-table:hover {
+        /* 🎬 SİNEMA TARZI KOLTUK PANEL STİLLERİ */
+        .seat-selection-wrapper {
+            grid-column: 1 / -1;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 20px;
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .seat-selection-wrapper.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .screen {
+            width: 70%;
+            height: 8px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+            margin: 0 auto 40px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.5);
+            text-align: center;
+            color: var(--gray-medium);
+            font-size: 12px;
+            letter-spacing: 5px;
+            line-height: 35px;
+            text-transform: uppercase;
+        }
+
+        .cinema-room {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .seat-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .row-label {
+            font-weight: bold;
+            color: var(--primary-orange);
+            width: 25px;
+            font-size: 16px;
+        }
+
+        .seat {
+            width: 32px;
+            height: 30px;
+            background-color: rgba(52, 199, 89, 0.2);
+            border: 1px solid var(--primary-green);
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+        }
+
+        .seat:hover:not(.occupied) {
+            transform: scale(1.15);
+            background-color: var(--primary-green);
             color: white;
-            text-decoration: underline;
+            box-shadow: 0 0 15px rgba(52, 199, 89, 0.5);
+        }
+
+        .seat.selected {
+            background-color: var(--primary-orange) !important;
+            border-color: #ff8c00 !important;
+            color: white !important;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
+            animation: pulse 1s infinite;
+        }
+
+        .seat.occupied {
+            background-color: #2c2c2e !important;
+            border-color: #48484a !important;
+            color: #636366 !important;
+            cursor: not-allowed;
+        }
+
+        .seat-legend {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .portal-container {
@@ -628,13 +706,6 @@
             content: "✓";
             color: var(--primary-orange);
             font-weight: bold;
-        }
-
-        @keyframes slideMove {
-            0%, 100% { transform: translateX(0) scale(1); }
-            25% { transform: translateX(20px) scale(1.02); }
-            50% { transform: translateX(-10px) scale(1); }
-            75% { transform: translateX(15px) scale(1.01); }
         }
 
         /* Contact Cards */
@@ -716,14 +787,6 @@
             margin-bottom: 15px;
         }
 
-        .footer-disclaimer {
-            font-size: 12px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
         /* Floating Action Button */
         .fab {
             position: fixed;
@@ -772,7 +835,6 @@
             border-radius: 0 0 8px 8px;
             z-index: 2;
             animation: fab-glow 3s ease-in-out infinite;
-            filter: none;
         }
 
         .fab:hover {
@@ -784,10 +846,6 @@
         .fab:hover::after {
             animation: fab-morph-hover 0.8s ease-in-out infinite;
             transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
-        }
-
-        .fab:active {
-            transform: scale(1.05);
         }
 
         @keyframes fab-glow {
@@ -811,17 +869,6 @@
             75% { 
                 clip-path: polygon(30% 20%, 50% 0%, 80% 40%, 60% 70%, 90% 90%, 70% 100%);
                 transform: translate(-50%, -50%) rotate(120deg);
-            }
-        }
-
-        @keyframes fab-morph-hover {
-            0%, 100% { 
-                clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-                opacity: 1;
-            }
-            50% { 
-                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-                opacity: 0.8;
             }
         }
 
@@ -853,104 +900,29 @@
                 padding: 6px 10px;
             }
 
-            .mobile-menu-btn {
-                display: none;
-            }
+            .hero-headline { font-size: 42px; }
+            .hero-subheadline { font-size: 18px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; text-align: center; }
+            .section-title { font-size: 36px; }
 
-            .nav-wrapper {
-                height: auto;
-            }
-
-            .hero {
-                padding-top: 80px;
-            }
-
-            .hero-headline {
-                font-size: 42px;
-            }
-
-            .hero-subheadline {
-                font-size: 18px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .features-grid,
-            .academy-grid,
-            .qa-container {
+            .features-grid, .academy-grid, .qa-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+            .services-grid, .contact-grid { grid-template-columns: 1fr; }
+            #teknisyen-bolumu .container { grid-template-columns: 1fr !important; gap: 40px !important; }
+            #teknisyen-bolumu .divider { display: none !important; }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            /* Technician section mobile */
-            #teknisyen-bolumu .container {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
-                padding: 20px !important;
-            }
-
-            #teknisyen-bolumu .platform {
-                padding: 30px 20px !important;
-            }
-
-            #teknisyen-bolumu h2 {
-                font-size: 36px !important;
-            }
-
-            #teknisyen-bolumu .btn {
-                font-size: 20px !important;
-                padding: 15px 30px !important;
-                min-width: 180px !important;
-                display: block !important;
-                margin: 10px auto !important;
-            }
-
-            #teknisyen-bolumu .divider {
-                display: none !important;
-            }
-
-            #teknisyen-bolumu {
-                padding: 100px 0 !important;
-            }
-
-            .fab {
-                bottom: 20px !important;
-                right: 20px !important;
-                width: 65px !important;
-                height: 65px !important;
+            .seat {
+                width: 24px;
+                height: 22px;
+                font-size: 8px;
             }
         }
 
-        /* Animations */
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mouse follower effect */
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
         .mouse-follower {
             position: fixed;
             width: 20px;
@@ -962,26 +934,6 @@
             transition: transform 0.1s ease;
             z-index: 9999;
             mix-blend-mode: difference;
-        }
-
-        /* Success Message */
-        .success-message {
-            position: fixed;
-            top: 80px;
-            right: 30px;
-            background: var(--primary-green);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(52, 199, 89, 0.3);
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            z-index: 1001;
-            display: none;
-        }
-
-        .success-message.show {
-            transform: translateX(0);
         }
     </style>
 </head>
@@ -1031,7 +983,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
-                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD og OLED değişimi hizmeti.</p>
+                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔋</span>
@@ -1051,7 +1003,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">⚡</span>
                     <h3 class="service-title">Şarj Soketi</h3>
-                    <p class="service-description">Lightning port temizliği, değişimi ve kablosuz şarj sorunları için uzman müdahale ve çözüm.</p>
+                    <p class="service-description">Lightning port temizliği, değişimi ve kablosuz şarj sorunları için uzman müdahale og çözüm.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔊</span>
@@ -1074,30 +1026,12 @@
                     <h2>Neden VIP CEP SERVİS?</h2>
                     <p>10 yıllık deneyimimiz ve müşteri odaklı yaklaşımımızla, telefon ve tablet'iniz için en güvenilir tamir hizmetini sunuyoruz.</p>
                     <ul class="feature-list">
-                        <li class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span>10+ yıl deneyimli uzman teknisyen kadrosu</span>
-                        </li>
-                        <li class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span>Orijinal kaliteli yedek parçalar</span>
-                        </li>
-                        <li class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span>Aynı gün teslimat garantisi</span>
-                        </li>
-                        <li class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span>6 ay kapsamlı servis garantisi</span>
-                        </li>
-                        <li class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span>Ücretsiz ön inceleme ve teşhis</span>
-                        </li>
-                        <li class="feature-item">
-                            <span class="feature-check">✓</span>
-                            <span>%100 veri güvenliği garantisi</span>
-                        </li>
+                        <li class="feature-item"><span class="feature-check">✓</span><span>10+ yıl deneyimli uzman teknisyen kadrosu</span></li>
+                        <li class="feature-item"><span class="feature-check">✓</span><span>Orijinal kaliteli yedek parçalar</span></li>
+                        <li class="feature-item"><span class="feature-check">✓</span><span>Aynı gün teslimat garantisi</span></li>
+                        <li class="feature-item"><span class="feature-check">✓</span><span>6 ay kapsamlı servis garantisi</span></li>
+                        <li class="feature-item"><span class="feature-check">✓</span><span>Ücretsiz ön inceleme ve teşhis</span></li>
+                        <li class="feature-item"><span class="feature-check">✓</span><span>%100 veri güvenliği garantisi</span></li>
                     </ul>
                 </div>
                 <div class="features-visual">
@@ -1121,23 +1055,23 @@
                         <thead>
                             <tr>
                                 <th>Workshop</th>
-                                <th>Tarih</th>
+                                <th>Tarih / Günler</th>
                                 <th>Kontenjan</th>
-                                <th>İşlem</th>
+                                <th>Seçim</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr id="row-juni">
                                 <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
-                                <td>19 - 22 Haziran 2026</td>
+                                <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill urgent">Son 3 Koltuk</span></td>
-                                <td><a href="https://wa.me/905317493693?text=Haziran%20ayi%20workshop%20programi%20icin%20yer%20ayirtmak%20istiyorum" target="_blank" class="academy-btn-table">Yer Ayırt</a></td>
+                                <td><span class="academy-btn-table" onclick="initSeatSelection('Haziran')">Koltuk Seç</span></td>
                             </tr>
-                            <tr>
+                            <tr id="row-july">
                                 <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
-                                <td>15 - 18 Temmuz 2026</td>
+                                <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><a href="https://wa.me/905317493693?text=Temmuz%20workshop%20programi%20hakkinda%20bilgi%20alabilir%20miyim" target="_blank" class="academy-btn-table">İncele</a></td>
+                                <td><span class="academy-btn-table" onclick="initSeatSelection('Temmuz')">Koltuk Seç</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1155,6 +1089,29 @@
                     </div>
                     <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-orange), #ff8c00); box-shadow: 0 10px 30px rgba(255,107,53,0.3); text-align: center; margin-top: 15px;">Öğrenci Girişi</a>
                 </div>
+
+                <div class="seat-selection-wrapper" id="seatPanel">
+                    <h3 id="panelTitle" style="color: white; text-align: center; margin-bottom: 5px; font-weight: 600;"></h3>
+                    <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Lütfen oturmak istediğiniz boş koltuğu seçin.</p>
+                    
+                    <div class="screen">LABORATUVAR / VİZYON PERDESİ</div>
+                    
+                    <div class="cinema-room" id="cinemaRoom">
+                        </div>
+
+                    <div class="seat-legend">
+                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.2);"></div> <span>Müsait</span></div>
+                        <div class="legend-item"><div class="seat selected" style="animation:none;"></div> <span>Seçiminiz</span></div>
+                        <div class="legend-item"><div class="seat occupied"></div> <span>Dolu Ustalar</span></div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button id="wsConfirmBtn" class="btn btn-primary" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 10px 30px rgba(37,211,102,0.3); border: none; padding: 18px 45px; font-size: 18px; display: none;">
+                            Seçilen Koltuğu Rezerved Et
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1208,10 +1165,7 @@
             <div class="footer-logo">
                 <img src="logo.png" alt="VIP CEP SERVİS">
             </div>
-            <p class="footer-text">© 2017 VIP CEP SERVİS. Tüm hakları sablıdır.</p>
-            <p class="footer-disclaimer">
-                
-            </p>
+            <p class="footer-text">© 2017 VIP CEP SERVİS. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
@@ -1224,26 +1178,12 @@
             <div class="container" style="display: grid; grid-template-columns: 1fr 2px 1fr; gap: 60px; max-width: 1200px; width: 100%; align-items: center;">
                 <div class="platform mobile-platform" style="text-align: center; padding: 40px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
                     <h2 style="font-size: 48px; font-weight: 700; margin-bottom: 40px; color: white;">mobil / web</h2>
-                    
-                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" 
-                        target="_blank" 
-                        class="btn btn-primary"
-                        style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #2196F3, #1976D2); color: white; box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4); min-width: 200px;">
-                        TIKLA
-                    </a>
-                    
-                    <a href="#" 
-                        class="btn btn-id"
-                        onclick="openWhatsApp('mobile')"
-                        style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
-                        ID oluştur
-                    </a>
-
+                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #2196F3, #1976D2); color: white; box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4); min-width: 200px;">TIKLA</a>
+                    <a href="#" class="btn btn-id" onclick="openWhatsApp('mobile')" style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">ID oluştur</a>
                     <div style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.2); border-radius: 15px; font-size: 14px; line-height: 1.6; border-left: 4px solid rgba(255, 255, 255, 0.5); color: white;">
                         <strong style="color: #FFD700;">Mobilden (Chrome, Safari):</strong><br>
                         <div style="background: rgba(0, 0, 0, 0.3); padding: 10px 15px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 16px; margin: 10px 0; border: 1px solid rgba(255, 255, 255, 0.3); color: #00E5FF;">vipcepservis.com.tr</div>
-                        adresine girdikten sonra <strong style="color: #FFD700;">TIKLA</strong> ya basın, açılan sayfayı, 
-                        paylaş / ana ekrana ekle'ye tıklayın.
+                        adresine girdikten sonra <strong>TIKLA</strong> ya basın, açılan sayfayı, paylaş / ana ekrana ekle'ye tıklayın.
                     </div>
                 </div>
 
@@ -1253,32 +1193,13 @@
 
                 <div class="platform desktop-platform" style="text-align: center; padding: 40px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
                     <h2 style="font-size: 48px; font-weight: 700; margin-bottom: 40px; color: white;">windows Pc</h2>
-                    
-                    <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" 
-                        target="_blank" 
-                        class="btn btn-secondary"
-                        style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #4CAF50, #388E3C); color: white; box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4); min-width: 200px;">
-                        İNDİR
-                    </a>
-                    
-                    <a href="#" 
-                        class="btn btn-id"
-                        onclick="openWhatsApp('desktop')"
-                        style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">
-                        ID oluştur
-                    </a>
-
+                    <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" target="_blank" class="btn btn-secondary" style="display: inline-block; padding: 18px 40px; margin: 15px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #4CAF50, #388E3C); color: white; box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4); min-width: 200px;">İNDİR</a>
+                    <a href="#" class="btn btn-id" onclick="openWhatsApp('desktop')" style="display: inline-block; padding: 15px 30px; margin: 15px; border: none; border-radius: 50px; font-size: 18px; font-weight: 600; text-decoration: none; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);">ID oluştur</a>
                     <div style="margin-top: 20px; text-align: left; font-size: 14px; color: white;">
                         <h4 style="color: #FFD700; margin-bottom: 10px; font-size: 16px;">Gereksinimler:</h4>
                         <ul style="list-style: none; padding-left: 0;">
-                            <li style="padding: 5px 0; position: relative; padding-left: 20px; color: white;">
-                                <span style="position: absolute; left: 0; color: #4CAF50; font-size: 18px;">•</span>
-                                Mikrofon
-                            </li>
-                            <li style="padding: 5px 0; position: relative; padding-left: 20px; color: white;">
-                                <span style="position: absolute; left: 0; color: #4CAF50; font-size: 18px;">•</span>
-                                Hoparlör/Kulaklık
-                            </li>
+                            <li style="padding: 5px 0; position: relative; padding-left: 20px; color: white;"><span style="position: absolute; left: 0; color: #4CAF50; font-size: 18px;">•</span>Mikrofon</li>
+                            <li style="padding: 5px 0; position: relative; padding-left: 20px; color: white;"><span style="position: absolute; left: 0; color: #4CAF50; font-size: 18px;">•</span>Hoparlör/Kulaklık</li>
                         </ul>
                     </div>
                 </div>
@@ -1289,7 +1210,101 @@
     <a href="tel:+905317493693" class="fab"></a>
 
     <script>
-        // Mouse follower effect
+        // --- 🎬 JAVASCRIPT WORKSHOP VE SALON YÖNETİMİ ---
+        let selectedPeriod = '';
+        let selectedSeatNumber = '';
+
+        // Sabit Dolu Koltuk Senaryosu (Dinamik görünüm için koordinatlar)
+        const occupiedSeatsData = {
+            'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10'],
+            'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
+        };
+
+        function initSeatSelection(period) {
+            selectedPeriod = period;
+            selectedSeatNumber = '';
+            
+            document.querySelectorAll('.academy-table tbody tr').forEach(tr => tr.classList.remove('active-row'));
+            if(period === 'Haziran') document.getElementById('row-juni').classList.add('active-row');
+            if(period === 'Temmuz') document.getElementById('row-july').classList.add('active-row');
+
+            const panel = document.getElementById('seatPanel');
+            const title = document.getElementById('panelTitle');
+            const room = document.getElementById('cinemaRoom');
+            const confirmBtn = document.getElementById('wsConfirmBtn');
+
+            // Başlıkta tam tarih ve süreç doğrulaması
+            const dateDetail = period === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
+            title.innerText = `🎬 VIP CEP Academy — ${dateDetail} Oturma Planı`;
+            confirmBtn.style.display = 'none';
+            room.innerHTML = '';
+
+            const rows = ['A', 'B', 'C'];
+            const occupiedSeats = occupiedSeatsData[period] || [];
+
+            // 3 Sıra x 10 Koltuk Üretimi
+            rows.forEach(rowName => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'seat-row';
+
+                const label = document.createElement('div');
+                label.className = 'row-label';
+                label.innerText = rowName;
+                rowDiv.appendChild(label);
+
+                for (let i = 1; i <= 10; i++) {
+                    const seatId = `${rowName}${i}`;
+                    const seat = document.createElement('div');
+                    seat.className = 'seat';
+                    seat.innerText = i;
+                    seat.setAttribute('data-seat-id', seatId);
+
+                    if (occupiedSeats.includes(seatId)) {
+                        seat.classList.add('occupied');
+                    } else {
+                        seat.addEventListener('click', function() {
+                            selectSeat(seatId);
+                        });
+                    }
+                    rowDiv.appendChild(seat);
+                }
+                room.appendChild(rowDiv);
+            });
+
+            panel.className = 'seat-selection-wrapper show';
+            
+            setTimeout(() => {
+                window.scrollTo({
+                    top: panel.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }, 200);
+        }
+
+        function selectSeat(seatId) {
+            document.querySelectorAll('.cinema-room .seat').forEach(s => s.classList.remove('selected'));
+            
+            const targetSeat = document.querySelector(`[data-seat-id="${seatId}"]`);
+            targetSeat.classList.add('selected');
+            
+            selectedSeatNumber = seatId;
+            
+            const confirmBtn = document.getElementById('wsConfirmBtn');
+            confirmBtn.innerText = `Koltuk ${seatId} Rezervasyonunu WhatsApp ile Onayla`;
+            confirmBtn.style.display = 'inline-block';
+        }
+
+        function redirectToWhatsApp() {
+            if(!selectedPeriod || !selectedSeatNumber) return;
+            const phoneNumber = '905317493693';
+            
+            const dateTxt = selectedPeriod === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
+            const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeatNumber} ile kaydımı oluşturmak ve detayları görüşmek istiyorum.`;
+            
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // --- 📱 EFECTLER VE TEMEL SİTE MOTİFLERİ ---
         const mouseFollower = document.querySelector('.mouse-follower');
         let mouseX = 0, mouseY = 0;
         let followerX = 0, followerY = 0;
@@ -1302,30 +1317,20 @@
         function animateFollower() {
             followerX += (mouseX - followerX) * 0.1;
             followerY += (mouseY - followerY) * 0.1;
-            
             mouseFollower.style.left = followerX + 'px';
             mouseFollower.style.top = followerY + 'px';
-            
             requestAnimationFrame(animateFollower);
         }
         animateFollower();
 
-        // WhatsApp function for ID creation
         function openWhatsApp(platform) {
             const phoneNumber = '905374792403';
             const message = 'ID ve Kullanıcı adı oluşturmak istiyorum';
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            window.open(whatsappUrl, '_blank');
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // Service card click to call
-        function callService() {
-            window.location.href = 'tel:+905317493693';
-        }
+        function callService() { window.location.href = 'tel:+905317493693'; }
 
-        // Scroll-based theme change
         const navbar = document.getElementById('navbar');
         const sections = document.querySelectorAll('.section, .academy-section');
         
@@ -1333,20 +1338,15 @@
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
             
-            if (scrollY > windowHeight * 0.8) {
-                navbar.classList.add('dark');
-            } else {
-                navbar.classList.remove('dark');
-            }
+            if (scrollY > windowHeight * 0.8) navbar.classList.add('dark');
+            else navbar.classList.remove('dark');
             
-            sections.forEach((section, index) => {
+            sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
                 
-                if (scrollY >= sectionTop - windowHeight / 2 && 
-                    scrollY < sectionTop + sectionHeight - windowHeight / 2) {
-                    
-                    if (section.classList.contains('dark') || section.classList.contains('ask-expert-section') || section.classList.contains('academy-section')) {
+                if (scrollY >= sectionTop - windowHeight / 2 && scrollY < sectionTop + sectionHeight - windowHeight / 2) {
+                    if (section.classList.contains('dark') || section.classList.contains('academy-section')) {
                         section.classList.add('dark');
                     } else {
                         section.classList.remove('dark');
@@ -1355,34 +1355,20 @@
             });
         }
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, observerOptions);
 
-        document.querySelectorAll('.section-title, .section-subtitle, .service-card, .contact-card, .features-content h2, .features-content p, .feature-item, .features-visual, .calendar-container, .portal-container').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.section-title, .section-subtitle, .service-card, .contact-card, .features-content h2, .features-content p, .feature-item, .features-visual, .calendar-container, .portal-container').forEach(el => observer.observe(el));
 
         window.addEventListener('scroll', () => {
             updateTheme();
-            
             const scrolled = window.pageYOffset;
             const parallax = document.querySelector('.hero-background');
-            const speed = scrolled * 0.5;
-            
-            if (parallax) {
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
+            if (parallax) parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1390,143 +1376,52 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 60;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
                 }
             });
         });
 
         const cards = document.querySelectorAll('.service-card, .contact-card, .calendar-container, .portal-container');
-        
         cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-15px) scale(1.02)'; });
+            card.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
             const phoneShowcase = document.querySelector('.phone-showcase');
-            
             if (phoneShowcase) {
                 phoneShowcase.addEventListener('mousemove', function(e) {
                     const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const tiltX = ((y - centerY) / centerY) * -20;
-                    const tiltY = ((x - centerX) / centerX) * 20;
-                    
+                    const tiltX = ((e.clientY - rect.top - (rect.height / 2)) / (rect.height / 2)) * -20;
+                    const tiltY = ((e.clientX - rect.left - (rect.width / 2)) / (rect.width / 2)) * 20;
                     this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)`;
                 });
-                
                 phoneShowcase.addEventListener('mouseleave', function() {
                     this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
                 });
             }
         });
 
-        const featureItems = document.querySelectorAll('.feature-item');
-        featureItems.forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.1}s`;
-        });
-
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.15}s`;
-        });
-
-        function updateColors() {
+        window.addEventListener('scroll', () => {
             const scrollPercent = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
-            const hue = Math.floor(220 + (scrollPercent * 40));
-            
-            document.documentElement.style.setProperty('--primary-blue', `hsl(${hue}, 100%, 60%)`);
-        }
-
-        window.addEventListener('scroll', updateColors);
-
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.05)';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            document.documentElement.style.setProperty('--primary-blue', `hsl(${220 + (scrollPercent * 40)}, 100%, 60%)`);
         });
 
-        function animateFloatingElements() {
-            const heroPhone = document.querySelector('.hero-phone');
-            const time = Date.now() * 0.001;
-            
-            if (heroPhone) {
-                const floatY = Math.sin(time) * 10;
-                const floatX = Math.cos(time * 0.5) * 5;
-                
-                heroPhone.style.transform = `translateY(calc(-50% + ${floatY}px)) translateX(${floatX}px) rotate(15deg)`;
-            }
-            
-            requestAnimationFrame(animateFloatingElements);
-        }
-        
-        animateFloatingElements();
-
-        window.addEventListener('load', () => {
-            updateTheme();
-            updateColors();
-        });
+        window.addEventListener('load', () => { updateTheme(); });
 
         function createRipple(event) {
             const button = event.currentTarget;
             const circle = document.createElement('span');
             const diameter = Math.max(button.clientWidth, button.clientHeight);
-            const radius = diameter / 2;
-
             circle.style.width = circle.style.height = `${diameter}px`;
-            circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
-            circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+            circle.style.left = `${event.clientX - button.offsetLeft - (diameter / 2)}px`;
+            circle.style.top = `${event.clientY - button.offsetTop - (diameter / 2)}px`;
             circle.classList.add('ripple');
-
             const ripple = button.getElementsByClassName('ripple')[0];
-            if (ripple) {
-                ripple.remove();
-            }
-
+            if (ripple) ripple.remove();
             button.appendChild(circle);
         }
-
-        document.querySelectorAll('.btn, .fab').forEach(btn => {
-            btn.addEventListener('click', createRipple);
-        });
-
-        const rippleCSS = `
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 600ms linear;
-                background-color: rgba(255, 255, 255, 0.6);
-            }
-            
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        
-        const style = document.createElement('style');
-        style.textContent = rippleCSS;
-        document.head.appendChild(style);
+        document.querySelectorAll('.btn, .fab').forEach(btn => btn.addEventListener('click', createRipple));
     </script>
 </body>
 </html>
