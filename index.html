@@ -250,7 +250,7 @@
             display: inline-block;
             padding: 15px 30px;
             border-radius: 50px;
-            text-decoration: none !important; /* Alt çizgiler zorla temizlendi */
+            text-decoration: none !important;
             font-weight: 600;
             font-size: 16px;
             transition: var(--transition);
@@ -292,6 +292,7 @@
             margin-top: 15px;
             font-weight: 700;
             letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .btn-student-portal:hover {
@@ -358,9 +359,16 @@
         /* 🎓 VIP CEP ACADEMY & WORKSHOP STİLLERİ */
         .academy-section { background-color: var(--academy-dark); color: white; border-top: 3px solid var(--primary-orange); }
         .academy-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; margin-top: 40px; }
-        .calendar-container { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .calendar-container { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); width: 100%; }
 
-        .academy-table { width: 100%; border-collapse: collapse; text-align: left; }
+        /* 📱 Mobil Taşıma Karşıtı Zırh Eklenmiş Tablo Alanı */
+        .table-responsive-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .academy-table { width: 100%; border-collapse: collapse; text-align: left; min-width: 500px; }
         .academy-table th { color: var(--primary-orange); font-weight: 600; padding: 15px; border-bottom: 2px solid rgba(255, 255, 255, 0.1); text-transform: uppercase; font-size: 14px; }
         .academy-table td { padding: 20px 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 15px; }
 
@@ -401,7 +409,7 @@
         .seat-modal-window {
             background: #1c1c1e;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 90%;
+            width: 95%;
             max-width: 700px;
             border-radius: 24px;
             padding: 40px;
@@ -458,91 +466,42 @@
         .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
         .legend-item { display: flex; align-items: center; gap: 8px; color: #eaeaea; font-weight: 500; }
 
-        /* 📋 DİNAMİK WORKSHOP KARTLARI (AFİŞ TASARIMI ENTEGRASYONU) */
-        .curriculum-container {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .curriculum-card {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s ease;
-        }
+        /* 📋 DİNAMİK WORKSHOP KARTLARI */
+        .curriculum-container { display: flex; flex-direction: column; gap: 25px; margin-top: 30px; }
+        .curriculum-card { background: rgba(255, 255, 255, 0.02); border-radius: 20px; padding: 30px; position: relative; overflow: hidden; transition: 0.3s ease; }
 
         .curriculum-card.border-orange { border: 2px solid var(--primary-orange); box-shadow: 0 10px 30px rgba(240, 90, 40, 0.05); }
         .curriculum-card.border-purple { border: 2px solid var(--primary-purple); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.05); }
         .curriculum-card.border-blue { border: 2px solid var(--primary-blue); box-shadow: 0 10px 30px rgba(27, 67, 124, 0.05); }
 
-        .card-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: white;
-        }
+        .card-tag { display: inline-block; padding: 6px 16px; border-radius: 30px; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; color: white; }
         .card-tag.bg-orange { background: var(--primary-orange); }
         .card-tag.bg-purple { background: var(--primary-purple); }
         .card-tag.bg-blue { background: var(--primary-blue); }
 
-        .curriculum-card h4 {
-            font-size: 20px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .curriculum-card .desc {
-            font-size: 14px;
-            color: #b3b3b3;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 15px;
-        }
-
-        .curriculum-card h5 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary-orange);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
+        .curriculum-card h4 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 10px; }
+        .curriculum-card .desc { font-size: 14px; color: #b3b3b3; line-height: 1.6; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 15px; }
+        .curriculum-card h5 { font-size: 14px; font-weight: 600; color: var(--primary-orange); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
         .curriculum-card.border-purple h5 { color: #b76eff; }
         .curriculum-card.border-blue h5 { color: #4fa3ff; }
 
-        .bullet-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px 30px;
-            list-style: none;
-        }
-
-        .bullet-grid li {
-            font-size: 14px;
-            color: #eaeaea;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .bullet-grid li::before {
-            content: "➔";
-            color: var(--primary-orange);
-            font-weight: bold;
-        }
+        .bullet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; list-style: none; }
+        .bullet-grid li { font-size: 14px; color: #eaeaea; display: flex; align-items: center; gap: 10px; }
+        .bullet-grid li::before { content: "➔"; color: var(--primary-orange); font-weight: bold; }
         .curriculum-card.border-purple .bullet-grid li::before { color: var(--primary-purple); }
         .curriculum-card.border-blue .bullet-grid li::before { color: var(--primary-blue); }
 
+        .portal-container {
+            background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 40px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            width: 100%;
+        }
+        .portal-list { list-style: none; margin: 25px 0; }
+        .portal-list li { padding: 10px 0; font-size: 15px; color: #ccc; display: flex; align-items: center; gap: 10px; }
+        .portal-list li::before { content: "✓"; color: var(--primary-orange); font-weight: bold; }
+
+        /* Contact Cards */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .contact-card { background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 40px var(--shadow); transition: var(--transition); opacity: 0; transform: translateY(50px); }
         .section.dark .contact-card { background: #2a2a2a; color: white; }
@@ -574,29 +533,47 @@
         .fab:hover { transform: scale(1.1); box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5); background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%); }
         .fab:hover::after { animation: fab-morph-hover 0.8s ease-in-out infinite; transform: translate(-50%, -50%) rotate(90deg) scale(1.1); }
 
-        /* Mobile Responsive */
+        /* 📱 MOBİL RESPONSIVE KESİN ÇÖZÜM REBALLING ALANI */
         @media (max-width: 768px) {
-            nav { padding: 0 10px; flex-wrap: wrap; height: auto; min-height: 60px; }
-            .nav-links { width: 100%; justify-content: center; gap: 10px; padding: 10px 0; flex-wrap: wrap; }
-            .nav-links a { font-size: 12px; padding: 8px 10px; white-space: nowrap; }
-            .nav-links a.ask-expert { font-size: 11px; padding: 6px 10px; }
-            .hero-headline { font-size: 42px; }
-            .hero-subheadline { font-size: 18px; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 300px; text-align: center; }
-            .section-title { font-size: 36px; }
+            nav { padding: 0 15px; height: auto; min-height: 60px; flex-direction: column; justify-content: center; }
+            .logo { margin-top: 10px; }
+            
+            /* Üst üste binen linkler için esnek paketleme */
+            .nav-links { 
+                width: 100%; 
+                justify-content: center; 
+                gap: 8px 12px; 
+                padding: 10px 0; 
+                flex-wrap: wrap; 
+            }
+            .nav-links a { font-size: 11px; padding: 4px 6px; white-space: nowrap; }
+            .nav-links a.academy-link { padding-right: 18px; }
+            .nav-links a.ask-expert { font-size: 11px; padding: 5px 10px; }
 
-            .features-grid, .academy-grid, .qa-container { grid-template-columns: 1fr; gap: 40px; }
-            .services-grid, .contact-grid { grid-template-columns: 1fr; }
-            #teknisyen-bolumu .container { grid-template-columns: 1fr !important; gap: 40px !important; }
+            .hero-headline { font-size: 36px; }
+            .hero-subheadline { font-size: 16px; }
+            .hero-buttons { flex-direction: column; align-items: center; width: 100%; }
+            .btn { width: 100%; max-width: 280px; text-align: center; }
+            .section { padding: 60px 0; }
+            .section-title { font-size: 32px; }
+            .section-subtitle { font-size: 16px; }
+
+            /* Akademi yan yana kolonları dikey sıraya çekildi */
+            .academy-grid { grid-template-columns: 1fr; gap: 30px; padding: 0 10px; }
+            .calendar-container { padding: 15px; }
+
+            .features-grid, .qa-container { grid-template-columns: 1fr; gap: 30px; }
+            .services-grid, .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+            #teknisyen-bolumu .container { grid-template-columns: 1fr !important; gap: 30px !important; }
             #teknisyen-bolumu .divider { display: none !important; }
 
-            .bullet-grid { grid-template-columns: 1fr; gap: 10px; }
-            .seat-modal-window { padding: 25px 15px; }
-            .seat { width: 22px; height: 20px; font-size: 8px; }
+            .bullet-grid { grid-template-columns: 1fr; gap: 8px; }
+            .seat-modal-window { padding: 25px 10px; width: 95%; }
+            .seat { width: 24px; height: 22px; font-size: 8px; }
             .row-label { font-size: 11px; width: 15px; }
+            .seat-legend { gap: 15px; font-size: 11px; }
         }
-
+        
         @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
         .mouse-follower { position: fixed; width: 20px; height: 20px; background: var(--primary-blue); border-radius: 50%; pointer-events: none; opacity: 0.6; transition: transform 0.1s ease; z-index: 99999; mix-blend-mode: difference; }
     </style>
@@ -759,36 +736,38 @@
             <div class="academy-grid">
                 <div class="calendar-container">
                     <h3 style="color: white; margin-bottom: 20px; font-weight: 600;">📅 2026 Workshop Takvimi</h3>
-                    <table class="academy-table" id="academyTable">
-                        <thead>
-                            <tr>
-                                <th>Workshop Programı</th>
-                                <th>Tarih / Günler</th>
-                                <th>Kontenjan</th>
-                                <th>İşlem</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <strong>Konaklamalı İleri Seviye Anakart Onarımı</strong><br>
-                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Workshop İçeriğini İncele</span>
-                                </td>
-                                <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
-                                <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Konaklamalı İleri Seviye Anakart Onarımı</strong><br>
-                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Workshop İçeriğini İncele</span>
-                                </td>
-                                <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
-                                <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive-wrapper">
+                        <table class="academy-table" id="academyTable">
+                            <thead>
+                                <tr>
+                                    <th>Workshop Programı</th>
+                                    <th>Tarih / Günler</th>
+                                    <th>Kontenjan</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Konaklamalı İleri Seviye Onarım</strong><br>
+                                        <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Workshop İçeriği</span>
+                                    </td>
+                                    <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Ptesi Sabahı)</small></td>
+                                    <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
+                                    <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Konaklamalı İleri Seviye Onarım</strong><br>
+                                        <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Workshop İçeriği</span>
+                                    </td>
+                                    <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Ptesi Sabahı)</small></td>
+                                    <td><span class="status-pill open">Kayıt Açık</span></td>
+                                    <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="portal-container">
@@ -801,7 +780,7 @@
                             <li>Şema okuma ve arıza tespit mantığı</li>
                         </ul>
                     </div>
-                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-student-portal" style="width: 100%;">Öğrenci Girişi</a>
+                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-student-portal">Öğrenci Girişi</a>
                 </div>
             </div>
         </div>
@@ -929,7 +908,7 @@
     <a href="tel:+905317493693" class="fab"></a>
 
     <script>
-        // --- 🎬 JAVASCRIPT WORKSHOP & ÇOKLU REZERVASYON MODAL KODLARI ---
+        // --- 🎬 JAVASCRIPT REZERVASYON VE ÇOKLU KOLTUK PANELİ ---
         let selectedPeriod = '';
         let selectedSeats = [];
 
