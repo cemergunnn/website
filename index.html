@@ -25,8 +25,9 @@
         }
 
         :root {
-            --primary-blue: #007AFF;
-            --primary-orange: #FF6B35;
+            --primary-blue: #1b437c; /* Logodaki kurumsal lacivert */
+            --primary-orange: #f05a28; /* Logodaki canlı turuncu */
+            --primary-purple: #8a2be2; /* Logodaki premium mor */
             --primary-green: #34C759;
             --text-light: #ffffff;
             --text-dark: #1d1d1f;
@@ -35,7 +36,6 @@
             --shadow: rgba(0, 0, 0, 0.1);
             --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             --academy-dark: #111113;
-            --academy-gold: #f05a28; 
         }
 
         body {
@@ -136,16 +136,16 @@
             transform: translateY(-50%);
             width: 16px;
             height: 16px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF6B35'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E") center/contain no-repeat;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f05a28'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E") center/contain no-repeat;
             animation: float-cap 2.5s ease-in-out infinite;
         }
 
         @keyframes float-cap {
-            0% { transform: translateY(-50%) translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 53, 0)); }
-            30% { transform: translateY(-50%) translateY(-12px) rotate(15deg) scale(1.2); filter: drop-shadow(0 5px 10px rgba(255, 107, 53, 0.6)); }
+            0% { transform: translateY(-50%) translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(240, 90, 40, 0)); }
+            30% { transform: translateY(-50%) translateY(-12px) rotate(15deg) scale(1.2); filter: drop-shadow(0 5px 10px rgba(240, 90, 40, 0.6)); }
             50% { transform: translateY(-50%) translateY(-15px) rotate(-10deg) scale(1.25); }
             70% { transform: translateY(-50%) translateY(-5px) rotate(5deg) scale(1.1); }
-            100% { transform: translateY(-50%) translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 53, 0)); }
+            100% { transform: translateY(-50%) translateY(0) rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(240, 90, 40, 0)); }
         }
 
         .nav-links a.academy-link:hover::before { animation: float-cap 0.8s ease-in-out infinite; }
@@ -328,7 +328,7 @@
         }
         .academy-btn-table:hover { color: white; text-decoration: underline; }
 
-        /* 🎬 APPLE STYLE MODALLAR (PENCERELER) */
+        /* 🎬 MODAL (SİNEMA SALONU PENCERESİ) */
         .seat-modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -405,56 +405,90 @@
         .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
         .legend-item { display: flex; align-items: center; gap: 8px; color: #eaeaea; font-weight: 500; }
 
-        /* 📋 MÜFREDAT AKORDEON PANELİ STİLLERİ */
-        .curriculum-accordion {
-            margin-top: 20px;
+        /* 📋 DİNAMİK MÜFREDAT KARTLARI (AFİŞ TASARIMI ENTEGRASYONU) */
+        .curriculum-container {
+            margin-top: 30px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 25px;
         }
 
-        .accordion-item {
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+        .curriculum-card {
             background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
             overflow: hidden;
+            transition: 0.3s ease;
         }
 
-        .accordion-header {
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.01);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-        }
-        .accordion-header:hover { background: rgba(255, 255, 255, 0.04); }
+        .curriculum-card.border-orange { border: 2px solid var(--primary-orange); box-shadow: 0 10px 30px rgba(240, 90, 40, 0.05); }
+        .curriculum-card.border-purple { border: 2px solid var(--primary-purple); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.05); }
+        .curriculum-card.border-blue { border: 2px solid var(--primary-blue); box-shadow: 0 10px 30px rgba(27, 67, 124, 0.05); }
 
-        .accordion-content {
-            padding: 0 25px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
-            color: #b3b3b3;
+        .card-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: white;
+        }
+        .card-tag.bg-orange { background: var(--primary-orange); }
+        .card-tag.bg-purple { background: var(--primary-purple); }
+        .card-tag.bg-blue { background: var(--primary-blue); }
+
+        .curriculum-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .curriculum-card .desc {
             font-size: 14px;
-            line-height: 1.8;
+            color: #b3b3b3;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 15px;
         }
 
-        .accordion-content ul {
+        .curriculum-card h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .curriculum-card.border-purple h5 { color: #b76eff; }
+        .curriculum-card.border-blue h5 { color: #4fa3ff; }
+
+        .bullet-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 30px;
             list-style: none;
-            padding: 15px 0;
         }
 
-        .accordion-content ul li {
-            padding: 6px 0;
+        .bullet-grid li {
+            font-size: 14px;
+            color: #eaeaea;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 10px;
         }
-        .accordion-content ul li::before { content: "•"; color: var(--primary-orange); font-weight: bold; }
+
+        .bullet-grid li::before {
+            content: "➔";
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+        .curriculum-card.border-purple .bullet-grid li::before { color: var(--primary-purple); }
+        .curriculum-card.border-blue .bullet-grid li::before { color: var(--primary-blue); }
 
         .portal-container {
             background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
@@ -514,6 +548,7 @@
             #teknisyen-bolumu .container { grid-template-columns: 1fr !important; gap: 40px !important; }
             #teknisyen-bolumu .divider { display: none !important; }
 
+            .bullet-grid { grid-template-columns: 1fr; gap: 10px; }
             .seat-modal-window { padding: 25px 15px; }
             .seat { width: 22px; height: 20px; font-size: 8px; }
             .row-label { font-size: 11px; width: 15px; }
@@ -753,52 +788,58 @@
     </div>
 
     <div class="seat-modal-overlay" id="curriculumModalOverlay">
-        <div class="seat-modal-window" style="max-width: 600px;">
+        <div class="seat-modal-window" style="max-width: 750px;">
             <button type="button" class="close-modal-btn" onclick="closeCurriculumModal()">✕</button>
-            <h3 style="color: white; text-align: center; margin-bottom: 10px; font-weight: 600; font-size: 22px;">🛠️ Workshop Eğitim Müfredatı</h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 25px;">Aşağıdaki aşamaları tıklayarak detaylı ders içeriğini inceleyebilirsiniz.</p>
+            <h3 style="color: white; text-align: center; margin-bottom: 5px; font-weight: 700; font-size: 24px; letter-spacing: 0.5px;">TEKNİK EĞİTİM PROGRAMI MÜFREDATI</h3>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden işlemci swap uzmanlığına giden tam yol haritası.</p>
             
-            <div class="curriculum-accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span style="color: var(--primary-green);">🟢 1. Aşama: Temel Seviye (Altyapı)</span>
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="accordion-content">
-                        <ul>
-                            <li><strong>Akım ve Voltaj Mantığı:</strong> Direnç, Kondansatör, Bobin ve Diyot elemanlarının hat üstündeki görevleri ve arıza tipleri.</li>
-                            <li><strong>Şematik ve Boardview Okuma:</strong> ZXW, JCID ve JC Repair Assistant programlarını laboratuvar standardında kullanma.</li>
-                            <li><strong>Ekipman Kalibrasyonu:</strong> JBC ve Quick 861DW istasyonlarında karta zarar vermeden çalışma kuralları.</li>
-                        </ul>
-                    </div>
+            <div class="curriculum-container">
+                <div class="curriculum-card border-orange">
+                    <span class="card-tag bg-orange">Başlangıç Seviyesi</span>
+                    <h4>Temel Elektronik ve Anakart İşçiliği</h4>
+                    <p class="desc">Temel elektronik prensiplerini ve anakart üzerindeki en kritik fiziksel müdahale tekniklerini kavrayacağınız aşama.</p>
+                    <h5>🎯 Hedeflenen Kazanımlar:</h5>
+                    <ul class="bullet-grid">
+                        <li>V-I-R kavramları ve hat analizi</li>
+                        <li>Profesyonel multimetre kullanımı</li>
+                        <li>Anakart komponentlerini tanıma</li>
+                        <li>Konnektör ve soket değişimi</li>
+                        <li>Mikroskop altında yol çekme (jumper)</li>
+                        <li>Entegre kalıplama temelleri</li>
+                        <li>Test aparatlarının pratik kullanımı</li>
+                    </ul>
                 </div>
 
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span style="color: #FFC107;">🟡 2. Aşama: Orta Seviye (Arıza Teşhis)</span>
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="accordion-content">
-                        <ul>
-                            <li><strong>Diyot Değeri Ölçümü:</strong> Multimetre ile hatların sağlamlık kontrolü, kısa devre ve açık devre ayırımı.</li>
-                            <li><strong>Akım Enjeksiyon Metodu:</strong> Isınmayan ama sinsi akım çeken kısa devre arızalarını Termal Kamera ile yakalama teknikleri.</li>
-                            <li><strong>Besleme Entegresi (PMIC) Analizi:</strong> Cihazın start alma (boot) aşamalarındaki voltaj döngüleri.</li>
-                        </ul>
-                    </div>
+                <div class="curriculum-card border-purple">
+                    <span class="card-tag bg-purple">Orta Seviye</span>
+                    <h4>Yazılım Desteği ve Arıza Teşhis Stratejileri</h4>
+                    <p class="desc">Arıza bulma sürecinde şema okumanın önemine odaklanarak cihazın dilini çözmeyi ve hata payını sıfıra indirmeyi öğreneceğiniz aşama.</p>
+                    <h5>🎯 Hedeflenen Kazanımlar:</h5>
+                    <ul class="bullet-grid">
+                        <li>ZXW, JCID ve JC Repair ile şema takibi</li>
+                        <li>iTunes hata kodları analizi</li>
+                        <li>Panic Log okuma ile nokta atışı tespit</li>
+                        <li>Amper değerlerine göre arıza yorumlama</li>
+                        <li>Kısa devre hat analizi teknikleri</li>
+                        <li>Çift katmanlı (sandwich) kart ayırma</li>
+                        <li>Orta katman temizleme ve birleştirme</li>
+                    </ul>
                 </div>
 
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span style="color: #FF4D4d;">🔴 3. Aşama: İleri Seviye (Mühendislik)</span>
-                        <span class="arrow">▼</span>
-                    </div>
-                    <div class="accordion-content">
-                        <ul>
-                            <li><strong>Katmanlı Anakart (Sandwich) Teknolojisi:</strong> İki katmanlı kartları ayırma, alt kart onarımları ve orta katman hat çekme işlemleri.</li>
-                            <li><strong>Entegre Altı Yol Restorasyonu:</strong> Kopuk yolları mikroskop altında mikro-tellerle yeniden inşa etme.</li>
-                            <li><strong>İşlemci (CPU) & RAM Swap Mühendisliği:</strong> İşlemcileri ısı hasarı vermeden hatasız kalıplama (reballing) ve aktarma teknikleri.</li>
-                        </ul>
-                    </div>
+                <div class="curriculum-card border-blue">
+                    <span class="card-tag bg-blue">İleri Seviye</span>
+                    <h4>İşlemci Uzmanlığı ve Swap Mühendisliği</h4>
+                    <p class="desc">En yüksek riskli onarımlarda, işlemci işçiliğini ve sistem aktarımını (swap) profesyonel bir endüstri standardına taşıyacağınız zirve aşama.</p>
+                    <h5>🎯 Hedeflenen Kazanımlar:</h5>
+                    <ul class="bullet-grid">
+                        <li>İşlemci sökme, takma ve kalıplama</li>
+                        <li>Katmanlı işlemci (CPU + RAM) ayırma</li>
+                        <li>İşlemci altı kopuk hatların onarımı</li>
+                        <li>Şematik üzerinden derinlemesine analiz</li>
+                        <li>Isı hasarı vermeden çalışma teknikleri</li>
+                        <li>Swap işlemlerinde aksaklık giderme</li>
+                        <li>%100 başarılı aktarım mühendisliği</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -935,35 +976,13 @@
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- 📚 MÜFREDAT MODAL VE AKORDEON FONKSİYONLARI ---
+        // --- 📚 MÜFREDAT MODAL FONKSYONLARI ---
         function openCurriculumModal() {
             document.getElementById('curriculumModalOverlay').classList.add('open');
         }
 
         function closeCurriculumModal() {
             document.getElementById('curriculumModalOverlay').classList.remove('open');
-        }
-
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const arrow = header.querySelector('.arrow');
-            
-            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                content.style.maxHeight = '0px';
-                content.style.padding = '0 25px';
-                arrow.style.transform = 'rotate(0deg)';
-            } else {
-                // Önce diğer açık akordeonları kapat
-                document.querySelectorAll('.accordion-content').forEach(c => {
-                    c.style.maxHeight = '0px';
-                    c.style.padding = '0 25px';
-                });
-                document.querySelectorAll('.accordion-header .arrow').forEach(a => a.style.transform = 'rotate(0deg)');
-
-                content.style.maxHeight = content.scrollHeight + 'px';
-                content.style.padding = '15px 25px';
-                arrow.style.transform = 'rotate(180deg)';
-            }
         }
 
         // --- 📱 ANİMASYONLAR VE TEMEL SİTE MOTİFLERİ ---
