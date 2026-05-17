@@ -100,18 +100,34 @@
 
         .nav-wrapper.dark .nav-links a { color: var(--text-light); }
 
-        .nav-links a:not(.ask-expert):not(.store-link)::after {
+        .nav-links a:not(.ask-expert):not(.store-link):not(.academy-link)::after {
             content: '';
             position: absolute;
             bottom: -5px; left: 0; width: 0; height: 2px;
             background: var(--primary-orange);
             transition: width 0.3s ease;
         }
-        .nav-links a:not(.ask-expert):not(.store-link):hover::after { width: 100%; }
+        .nav-links a:not(.ask-expert):not(.store-link):not(.academy-link):hover::after { width: 100%; }
 
-        /* 🛍️ VIPCEPSTORE Bağlantısı (Sabit ve Alakasız Çantalar Tamamen Söküldü Usta) */
-        .nav-links a.store-link, .mobile-direct-links a.m-store { position: relative; font-weight: 700; cursor: pointer; }
-        
+        /* 🛍️ VIPCEPSTORE Kurumsal Çanta Sıçrama Animasyonu (Tıpkı Kep Gibi!) usta */
+        .nav-links a.store-link, .mobile-direct-links a.m-store { padding-right: 22px; position: relative; font-weight: 700; cursor: pointer; }
+        .nav-links a.store-link::before, .mobile-direct-links a.m-store::before {
+            content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+            width: 16px; height: 16px;
+            /* Kurumsal CSS çizgili çanta ikonu usta, emoji falan bitti */
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231b437c'%3E%3Cpath d='M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12z'/%3E%3C/svg%3E") center/contain no-repeat;
+            /* Kep gibi süzülen sıçrama animasyonu usta */
+            animation: store-bounce 2.5s ease-in-out infinite;
+        }
+        .nav-wrapper.dark .nav-links a.store-link::before, .mobile-direct-links a.m-store::before {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f05a28'%3E%3Cpath d='M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12z'/%3E%3C/svg%3E") center/contain no-repeat;
+        }
+
+        @keyframes store-bounce {
+            0%, 100% { transform: translateY(-50%) translateY(0) scale(1); }
+            50% { transform: translateY(-50%) translateY(-6px) scale(1.05); }
+        }
+
         /* 🎓 Akademi Kep Animasyonu */
         .nav-links a.academy-link, .mobile-direct-links a.m-academy { padding-right: 22px; position: relative; }
         .nav-links a.academy-link::before, .mobile-direct-links a.m-academy::before {
@@ -140,12 +156,13 @@
             animation: spin 3s linear infinite !important; 
         }
 
-        /* 📱 Mobil Üst Kısım Sabit İkon Barı */
+        /* 📱 Mobil Üst Kısım Sabit İkon Barı (Yazı Büyütüldü ve Sığdırıldı!) usta */
         .mobile-direct-links { display: none; gap: 4px; align-items: center; }
         .mobile-direct-links a { text-decoration: none !important; font-size: 8.5px; font-weight: 700; padding: 5px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; }
         .mobile-direct-links .m-store { background: rgba(27, 67, 124, 0.08); color: var(--primary-blue) !important; border: 1px solid rgba(27, 67, 124, 0.15); }
         .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.08); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.15); }
         .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; gap: 2px; border: none !important; }
+        .mobile-direct-links .m-expert::before { background-color: transparent !important; }
 
         .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--text-dark); cursor: pointer; }
         .nav-wrapper.dark .mobile-menu-btn { color: var(--text-light); }
@@ -186,7 +203,7 @@
         .service-description { font-size: 15px; color: var(--gray-medium); line-height: 1.5; }
         .section.dark .service-description { color: #a1a1a6; }
 
-        /* 🛍️ VIPCEPSTORE MODAL WINDOW (TEMİZ VE KURUMSAL MAĞAZA) */
+        /* 🛍️ YENİ DEVRESEL E-TİCARET STORE PENCERESİ STİLLERİ (MODAL STORE) */
         .store-modal-window {
             background: #f5f5f7; width: 95%; max-width: 1100px; border-radius: 28px;
             padding: 50px 30px; max-height: 90vh; overflow-y: auto; position: relative;
@@ -252,11 +269,11 @@
         .btn-student-portal-blue { display: inline-block; width: 100%; padding: 14px 28px; background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%); color: white !important; font-weight: 700; font-size: 15px; text-align: center; border-radius: 50px; text-decoration: none !important; box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25); border: none; transition: 0.3s; }
         .btn-student-portal-blue:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0, 122, 255, 0.4); }
 
-        /* Modal Altyapısı (Kapatma Butonuna z-index Taktviyesi Yapıldı Usta) */
+        /* Modal Altyapısı */
         .seat-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(20px); z-index: 99999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .seat-modal-overlay.open { opacity: 1; visibility: visible; }
         .seat-modal-window { background: #161618; border: 1px solid rgba(255, 255, 255, 0.08); width: 92%; max-width: 680px; border-radius: 24px; padding: 40px 30px; max-height: 92vh; overflow-y: auto; position: relative; }
-        .close-modal-btn { position: absolute; top: 15px; right: 15px; background: rgba(255, 255, 255, 0.15); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; z-index: 10000 !important; }
+        .close-modal-btn { position: absolute; top: 15px; right: 15px; background: rgba(255, 255, 255, 0.05); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; z-index: 10000 !important; }
 
         .cinema-room { display: flex; flex-direction: column; gap: 12px; align-items: center; margin: 20px 0; width: 100%; }
         .seat-row { display: flex; gap: 10px; align-items: center; justify-content: center; width: 100%; }
@@ -301,10 +318,11 @@
             .mobile-menu-btn { display: block; order: 4; margin-left: 5px; }
             .logo { order: 1; }
             
-            .mobile-direct-links { display: flex; order: 2; margin-left: auto; gap: 3px; }
-            .mobile-direct-links a { font-size: 8.5px; padding: 5px 5px; border-radius: 9px; }
-            .mobile-direct-links .m-store { padding-right: 0px !important; } /* Çanta kalktığı için sağ boşluk sıfırlandı usta */
-            .mobile-direct-links .m-academy { padding-right: 16px; } 
+            /* 📱 Mobil Üst Sabit İkon Alanı Yazıların Sığması İçin Milimetrik Revize Edildi */
+            .mobile-direct-links { display: flex; order: 2; margin-left: auto; gap: 4px; }
+            .mobile-direct-links a { font-size: 8.5px; padding: 5px 6px; border-radius: 10px; }
+            .mobile-direct-links .m-store { padding-right: 18px; }
+            .mobile-direct-links .m-academy { padding-right: 18px; } 
             
             .nav-links {
                 position: fixed; top: 60px; left: 100%; width: 100%; height: calc(100vh - 60px);
@@ -366,7 +384,7 @@
             </a>
             
             <div class="mobile-direct-links">
-                <a onclick="openStoreModal()" class="m-store">VIPCEPSTORE</a>
+                <a onclick="openStoreModal()" class="m-store">🛍️ VIPCEPSTORE</a>
                 <a href="#akademi" class="m-academy">🎓 VIP CEP ACADEMY</a>
                 <a href="#teknisyen-bolumu" class="m-expert">❓ USTAMA SOR</a>
             </div>
@@ -433,7 +451,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔊</span>
                     <h3 class="service-title">Ses Sistemi</h3>
-                    <p class="service-description">Hoparlör, mikrofon ve kulaklık jakı sorunları için komple ses sistemi kontrolü ve tamiri.</p>
+                    <p class="service-description">Hoparlör, mikrofon og kulaklık jakı sorunları için komple ses sistemi kontrolü ve tamiri.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">💾</span>
@@ -514,7 +532,7 @@
         <div class="section-content">
             <div class="section-header">
                 <h2 class="section-title">VIP CEP Academy</h2>
-                <p class="section-subtitle">Apple anakart onarımı ve ileri düzey microsoldering mühendisliğinde uzmanlaşın.</p>
+                <p class="section-subtitle">Apple anakart onarımı og ileri düzey microsoldering mühendisliğinde uzmanlaşın.</p>
             </div>
             
             <div class="academy-grid">
@@ -543,7 +561,7 @@
                 <div class="portal-container">
                     <div>
                         <h3 style="color: white; font-weight: 600; margin-bottom: 15px;">🎓 Ön Hazırlık Portalı</h3>
-                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara ve şematik okuma notlarına erişebilirler.</p>
+                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara og şematik okuma notlarına erişebilirler.</p>
                         <ul class="portal-list">
                             <li>Temel elektroniğe giriş</li>
                             <li>Devre elemanları ve bağlantı şekilleri</li>
@@ -557,11 +575,11 @@
     </section>
 
     <div class="seat-modal-overlay" id="storeModalOverlay">
-        <div class="seat-modal-window">
+        <div class="store-modal-window">
             <button type="button" class="close-modal-btn" onclick="closeStoreModal()">✕</button>
             <div style="text-align: center; margin-bottom: 20px;">
                 <h2 style="font-size: 32px; font-weight: 800; color: var(--text-dark); letter-spacing: 0.5px;">VIPCEPSTORE</h2>
-                <p style="color: var(--gray-medium); font-size: 15px; margin-top: 5px;">Bizzat laboratuvarda kullandığımız, kalitesi onaylı ve en uygun fiyatlı usta sarf malzemeleri.</p>
+                <p style="color: var(--gray-medium); font-size: 15px; margin-top: 5px;">Bizzat laboratuvarda kullandığımız, kalitesi onaylı og en uygun fiyatlı usta sarf malzemeleri.</p>
             </div>
 
             <div class="store-grid">
@@ -650,7 +668,7 @@
         <div class="seat-modal-window" style="max-width: 750px;">
             <button type="button" class="close-modal-btn" onclick="closeCurriculumModal()">✕</button>
             <h3 style="color: white; text-align: center; margin-bottom: 5px; font-weight: 700; font-size: 24px;">WORKSHOP İÇERİĞİ VE YOL HARİTASI</h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma ve aktarım uzmanlığına giden süreç.</p>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma og aktarım uzmanlığına giden süreç.</p>
             
             <div class="curriculum-container">
                 <div class="curriculum-card border-orange">
@@ -659,7 +677,7 @@
                     <p class="desc">Temel elektronik prensiplerini ve anakart üzerindeki en kritik fiziksel müdahale tekniklerini kavrayacağınız aşama.</p>
                     <h5 style="color: var(--primary-orange) !important;">🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
-                        <li>V-I-R kavramları ve hat analizi</li>
+                        <li>V-I-R kavramları og hat analizi</li>
                         <li>Multimetre ve komponent kontrolü</li>
                         <li>Konnektör ve soket değişimi</li>
                         <li>Mikroskop altında jumper çekme</li>
