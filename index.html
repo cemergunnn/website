@@ -328,7 +328,7 @@
         }
         .academy-btn-table:hover { color: white; text-decoration: underline; }
 
-        /* 🎬 APPLE STYLE MODAL (SİNEMA SALONU PENCERESİ) */
+        /* 🎬 MODAL (SİNEMA SALONU PENCERESİ) */
         .seat-modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -361,9 +361,7 @@
             position: relative;
         }
 
-        .seat-modal-overlay.open .seat-modal-window {
-            transform: scale(1);
-        }
+        .seat-modal-overlay.open .seat-modal-window { transform: scale(1); }
 
         .close-modal-btn {
             position: absolute;
@@ -398,14 +396,16 @@
             border-radius: 5px 5px 0 0; cursor: pointer;
             transition: all 0.2s ease;
             display: flex; align-items: center; justify-content: center;
-            font-size: 9px; color: rgba(255, 255, 255, 0.6); font-weight: 600;
+            font-size: 9px; color: rgba(255, 255, 255, 0.7); font-weight: 600;
         }
         .seat:hover:not(.occupied) { transform: scale(1.15); background-color: var(--primary-green); color: white; box-shadow: 0 0 12px rgba(52, 199, 89, 0.4); }
         .seat.selected { background-color: var(--primary-orange) !important; border-color: #ff8c00 !important; color: white !important; box-shadow: 0 0 12px rgba(255, 107, 53, 0.5); }
-        .seat.occupied { background-color: #2c2c2e !important; border-color: #48484a !important; color: #48484a !important; cursor: not-allowed; }
+        .seat.occupied { background-color: #2c2c2e !important; border-color: #48484a !important; color: #636366 !important; cursor: not-allowed; }
 
+        /* Siyah Modda Parlayan Koltuk Göstergeleri */
         .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
-        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; color: #eaeaea; font-weight: 500; }
+        .legend-item span { color: #eaeaea; }
 
         .portal-container {
             background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
@@ -494,8 +494,8 @@
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#servisler">Servisler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#akademi" class="academy-link">VIP CEP Academy</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="#akademi" class="academy-link">VIP CEP Academy</a></li>
                 <li><a href="#teknisyen-bolumu" class="ask-expert">(Teknisyenler için) USTAMA SOR?</a></li>
             </ul>
         </nav>
@@ -586,82 +586,6 @@
         </div>
     </section>
 
-    <section id="akademi" class="section academy-section">
-        <div class="section-content">
-            <div class="section-header">
-                <h2 class="section-title" style="color: white;">VIP CEP Academy</h2>
-                <p class="section-subtitle" style="color: #86868b;">Apple anakart onarımı ve ileri düzey microsoldering mühendisliğinde uzmanlaşın.</p>
-            </div>
-            
-            <div class="academy-grid">
-                <div class="calendar-container">
-                    <h3 style="color: white; margin-bottom: 20px; font-weight: 600;">📅 2026 Workshop Takvimi</h3>
-                    <table class="academy-table" id="academyTable">
-                        <thead>
-                            <tr>
-                                <th>Workshop</th>
-                                <th>Tarih / Günler</th>
-                                <th>Kontenjan</th>
-                                <th>Seçim</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
-                                <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
-                                <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')">Koltuk Seç</button></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
-                                <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
-                                <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')">Koltuk Seç</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="portal-container">
-                    <div>
-                        <h3 style="color: white; font-weight: 600; margin-bottom: 15px;">🎓 Ön Hazırlık Portalı</h3>
-                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara og şematik okuma notlarına erişebilirler.</p>
-                        <ul class="portal-list">
-                            <li>Temel elektroniğe giriş</li>
-                            <li>Devre elemanları ve bağlantı şekilleri</li>
-                            <li>Şema okuma og arıza tespit mantığı</li>
-                        </ul>
-                    </div>
-                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-orange), #ff8c00); box-shadow: 0 10px 30px rgba(255,107,53,0.3); text-align: center; margin-top: 15px;">Öğrenci Girişi</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="seat-modal-overlay" id="seatModalOverlay">
-        <div class="seat-modal-window">
-            <button type="button" class="close-modal-btn" onclick="closeSeatModal()">✕</button>
-            <h3 id="modalTitle" style="color: white; text-align: center; margin-bottom: 5px; font-weight: 600; font-size: 20px;"></h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 13px; margin-bottom: 25px;">Lütfen oturmak istediğiniz boş koltuğu seçin.</p>
-            
-            <div class="screen">LABORATUVAR / VİZYON PERDESİ</div>
-            
-            <div class="cinema-room" id="modalCinemaRoom"></div>
-
-            <div class="seat-legend">
-                <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15);"></div> <span>Müsait</span></div>
-                <div class="legend-item"><div class="seat selected"></div> <span>Seçiminiz</span></div>
-                <div class="legend-item"><div class="seat occupied"></div> <span>Dolu</span></div>
-            </div>
-
-            <div style="text-align: center; margin-top: 30px;">
-                <button type="button" id="modalConfirmBtn" class="btn btn-primary" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 25px rgba(37,211,102,0.4); border: none; padding: 14px 40px; font-size: 16px; display: none; border-radius: 50px;">
-                    Rezervasyonu WhatsApp ile Tamamla
-                </button>
-            </div>
-        </div>
-    </div>
-
     <section id="iletisim" class="section">
         <div class="section-content">
             <div class="section-header">
@@ -706,14 +630,81 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <section id="akademi" class="section academy-section">
         <div class="section-content">
-            <div class="footer-logo">
-                <img src="logo.png" alt="VIP CEP SERVİS">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">VIP CEP Academy</h2>
+                <p class="section-subtitle" style="color: #86868b;">Apple anakart onarımı ve ileri düzey microsoldering mühendisliğinde uzmanlaşın.</p>
             </div>
-            <p class="footer-text">© 2017 VIP CEP SERVİS. Tüm hakları saklıdır.</p>
+            
+            <div class="academy-grid">
+                <div class="calendar-container">
+                    <h3 style="color: white; margin-bottom: 20px; font-weight: 600;">📅 2026 Workshop Takvimi</h3>
+                    <table class="academy-table" id="academyTable">
+                        <thead>
+                            <tr>
+                                <th>Workshop</th>
+                                <th>Tarih / Günler</th>
+                                <th>Kontenjan</th>
+                                <th>Seçim</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
+                                <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
+                                <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
+                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')">Koltuk Seç</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
+                                <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
+                                <td><span class="status-pill open">Kayıt Açık</span></td>
+                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')">Koltuk Seç</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="portal-container">
+                    <div>
+                        <h3 style="color: white; font-weight: 600; margin-bottom: 15px;">🎓 Ön Hazırlık Portalı</h3>
+                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara ve şematik okuma notlarına erişebilirler.</p>
+                        <ul class="portal-list">
+                            <li>Temel elektroniğe giriş</li>
+                            <li>Devre elemanları ve bağlantı şekilleri</li>
+                            <li>Şema okuma ve arıza tespit mantığı</li>
+                        </ul>
+                    </div>
+                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="background: var(--primary-blue); box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3); text-align: center; margin-top: 15px; border-radius: 50px;">Öğrenci Girişi</a>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
+
+    <div class="seat-modal-overlay" id="seatModalOverlay">
+        <div class="seat-modal-window">
+            <button type="button" class="close-modal-btn" onclick="closeSeatModal()">✕</button>
+            <h3 id="modalTitle" style="color: white; text-align: center; margin-bottom: 5px; font-weight: 600; font-size: 20px;"></h3>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 13px; margin-bottom: 25px;">Birden fazla koltuk seçebilirsiniz.</p>
+            
+            <div class="screen">LABORATUVAR / VİZYON PERDESİ</div>
+            
+            <div class="cinema-room" id="modalCinemaRoom"></div>
+
+            <div class="seat-legend">
+                <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15); cursor:default;"></div> <span>Müsait</span></div>
+                <div class="legend-item"><div class="seat selected" style="cursor:default;"></div> <span>Seçiminiz</span></div>
+                <div class="legend-item"><div class="seat occupied" style="cursor:default;"></div> <span>Dolu</span></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button type="button" id="modalConfirmBtn" class="btn btn-primary" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 25px rgba(37,211,102,0.4); border: none; padding: 14px 40px; font-size: 16px; display: none; border-radius: 50px;">
+                    Rezervasyonu WhatsApp ile Tamamla
+                </button>
+            </div>
+        </div>
+    </div>
 
     <section id="teknisyen-bolumu" class="section" style="background: #0a0a0a; padding: 200px 0; margin-top: 100px;">
         <div class="section-content">
@@ -753,14 +744,12 @@
         </div>
     </section>
 
-    <a href="tel:+905317493693" class="fab"></a>
-
     <script>
-        // --- 🎬 PENCERE İÇİ REZERVASYON VE SALON KODLARI ---
+        // --- 🎬 JAVASCRIPT WORKSHOP & ÇOKLU REZERVASYON MODAL KODLARI ---
         let selectedPeriod = '';
-        let selectedSeatNumber = '';
+        let selectedSeats = []; // Çoklu koltuk takibi için diziye dönüştürüldü
 
-        // 17 Boş koltuk eşleşmesi için Haziran ayına tam 13 dolu koltuk koordinatı yerleştirildi (30 - 13 = 17 Boş)
+        // Tam 17 boş koltuk kalacak şekilde Haziran ayına 13 adet sabit dolu koltuk yerleştirildi
         const occupiedSeatsData = {
             'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10', 'A10'],
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
@@ -768,7 +757,7 @@
 
         function openSeatModal(period) {
             selectedPeriod = period;
-            selectedSeatNumber = '';
+            selectedSeats = []; // Her açılışta seçimleri sıfırla
 
             const overlay = document.getElementById('seatModalOverlay');
             const title = document.getElementById('modalTitle');
@@ -803,7 +792,7 @@
                         seat.classList.add('occupied');
                     } else {
                         seat.addEventListener('click', function() {
-                            selectModalSeat(seatId);
+                            toggleModalSeat(seatId);
                         });
                     }
                     rowDiv.appendChild(seat);
@@ -818,28 +807,44 @@
             document.getElementById('seatModalOverlay').classList.remove('open');
         }
 
-        function selectModalSeat(seatId) {
-            document.querySelectorAll('#modalCinemaRoom .seat').forEach(s => s.classList.remove('selected'));
+        // Çoklu koltuk ekleme / çıkarma fonksiyonu
+        function toggleModalSeat(seatId) {
             const targetSeat = document.querySelector(`#modalCinemaRoom [data-seat-id="${seatId}"]`);
-            targetSeat.classList.add('selected');
             
-            selectedSeatNumber = seatId;
+            if (selectedSeats.includes(seatId)) {
+                // Eğer zaten seçilmişse listeden çıkar ve rengini sıfırla
+                selectedSeats = selectedSeats.filter(id => id !== seatId);
+                targetSeat.classList.remove('selected');
+            } else {
+                // Seçilmemişse listeye ekle ve turuncu yap
+                selectedSeats.push(seatId);
+                targetSeat.classList.add('selected');
+            }
             
             const confirmBtn = document.getElementById('modalConfirmBtn');
-            confirmBtn.innerText = `Koltuk ${seatId} Rezervasyonunu WhatsApp ile Onayla`;
-            confirmBtn.style.display = 'inline-block';
+            
+            if (selectedSeats.length > 0) {
+                // Seçilen tüm koltukları yan yana sırala ve butona bas
+                selectedSeats.sort(); // Koltukları alfabetik sırala (Örn: A1, A2, B4)
+                confirmBtn.innerText = `${selectedSeats.length} Koltuk Seçildi (${selectedSeats.join(', ')}) — Rezervasyonu Onayla`;
+                confirmBtn.style.display = 'inline-block';
+            } else {
+                confirmBtn.style.display = 'none';
+            }
         }
 
         function redirectToWhatsApp() {
-            if(!selectedPeriod || !selectedSeatNumber) return;
+            if(!selectedPeriod || selectedSeats.length === 0) return;
             const phoneNumber = '905317493693';
             const dateTxt = selectedPeriod === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
-            const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeatNumber} ile kaydımı oluşturmak ve detayları görüşmek istiyorum.`;
+            
+            // Seçilen tüm koltuk numaralarını dinamik olarak mesajın içine basıyoruz usta
+            const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeats.join(', ')} ile kaydımızı oluşturmak ve detayları görüşmek istiyorum.`;
             
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- 📱 ANİMASYONLAR VE TEMEL SİTE MOTİFLERİ ---
+        // --- 📱 EFECTLER VE TEMEL SİTE MOTİFLERİ ---
         const mouseFollower = document.querySelector('.mouse-follower');
         let mouseX = 0, mouseY = 0;
         let followerX = 0, followerY = 0;
