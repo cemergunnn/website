@@ -126,7 +126,7 @@
             100% { transform: translateY(-50%) translateY(0) rotate(0deg); }
         }
 
-        /* ❓ "USTAMA SOR?" Soru İşareti Dönen Animasyon (Kırmızı Çapak Tamamen Elendi) */
+        /* ❓ "USTAMA SOR?" Soru İşareti Dönen Animasyon (Kırmızı Tamamen Kazındı) */
         .nav-links a.ask-expert, .mobile-direct-links a.m-expert {
             position: relative;
             display: inline-flex;
@@ -238,72 +238,66 @@
         .features-visual { display: flex; justify-content: center; position: relative; }
         .phone-showcase { width: 100%; max-width: 450px; height: 380px; background-image: url('backpro1.png'); background-size: contain; background-position: center; background-repeat: no-repeat; }
 
-        /* 📅 YENİ GERÇEK TAKVİM AY KARTLARI DÜZENİ */
+        /* 📅 MİNİMALİST KARE KART TAKVİM DÜZENİ */
         .academy-section { background-color: var(--academy-dark); color: white; border-top: 2px solid rgba(255,255,255,0.05); }
         .academy-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
         .calendar-container { background: #1c1c1e; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 30px; width: 100%; }
 
         .months-display-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
             margin-top: 15px;
         }
 
         .month-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 30px 20px;
+            border-radius: 14px;
+            padding: 25px 15px;
             text-align: center;
             cursor: pointer;
-            transition: 0.3s ease;
-            position: relative;
+            transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .month-card:hover {
-            transform: translateY(-5px);
-            background: rgba(240, 90, 40, 0.05);
+        .month-card:hover:not(.disabled-card) {
+            transform: translateY(-4px);
+            background: rgba(240, 90, 40, 0.06);
             border-color: var(--primary-orange);
-            box-shadow: 0 10px 25px rgba(240, 90, 40, 0.1);
+            box-shadow: 0 8px 20px rgba(240, 90, 40, 0.15);
         }
 
-        .month-card h4 { font-size: 22px; font-weight: 800; color: white; margin-bottom: 5px; letter-spacing: 1px; }
-        .month-card p { font-size: 13px; color: var(--gray-medium); text-transform: uppercase; font-weight: 600; }
-        .month-card .badge-notify { position: absolute; top: 15px; right: 15px; font-size: 10px; font-weight: 700; background: rgba(255, 77, 77, 0.15); color: #ff4d4d; padding: 3px 8px; border-radius: 10px; border: 1px solid rgba(255,77,77,0.2); }
-        .month-card.open-card .badge-notify { background: rgba(52, 199, 89, 0.15); color: var(--primary-green); border: 1px solid rgba(52,199,89,0.2); }
+        .month-card h4 { font-size: 20px; font-weight: 800; color: white; margin-bottom: 4px; }
+        .month-card .status-txt { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Aktif / Pasif Ay Kartı Renk Tanımlamaları */
+        .month-card.urgent-card .status-txt { color: #ff4d4d; }
+        .month-card.open-card .status-txt { color: var(--primary-green); }
+        .month-card.disabled-card { opacity: 0.25; cursor: not-allowed; border-style: dashed; }
+        .month-card.disabled-card .status-txt { color: var(--gray-medium); font-weight: 500; }
 
-        /* 📋 DETAY PENCERESİ (INFO MODAL DETAYLARI) */
-        .info-modal-data-layout {
+        /* 📊 YENİLENEN SADE VE NET DÖNEM PENCERESİ */
+        .info-modal-clean-layout {
+            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 10px;
-            padding-top: 10px;
-        }
-        .info-data-row {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 12px;
+            gap: 15px;
+            padding: 10px 0;
         }
-        .info-data-row span.label { color: var(--gray-medium); font-size: 14px; font-weight: 500; }
-        .info-data-row span.val { color: white; font-size: 15px; font-weight: 600; }
+        
+        .modal-huge-date { font-size: 28px; font-weight: 800; color: #ff7a45; letter-spacing: 0.5px; margin-bottom: 2px; }
+        .modal-sub-title { font-size: 18px; font-weight: 700; color: white; }
 
-        .workshop-date { font-size: 16px; font-weight: 700; color: #ff7a45; letter-spacing: 0.5px; }
-        .status-pill { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
-        .status-pill.urgent { background: rgba(255, 77, 77, 0.12); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.2); }
-        .status-pill.open { background: rgba(52, 199, 89, 0.12); color: var(--primary-green); border: 1px solid rgba(52, 199, 89, 0.2); }
-
-        /* 🟢 YEŞİL PREMIUM REZERVASYON BUTONU */
+        /* YEŞİL PREMIUM REZERVASYON BUTONU */
         .btn-select-green {
             color: #34C759 !important; font-weight: 700 !important;
-            border: 1px solid rgba(52, 199, 89, 0.4) !important;
-            padding: 8px 18px !important; border-radius: 30px !important;
-            background: rgba(52, 199, 89, 0.05) !important;
-            transition: 0.3s; cursor: pointer; font-family: inherit; font-size: 14px;
+            border: 1px solid rgba(52, 199, 89, 0.5) !important;
+            padding: 12px 35px !important; border-radius: 50px !important;
+            background: rgba(52, 199, 89, 0.04) !important;
+            transition: 0.3s; cursor: pointer; font-family: inherit; font-size: 15px;
+            width: 100%; max-width: 320px; margin-top: 10px;
         }
-        .btn-select-green:hover { background: var(--primary-green) !important; color: white !important; box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3); }
+        .btn-select-green:hover { background: var(--primary-green) !important; color: white !important; box-shadow: 0 6px 20px rgba(52, 199, 89, 0.3); }
 
         /* ℹ️ DETAYLI BİLGİ INFO BUTONU */
         .btn-info-circle {
@@ -389,7 +383,6 @@
             .mobile-menu-btn { display: block; order: 3; margin-left: 5px; }
             .logo { order: 1; }
             
-            /* Mobilde Üst Sabit Marka Linkleri (Tamamen Bembeyaz Yapıldı) */
             .mobile-direct-links { display: flex; order: 2; margin-left: auto; }
             .mobile-direct-links a { font-size: 10px; padding: 6px 8px; border-radius: 12px; }
             .mobile-direct-links .m-academy { padding-right: 20px; } 
@@ -423,8 +416,10 @@
             .academy-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5px; }
             .calendar-container { padding: 20px 15px; }
             
-            .months-display-grid { grid-template-columns: 1fr; gap: 15px; }
-            .month-card { padding: 20px; }
+            .months-display-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .month-card { padding: 15px 10px; }
+            .month-card h4 { font-size: 15px; }
+            .month-card .status-txt { font-size: 9px; }
 
             .bullet-grid { grid-template-columns: 1fr; gap: 8px; }
             .curriculum-card { padding: 18px; }
@@ -494,7 +489,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
-                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
+                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD og OLED değişimi hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔋</span>
@@ -607,15 +602,21 @@
                 <div class="calendar-container">
                     <h3 style="color: white; margin-bottom: 20px; font-weight: 600;">📅 2026 Workshop Dönemleri</h3>
                     <div class="months-display-grid">
-                        <div class="month-card" onclick="openMonthDetailModal('Haziran')">
-                            <span class="badge-notify">Son 17 Koltuk</span>
+                        <div class="month-card urgent-card" onclick="openMonthDetailModal('Haziran')">
                             <h4>HAZİRAN</h4>
-                            <p>2026 Workshop</p>
+                            <span class="status-txt">Son 17 Koltuk</span>
                         </div>
-                        <div class="month-card open-card" onclick="openMonthDetailModal('Temmuz')">
-                            <span class="badge-notify">Kayıt Açık</span>
-                            <h4>TEMMUZ</h4>
-                            <p>2026 Workshop</p>
+                        <div class="month-card open-card" onclick="openMonthDetailModal('Agustos')">
+                            <h4>AĞUSTOS</h4>
+                            <span class="status-txt">Kayıt Açık</span>
+                        </div>
+                        <div class="month-card open-card" onclick="openMonthDetailModal('Ekim')">
+                            <h4>EKİM</h4>
+                            <span class="status-txt">Kayıt Açık</span>
+                        </div>
+                        <div class="month-card disabled-card">
+                            <h4>ARALIK</h4>
+                            <span class="status-txt">Yakında Açılacak</span>
                         </div>
                     </div>
                 </div>
@@ -637,31 +638,19 @@
     </section>
 
     <div class="seat-modal-overlay" id="monthDetailModalOverlay">
-        <div class="seat-modal-window" style="max-width: 500px;">
+        <div class="seat-modal-window" style="max-width: 480px; border-radius: 20px;">
             <button type="button" class="close-modal-btn" onclick="closeMonthDetailModal()">✕</button>
-            <h3 id="mDetailTitle" style="color: white; text-align: center; font-size: 22px; font-weight: 800; margin-bottom: 20px; letter-spacing: 0.5px;"></h3>
             
-            <div class="info-modal-data-layout">
-                <div class="info-data-row">
-                    <span class="label">Workshop Programı:</span>
-                    <span class="val" style="color: var(--primary-orange);">Konaklamalı Workshop</span>
-                </div>
-                <div class="info-data-row">
-                    <span class="label">Ders İçeriği Modülü:</span>
-                    <button type="button" class="btn-info-circle" onclick="openCurriculumModal()">ℹ️ Detaylı Bilgi</button>
-                </div>
-                <div class="info-data-row">
-                    <span class="label">Dönem Tarihleri:</span>
-                    <span class="val id-modal-date text-highlight"></span>
-                </div>
-                <div class="info-data-row">
-                    <span class="label">Mevcut Kontenjan:</span>
-                    <span class="val id-modal-pill"></span>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 35px;">
-                <button type="button" class="btn-select-green" style="width: 100%; padding: 14px 0;" onclick="triggerSeatMapFromMonth()">Koltuk Seçimine İlerle ➔</button>
+            <div class="info-modal-clean-layout">
+                <div class="modal-huge-date id-modal-huge-date"></div>
+                
+                <div class="modal-sub-title">Konaklamalı Workshop</div>
+                
+                <button type="button" class="btn-info-circle" onclick="openCurriculumModal()">ℹ️ Detaylı Bilgi</button>
+                
+                <div class="id-modal-pill-status" style="margin-top: 5px;"></div>
+                
+                <button type="button" class="btn-select-green" onclick="triggerSeatMapFromMonth()">Koltuk Seçimine İlerle ➔</button>
             </div>
         </div>
     </div>
@@ -687,7 +676,7 @@
         <div class="seat-modal-window" style="max-width: 750px;">
             <button type="button" class="close-modal-btn" onclick="closeCurriculumModal()">✕</button>
             <h3 style="color: white; text-align: center; margin-bottom: 5px; font-weight: 700; font-size: 24px;">WORKSHOP İÇERİĞİ VE YOL HARİTASI</h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma ve aktarım uzmanlığına giden süreç.</p>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma og aktarım uzmanlığına giden süreç.</p>
             
             <div class="curriculum-container">
                 <div class="curriculum-card border-orange">
@@ -734,7 +723,7 @@
         <div class="section-content">
             <div class="section-header">
                 <h2 class="section-title" style="color: white;">USTAMA SOR?</h2>
-                <p class="section-subtitle" style="color: #999;">teknisyenlere özel görüntülü, sesli og ekran paylaşımlı teknik destek uygulaması.</p>
+                <p class="section-subtitle" style="color: #999;">teknisyenlere özel görüntülü, sesli ve ekran paylaşımlı teknik destek uygulaması.</p>
             </div>
             <div class="container">
                 <div class="platform">
@@ -786,32 +775,34 @@
             document.querySelector('.mobile-menu-btn').innerText = '☰';
         }
 
-        // --- 🎬 REZERVASYON VE TAKVİM PANEL KODLARI ---
+        // --- 🎬 REZERVASYON VE GERÇEK KARE KART TAKVİM KODLARI ---
         let selectedPeriod = '';
         let selectedSeats = [];
 
+        // 🟢 Tüm gelecek dönemlerin koltuk hafızaları kilitlendi (Ağustos ve Ekim tamamen bomboş usta)
         const occupiedSeatsData = {
             'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10', 'A10'],
-            'Temmuz': [] // Temmuz ayı tertemiz, bomboş usta
+            'Agustos': [],
+            'Ekim': []
         };
 
-        // 📅 Dönem Detay Penceresini Açan Akıllı Fonksiyon
+        // 📊 Detay Penceresini Tam İstediğin Apple Tasarım Formunda Açan Fonksiyon
         function openMonthDetailModal(period) {
             selectedPeriod = period;
             
             const overlay = document.getElementById('monthDetailModalOverlay');
-            const title = document.getElementById('mDetailTitle');
-            const dateSpan = overlay.querySelector('.id-modal-date');
-            const pillSpan = overlay.querySelector('.id-modal-pill');
+            const hugeDateDiv = overlay.querySelector('.id-modal-huge-date');
+            const pillStatusDiv = overlay.querySelector('.id-modal-pill-status');
 
-            title.innerText = `📅 VIP CEP ACADEMY — ${period.toUpperCase()} 2026`;
-            
             if(period === 'Haziran') {
-                dateSpan.innerHTML = `<span class="workshop-date">19 - 22 Haziran 2026</span><br><small style="color:var(--gray-medium)">(Cuma - Ptesi Sabahı)</small>`;
-                pillSpan.innerHTML = `<span class="status-pill urgent">Son 17 Koltuk</span>`;
-            } else {
-                dateSpan.innerHTML = `<span class="workshop-date">17 - 20 Temmuz 2026</span><br><small style="color:var(--gray-medium)">(Cuma - Ptesi Sabahı)</small>`;
-                pillSpan.innerHTML = `<span class="status-pill open">Kayıt Açık (30 Boş)</span>`;
+                hugeDateDiv.innerText = "19 - 22 Haziran 2026";
+                pillStatusDiv.innerHTML = `<span class="status-pill urgent">Son 17 Koltuk</span>`;
+            } else if(period === 'Agustos') {
+                hugeDateDiv.innerText = "21 - 24 Ağustos 2026";
+                pillStatusDiv.innerHTML = `<span class="status-pill open">Kayıt Açık (30 Boş)</span>`;
+            } else if(period === 'Ekim') {
+                hugeDateDiv.innerText = "23 - 26 Ekim 2026";
+                pillStatusDiv.innerHTML = `<span class="status-pill open">Kayıt Açık (30 Boş)</span>`;
             }
 
             overlay.classList.add('open');
@@ -821,7 +812,6 @@
             document.getElementById('monthDetailModalOverlay').classList.remove('open');
         }
 
-        // Kartın içinden koltuk seçimine yönlendiren akıllı geçiş köprüsü
         function triggerSeatMapFromMonth() {
             closeMonthDetailModal();
             setTimeout(() => {
@@ -837,7 +827,11 @@
             const room = document.getElementById('modalCinemaRoom');
             const confirmBtn = document.getElementById('modalConfirmBtn');
 
-            const dateDetail = period === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
+            let dateDetail = '';
+            if(period === 'Haziran') dateDetail = '19-22 Haziran';
+            else if(period === 'Agustos') dateDetail = '21-24 Ağustos';
+            else if(period === 'Ekim') dateDetail = '23-26 Ekim';
+
             title.innerText = `🎬 Oturma Planı — ${dateDetail}`;
             confirmBtn.style.display = 'none';
             room.innerHTML = '';
@@ -894,7 +888,12 @@
         function redirectToWhatsApp() {
             if(!selectedPeriod || selectedSeats.length === 0) return;
             const phoneNumber = '905317493693';
-            const dateTxt = selectedPeriod === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
+            
+            let dateTxt = '';
+            if(selectedPeriod === 'Haziran') dateTxt = '19-22 Haziran';
+            else if(selectedPeriod === 'Agustos') dateTxt = '21-24 Ağustos';
+            else if(selectedPeriod === 'Ekim') dateTxt = '23-26 Ekim';
+
             const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeats.join(', ')} ile kaydımı oluşturmak ve detayları görüşmek istiyorum.`;
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
