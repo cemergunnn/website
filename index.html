@@ -149,24 +149,25 @@
         
         .nav-links a.ask-expert::before { animation: spin 3s linear infinite; }
 
-        /* 📱 Mobil Üst Kısım Sabit İkon Barı Stilleri */
+        /* 📱 Mobil Üst Kısım Sabit İkon Barı Tasarımı (Orijinal İsimlerle Korundu) */
         .mobile-direct-links {
             display: none;
-            gap: 8px;
+            gap: 6px;
             align-items: center;
         }
 
         .mobile-direct-links a {
             text-decoration: none !important;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 15px;
+            padding: 5px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
         }
 
         .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.08); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.15); }
         .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; }
-        .mobile-direct-links .m-expert::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E"); margin-right: 4px; vertical-align: middle; }
+        .mobile-direct-links .m-expert::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E"); margin-right: 3px; vertical-align: middle; }
 
         .mobile-menu-btn {
             display: none;
@@ -329,8 +330,10 @@
             .mobile-menu-btn { display: block; order: 3; margin-left: 5px; }
             .logo { order: 1; }
             
-            /* Mobilde Üst Sabit Vizyon Linkleri */
+            /* Mobilde Üst Sabit Marka Linkleri Orijinal İsimleriyle Kilitlendi */
             .mobile-direct-links { display: flex; order: 2; margin-left: auto; }
+            .mobile-direct-links a { font-size: 10px; padding: 6px 8px; border-radius: 12px; }
+            .mobile-direct-links .m-academy { padding-right: 20px; } /* Kep animasyonu için alan */
             
             .nav-links {
                 position: fixed; top: 60px; left: 100%; width: 100%; height: calc(100vh - 60px);
@@ -367,7 +370,7 @@
             .academy-table tr { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; margin-bottom: 15px; padding: 12px; }
             .academy-table td { padding: 4px 0; text-align: center; border: none; }
             .academy-table td br { display: none; }
-            .academy-table td:has(.btn-select-trigger) { display: none; } /* Mobilde koltuk seç tuş satırı komple imha edildi usta */
+            .academy-table td:has(.btn-select-trigger) { display: none; } 
             
             /* Mobilde inline şema hazır açık gelir */
             .mobile-inline-seat-wrapper { display: block; }
@@ -399,8 +402,8 @@
             </a>
             
             <div class="mobile-direct-links">
-                <a href="#akademi" class="m-academy">🎓 Academy</a>
-                <a href="#teknisyen-bolumu" class="m-expert">❓ Sor</a>
+                <a href="#akademi" class="m-academy">🎓 VIP CEP ACADEMY</a>
+                <a href="#teknisyen-bolumu" class="m-expert">❓ USTAMA SOR</a>
             </div>
 
             <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -852,6 +855,7 @@
             } else { confirmBtn.style.display = 'none'; }
         }
 
+        // WhatsApp Yönlendirme Kodu
         function redirectToWhatsApp() {
             if(!selectedPeriod || selectedSeats.length === 0) return;
             const phoneNumber = '905317493693';
