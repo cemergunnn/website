@@ -126,12 +126,11 @@
             100% { transform: translateY(-50%) translateY(0) rotate(0deg); }
         }
 
-        /* ❓ "USTAMA SOR?" Link Stili */
+        /* ❓ "USTAMA SOR?" Soru İşareti Dönen Animasyon */
         .nav-links a.ask-expert, .mobile-direct-links a.m-expert {
             position: relative;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
         }
 
         .nav-links a.ask-expert {
@@ -140,16 +139,21 @@
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 600;
+            gap: 6px;
         }
 
         .nav-links a.ask-expert::before, .mobile-direct-links a.m-expert::before {
             content: ''; width: 14px; height: 14px; display: inline-block;
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E") center/contain no-repeat;
+            animation: spin 3s linear infinite; /* Dönme efekti canlandırıldı */
         }
-        
-        .nav-links a.ask-expert::before { animation: spin 3s linear infinite; }
 
-        /* 📱 Mobil Üst Kısım Sabit İkon Barı Tasarımı (Orijinal İsimlerle Korundu) */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 📱 Mobil Üst Sabit İkon Barı Tasarımı */
         .mobile-direct-links {
             display: none;
             gap: 6px;
@@ -160,14 +164,13 @@
             text-decoration: none !important;
             font-size: 10px;
             font-weight: 700;
-            padding: 5px 8px;
+            padding: 6px 10px;
             border-radius: 12px;
             text-transform: uppercase;
         }
 
         .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.08); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.15); }
-        .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; }
-        .mobile-direct-links .m-expert::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E"); margin-right: 3px; vertical-align: middle; }
+        .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; gap: 4px; }
 
         .mobile-menu-btn {
             display: none;
@@ -194,8 +197,8 @@
 
         .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 40px; z-index: 3; position: relative; }
         .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.15); padding: 6px 16px; border-radius: 25px; font-size: 13px; font-weight: 600; margin-bottom: 20px; backdrop-filter: blur(10px); color: var(--primary-orange); border: 1px solid rgba(255,255,255,0.1); }
-        .hero-headline { font-size: 56px; font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
-        .hero-subheadline { font-size: 20px; font-weight: 400; color: #cbd5e1; margin-bottom: 35px; max-width: 600px; }
+        .hero-headline { font-size: 64px; font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+        .hero-subheadline { font-size: 24px; font-weight: 400; color: #cbd5e1; margin-bottom: 35px; max-width: 600px; }
         .hero-buttons { display: flex; gap: 15px; }
 
         .btn {
@@ -251,15 +254,14 @@
         .status-pill.urgent { background: rgba(255, 77, 77, 0.12); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.2); }
         .status-pill.open { background: rgba(52, 199, 89, 0.12); color: var(--primary-green); border: 1px solid rgba(52, 199, 89, 0.2); }
 
-        /* 📱 MOBİLDE DOĞRUDAN HAZIR VE AÇIK GELEN BUTONSUZ KOLTUK ALANI */
-        .mobile-inline-seat-wrapper {
-            display: none;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 20px 10px;
-            margin-top: 25px;
-            width: 100%;
+        /* 📱 TABLO İÇİ DOĞRUDAN HAZIR VE AÇIK GELEN MOBİL KOLTUK ALANI (MUKAVEMETLİ) */
+        .mobile-inline-seat-row {
+            display: none; /* Masaüstünde gizli, mobilde CSS ile açılacak usta */
+            background: rgba(255, 255, 255, 0.01) !important;
+        }
+        .mobile-inline-seat-container {
+            padding: 20px 10px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .portal-container { background: #1c1c1e; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
@@ -267,7 +269,7 @@
         .portal-list li { padding: 8px 0; font-size: 14px; color: #cbd5e1; display: flex; align-items: center; gap: 10px; }
         .portal-list li::before { content: "✓"; color: var(--primary-orange); font-weight: bold; }
 
-        /* 🎬 PC MODAL (SİNEMA SALONU PENCERESİ) */
+        /* 🎬 PC MODAL (SİNEMA SALONU PENCERESİ — SADECE PC) */
         .seat-modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(20px);
@@ -330,10 +332,10 @@
             .mobile-menu-btn { display: block; order: 3; margin-left: 5px; }
             .logo { order: 1; }
             
-            /* Mobilde Üst Sabit Marka Linkleri Orijinal İsimleriyle Kilitlendi */
+            /* Mobilde Üst Sabit Marka Linkleri */
             .mobile-direct-links { display: flex; order: 2; margin-left: auto; }
             .mobile-direct-links a { font-size: 10px; padding: 6px 8px; border-radius: 12px; }
-            .mobile-direct-links .m-academy { padding-right: 20px; } /* Kep animasyonu için alan */
+            .mobile-direct-links .m-academy { padding-right: 20px; } 
             
             .nav-links {
                 position: fixed; top: 60px; left: 100%; width: 100%; height: calc(100vh - 60px);
@@ -364,16 +366,16 @@
             .academy-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5px; }
             .calendar-container { padding: 15px 10px; }
             
-            /* Dikey Esnek Tablo Çözümü */
+            /* Dikey Esnek Tablo Düzeni */
             .academy-table, .academy-table tbody, .academy-table tr, .academy-table td { display: block; width: 100%; }
             .academy-table th { display: none; } 
             .academy-table tr { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; margin-bottom: 15px; padding: 12px; }
             .academy-table td { padding: 4px 0; text-align: center; border: none; }
             .academy-table td br { display: none; }
-            .academy-table td:has(.btn-select-trigger) { display: none; } 
+            .academy-table td:has(.btn-select-trigger) { display: none; } /* Koltuk seç buton satırı mobilde imha edildi usta */
             
-            /* Mobilde inline şema hazır açık gelir */
-            .mobile-inline-seat-wrapper { display: block; }
+            /* Mobilde Satır Altı Inline Şemalar Açılır */
+            .mobile-inline-seat-row { display: table-row !important; }
 
             .bullet-grid { grid-template-columns: 1fr; gap: 8px; }
             .curriculum-card { padding: 18px; }
@@ -383,7 +385,7 @@
             .container { grid-template-columns: 1fr; gap: 20px; }
             .platform { padding: 25px 15px; }
 
-            /* Dokunmatik Usta Boy Koltuk Ayarları */
+            /* Dokunmatik Koltuk Ayarları */
             .seat { width: 28px; height: 26px; font-size: 9px; }
             .row-label { font-size: 12px; width: 15px; }
             .seat-legend { gap: 10px; font-size: 11px; flex-wrap: wrap; }
@@ -573,6 +575,22 @@
                                 <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
                                 <td class="btn-select-trigger"><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
                             </tr>
+                            <tr class="mobile-inline-seat-row">
+                                <td colspan="4" class="mobile-inline-seat-container">
+                                    <h4 style="color: var(--primary-orange); text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: 700;">➔ HAZİRAN DÖNEMİ OTURMA PLANİ</h4>
+                                    <div class="screen" style="width:90%; margin-bottom: 15px;">VİZYON PERDESİ</div>
+                                    <div class="cinema-room" id="mobileInlineRoom-Haziran"></div>
+                                    <div class="seat-legend">
+                                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15); width:18px; height:16px;"></div><span>Müsait</span></div>
+                                        <div class="legend-item"><div class="seat selected" style="width:18px; height:16px;"></div><span>Seçiminiz</span></div>
+                                        <div class="legend-item"><div class="seat occupied" style="width:18px; height:16px;"></div><span>Dolu</span></div>
+                                    </div>
+                                    <div style="text-align: center; margin-top: 20px;">
+                                        <button type="button" id="mInlineConfirmBtn-Haziran" class="btn btn-primary m-inline-btn" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); font-size: 13px; width: 100%; max-width: 260px; display:none; padding: 10px 20px;">Rezervasyonu Tamamla</button>
+                                    </div>
+                                </td>
+                            </tr>
+
                             <tr>
                                 <td>
                                     <strong>Konaklamalı İleri Seviye Onarım</strong><br>
@@ -582,22 +600,23 @@
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
                                 <td class="btn-select-trigger"><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
                             </tr>
+                            <tr class="mobile-inline-seat-row">
+                                <td colspan="4" class="mobile-inline-seat-container">
+                                    <h4 style="color: #4fa3ff; text-align: center; margin-bottom: 12px; font-size: 13px; font-weight: 700;">➔ TEMMUZ DÖNEMİ OTURMA PLANİ</h4>
+                                    <div class="screen" style="width:90%; margin-bottom: 15px;">VİZYON PERDESİ</div>
+                                    <div class="cinema-room" id="mobileInlineRoom-Temmuz"></div>
+                                    <div class="seat-legend">
+                                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15); width:18px; height:16px;"></div><span>Müsait</span></div>
+                                        <div class="legend-item"><div class="seat selected" style="width:18px; height:16px;"></div><span>Seçiminiz</span></div>
+                                        <div class="legend-item"><div class="seat occupied" style="width:18px; height:16px;"></div><span>Dolu</span></div>
+                                    </div>
+                                    <div style="text-align: center; margin-top: 20px;">
+                                        <button type="button" id="mInlineConfirmBtn-Temmuz" class="btn btn-primary m-inline-btn" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); font-size: 13px; width: 100%; max-width: 260px; display:none; padding: 10px 20px;">Rezervasyonu Tamamla</button>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-
-                    <div class="mobile-inline-seat-wrapper" id="mobileInlineSeatPanel">
-                        <h4 style="color: var(--primary-orange); text-align: center; margin-bottom: 15px; font-size: 15px; font-weight: 700;">➔ HAZİRAN DÖNEMİ OTURMA PLANI</h4>
-                        <div class="screen" style="width:90%; margin-bottom: 20px;">VİZYON PERDESİ</div>
-                        <div class="cinema-room" id="mobileInlineRoom"></div>
-                        <div class="seat-legend">
-                            <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15); width:20px; height:18px;"></div><span>Müsait</span></div>
-                            <div class="legend-item"><div class="seat selected" style="width:20px; height:18px;"></div><span>Seçiminiz</span></div>
-                            <div class="legend-item"><div class="seat occupied" style="width:20px; height:18px;"></div><span>Dolu</span></div>
-                        </div>
-                        <div style="text-align: center; margin-top: 25px;">
-                            <button type="button" id="mInlineConfirmBtn" class="btn btn-primary" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 20px rgba(37,211,102,0.3); font-size: 14px; width: 100%; max-width: 280px; display:none;">Rezervasyonu Tamamla</button>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="portal-container">
@@ -701,6 +720,14 @@
                     <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 25px; color: white;">windows Pc</h2>
                     <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" target="_blank" class="btn btn-secondary" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #4CAF50, #388E3C);">İNDİR</a>
                     <a href="#" class="btn btn-id" onclick="openWhatsApp('desktop')" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; display: inline-block; border-radius: 50px; text-decoration: none; padding: 14px 28px; font-weight: 600; font-size: 15px;">ID oluştur</a>
+                    
+                    <div style="margin-top: 20px; text-align: left; font-size: 14px; color: white;">
+                        <h4 style="color: #FFD700; margin-bottom: 10px; font-size: 15px;">Gereksinimler:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 4px 0; position: relative; padding-left: 18px;"><span style="position: absolute; left: 0; color: #4CAF50;">•</span>Mikrofon</li>
+                            <li style="padding: 4px 0; position: relative; padding-left: 18px;"><span style="position: absolute; left: 0; color: #4CAF50;">•</span>Hoparlör/Kulaklık</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -737,46 +764,51 @@
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
         };
 
-        // 📱 MOBİL: Sayfa yüklendiğinde Haziran koltuk şemasını doğrudan açık getirir (Altın Kural)
+        // 📱 MOBİL: Sayfa yüklendiğinde koltuk şemalarını ait oldukları ayların altına doğrudan açar
         function initMobileInlineSeats() {
             if (window.innerWidth > 768) return;
-            selectedPeriod = 'Haziran';
-            selectedSeats = [];
             
-            const room = document.getElementById('mobileInlineRoom');
-            room.innerHTML = '';
+            const periods = ['Haziran', 'Temmuz'];
+            
+            periods.forEach(period => {
+                const room = document.getElementById(`mobileInlineRoom-${period}`);
+                if (!room) return;
+                room.innerHTML = '';
 
-            const rows = ['A', 'B', 'C'];
-            const occupiedSeats = occupiedSeatsData['Haziran'] || [];
+                const rows = ['A', 'B', 'C'];
+                const occupiedSeats = occupiedSeatsData[period] || [];
 
-            rows.forEach(rowName => {
-                const rowDiv = document.createElement('div');
-                rowDiv.className = 'seat-row';
-                const label = document.createElement('div');
-                label.className = 'row-label';
-                label.innerText = rowName;
-                rowDiv.appendChild(label);
+                rows.forEach(rowName => {
+                    const rowDiv = document.createElement('div');
+                    rowDiv.className = 'seat-row';
+                    const label = document.createElement('div');
+                    label.className = 'row-label';
+                    label.innerText = rowName;
+                    rowDiv.appendChild(label);
 
-                for (let i = 1; i <= 10; i++) {
-                    const seatId = `${rowName}${i}`;
-                    const seat = document.createElement('div');
-                    seat.className = 'seat';
-                    seat.innerText = i;
-                    seat.setAttribute('data-m-id', seatId);
+                    for (let i = 1; i <= 10; i++) {
+                        const seatId = `${rowName}${i}`;
+                        const seat = document.createElement('div');
+                        seat.className = 'seat';
+                        seat.innerText = i;
+                        seat.setAttribute('data-m-id', `${period}-${seatId}`);
 
-                    if (occupiedSeats.includes(seatId)) {
-                        seat.classList.add('occupied');
-                    } else {
-                        seat.addEventListener('click', function() { toggleMobileSeatSelection(seatId); });
+                        if (occupiedSeats.includes(seatId)) {
+                            seat.classList.add('occupied');
+                        } else {
+                            seat.addEventListener('click', function() { toggleMobileSeatSelection(period, seatId); });
+                        }
+                        rowDiv.appendChild(seat);
                     }
-                    rowDiv.appendChild(seat);
-                }
-                room.appendChild(rowDiv);
+                    room.appendChild(rowDiv);
+                });
             });
         }
 
-        function toggleMobileSeatSelection(seatId) {
-            const targetSeat = document.querySelector(`[data-m-id="${seatId}"]`);
+        function toggleMobileSeatSelection(period, seatId) {
+            selectedPeriod = period;
+            const targetSeat = document.querySelector(`[data-m-id="${period}-${seatId}"]`);
+            
             if (selectedSeats.includes(seatId)) {
                 selectedSeats = selectedSeats.filter(id => id !== seatId);
                 targetSeat.classList.remove('selected');
@@ -784,7 +816,8 @@
                 selectedSeats.push(seatId);
                 targetSeat.classList.add('selected');
             }
-            const confirmBtn = document.getElementById('mInlineConfirmBtn');
+            
+            const confirmBtn = document.getElementById(`mInlineConfirmBtn-${period}`);
             if (selectedSeats.length > 0) {
                 selectedSeats.sort();
                 confirmBtn.innerText = `Onayla ve WhatsApp'a Gönder (${selectedSeats.join(', ')})`;
@@ -855,7 +888,6 @@
             } else { confirmBtn.style.display = 'none'; }
         }
 
-        // WhatsApp Yönlendirme Kodu
         function redirectToWhatsApp() {
             if(!selectedPeriod || selectedSeats.length === 0) return;
             const phoneNumber = '905317493693';
@@ -947,7 +979,7 @@
                 phoneShowcase.addEventListener('mouseleave', function() { this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)'; });
             }
             
-            // Sayfa açılır açılmaz mobil inline koltukları hazır et
+            // Sayfa açılır açılmaz mobil inline koltukları ait oldukları satırın altında hazır eder usta
             initMobileInlineSeats();
         });
 
