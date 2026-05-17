@@ -402,10 +402,9 @@
         .seat.selected { background-color: var(--primary-orange) !important; border-color: #ff8c00 !important; color: white !important; box-shadow: 0 0 12px rgba(255, 107, 53, 0.5); }
         .seat.occupied { background-color: #2c2c2e !important; border-color: #48484a !important; color: #636366 !important; cursor: not-allowed; }
 
-        /* Siyah Modda Parlayan Koltuk Göstergeleri */
+        /* Parlayan Koltuk Göstergeleri */
         .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
         .legend-item { display: flex; align-items: center; gap: 8px; color: #eaeaea; font-weight: 500; }
-        .legend-item span { color: #eaeaea; }
 
         .portal-container {
             background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
@@ -522,13 +521,13 @@
         <div class="section-content">
             <div class="section-header">
                 <h2 class="section-title">Servislerimiz</h2>
-                <p class="section-subtitle">Her model telefon - tablet için kapsamlı tamir ve bakım hizmetleri sunuyoruz.</p>
+                <p class="section-subtitle">Her model telefon - tablet için kapsamlı tamir og bakım hizmetleri sunuyoruz.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
-                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
+                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşanan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔋</span>
@@ -685,10 +684,9 @@
     <div class="seat-modal-overlay" id="seatModalOverlay">
         <div class="seat-modal-window">
             <button type="button" class="close-modal-btn" onclick="closeSeatModal()">✕</button>
-            <h3 id="modalTitle" style="color: white; text-align: center; margin-bottom: 5px; font-weight: 600; font-size: 20px;"></h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 13px; margin-bottom: 25px;">Birden fazla koltuk seçebilirsiniz.</p>
+            <h3 id="modalTitle" style="color: white; text-align: center; margin-bottom: 25px; font-weight: 600; font-size: 20px;"></h3>
             
-            <div class="screen">LABORATUVAR / VİZYON PERDESİ</div>
+            <div class="screen">VİZYON PERDESİ</div>
             
             <div class="cinema-room" id="modalCinemaRoom"></div>
 
@@ -744,12 +742,14 @@
         </div>
     </section>
 
-    <script>
-        // --- 🎬 JAVASCRIPT WORKSHOP & ÇOKLU REZERVASYON MODAL KODLARI ---
-        let selectedPeriod = '';
-        let selectedSeats = []; // Çoklu koltuk takibi için diziye dönüştürüldü
+    <a href="tel:+905317493693" class="fab"></a>
 
-        // Tam 17 boş koltuk kalacak şekilde Haziran ayına 13 adet sabit dolu koltuk yerleştirildi
+    <script>
+        // --- 🎬 JAVASCRIPT REZERVASYON VE ÇOKLU KOLTUK PANELİ ---
+        let selectedPeriod = '';
+        let selectedSeats = [];
+
+        // 17 Boş koltuk simülasyonu için Haziran'a 13 dolu koordinat tanımlandı
         const occupiedSeatsData = {
             'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10', 'A10'],
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
@@ -757,7 +757,7 @@
 
         function openSeatModal(period) {
             selectedPeriod = period;
-            selectedSeats = []; // Her açılışta seçimleri sıfırla
+            selectedSeats = []; 
 
             const overlay = document.getElementById('seatModalOverlay');
             const title = document.getElementById('modalTitle');
@@ -807,16 +807,13 @@
             document.getElementById('seatModalOverlay').classList.remove('open');
         }
 
-        // Çoklu koltuk ekleme / çıkarma fonksiyonu
         function toggleModalSeat(seatId) {
             const targetSeat = document.querySelector(`#modalCinemaRoom [data-seat-id="${seatId}"]`);
             
             if (selectedSeats.includes(seatId)) {
-                // Eğer zaten seçilmişse listeden çıkar ve rengini sıfırla
                 selectedSeats = selectedSeats.filter(id => id !== seatId);
                 targetSeat.classList.remove('selected');
             } else {
-                // Seçilmemişse listeye ekle ve turuncu yap
                 selectedSeats.push(seatId);
                 targetSeat.classList.add('selected');
             }
@@ -824,8 +821,7 @@
             const confirmBtn = document.getElementById('modalConfirmBtn');
             
             if (selectedSeats.length > 0) {
-                // Seçilen tüm koltukları yan yana sırala ve butona bas
-                selectedSeats.sort(); // Koltukları alfabetik sırala (Örn: A1, A2, B4)
+                selectedSeats.sort();
                 confirmBtn.innerText = `${selectedSeats.length} Koltuk Seçildi (${selectedSeats.join(', ')}) — Rezervasyonu Onayla`;
                 confirmBtn.style.display = 'inline-block';
             } else {
@@ -837,9 +833,7 @@
             if(!selectedPeriod || selectedSeats.length === 0) return;
             const phoneNumber = '905317493693';
             const dateTxt = selectedPeriod === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
-            
-            // Seçilen tüm koltuk numaralarını dinamik olarak mesajın içine basıyoruz usta
-            const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeats.join(', ')} ile kaydımızı oluşturmak ve detayları görüşmek istiyorum.`;
+            const message = `Merhaba, VIP CEP Academy ${dateTxt} dönemi workshop eğitimi için Koltuk No: ${selectedSeats.join(', ')} ile kaydımı oluşturmak ve detayları görüşmek istiyorum.`;
             
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
@@ -919,6 +913,7 @@
                     const rect = this.getBoundingClientRect();
                     const tiltX = ((e.clientY - rect.top - (rect.height / 2)) / (rect.height / 2)) * -20;
                     const tiltY = ((e.clientX - rect.left - (rect.width / 2)) / (rect.width / 2)) * 20;
+                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)';`;
                     this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)`;
                 });
                 phoneShowcase.addEventListener('mouseleave', function() { this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)'; });
