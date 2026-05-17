@@ -109,9 +109,9 @@
         }
         .nav-links a:not(.ask-expert):hover::after { width: 100%; }
 
-        /* 🎓 Akademi Kep İmgesi ve Animasyonu */
-        .nav-links a.academy-link { padding-right: 22px; }
-        .nav-links a.academy-link::before {
+        /* 🎓 Akademi Kep İmgesi ve Uçuş Animasyonu */
+        .nav-links a.academy-link, .mobile-direct-links a.m-academy { padding-right: 22px; position: relative; }
+        .nav-links a.academy-link::before, .mobile-direct-links a.m-academy::before {
             content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
             width: 16px; height: 16px;
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f05a28'%3E%3Cpath d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E") center/contain no-repeat;
@@ -120,33 +120,39 @@
 
         @keyframes float-cap {
             0% { transform: translateY(-50%) translateY(0) rotate(0deg); }
-            30% { transform: translateY(-50%) translateY(-8px) rotate(15deg); }
-            50% { transform: translateY(-50%) translateY(-10px) rotate(-10deg); }
+            30% { transform: translateY(-50%) translateY(-6px) rotate(15deg); }
+            50% { transform: translateY(-50%) translateY(-8px) rotate(-10deg); }
             70% { transform: translateY(-50%) translateY(-3px) rotate(5deg); }
             100% { transform: translateY(-50%) translateY(0) rotate(0deg); }
         }
 
-        /* "USTAMA SOR?" Link Stili */
+        /* ❓ "USTAMA SOR?" Link Stili */
+        .nav-links a.ask-expert, .mobile-direct-links a.m-expert {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
         .nav-links a.ask-expert {
             background: linear-gradient(135deg, var(--primary-green), #30D158);
             color: white !important;
             padding: 8px 16px;
             border-radius: 20px;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
 
-        .nav-links a.ask-expert::before {
-            content: ''; width: 12px; height: 12px;
+        .nav-links a.ask-expert::before, .mobile-direct-links a.m-expert::before {
+            content: ''; width: 14px; height: 14px; display: inline-block;
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E") center/contain no-repeat;
         }
+        
+        .nav-links a.ask-expert::before { animation: spin 3s linear infinite; }
 
         /* 📱 Mobil Üst Kısım Sabit İkon Barı Stilleri */
         .mobile-direct-links {
             display: none;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
 
@@ -154,15 +160,13 @@
             text-decoration: none !important;
             font-size: 11px;
             font-weight: 700;
-            padding: 6px 10px;
+            padding: 6px 12px;
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
-        .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.1); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.2); }
+        .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.08); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.15); }
         .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; }
+        .mobile-direct-links .m-expert::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E"); margin-right: 4px; vertical-align: middle; }
 
         .mobile-menu-btn {
             display: none;
@@ -246,14 +250,14 @@
         .status-pill.urgent { background: rgba(255, 77, 77, 0.12); color: #ff4d4d; border: 1px solid rgba(255, 77, 77, 0.2); }
         .status-pill.open { background: rgba(52, 199, 89, 0.12); color: var(--primary-green); border: 1px solid rgba(52, 199, 89, 0.2); }
 
-        /* 📱 MOBİLDE DOĞRUDAN AÇIK GELEN AKILLI ŞEMA ALANI */
+        /* 📱 MOBİLDE DOĞRUDAN HAZIR VE AÇIK GELEN BUTONSUZ KOLTUK ALANI */
         .mobile-inline-seat-wrapper {
             display: none;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             padding: 20px 10px;
-            margin-top: 15px;
+            margin-top: 25px;
             width: 100%;
         }
 
@@ -319,16 +323,15 @@
         .fab { position: fixed; bottom: 25px; right: 25px; width: 65px; height: 65px; background: linear-gradient(135deg, #1b437c 0%, #f05a28 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 999; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
         .fab::after { content: ''; width: 24px; height: 24px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
-        /* 📱 SEKTÖREL JİLET RESPONSIVE KATMAN AYARLARI */
+        /* 📱 RESPONSIVE MOBİL KATMAN AYARLARI */
         @media (max-width: 768px) {
-            nav { padding: 0 15px; }
-            .mobile-menu-btn { display: block; order: 3; margin-left: 10px; }
+            nav { padding: 0 10px; }
+            .mobile-menu-btn { display: block; order: 3; margin-left: 5px; }
             .logo { order: 1; }
             
-            /* Mobilde Üst Sabit Vizyon Linkleri Aktif */
+            /* Mobilde Üst Sabit Vizyon Linkleri */
             .mobile-direct-links { display: flex; order: 2; margin-left: auto; }
             
-            /* Hamburger Menü (İçerideki Gizli Linkler İçin) */
             .nav-links {
                 position: fixed; top: 60px; left: 100%; width: 100%; height: calc(100vh - 60px);
                 background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px);
@@ -342,7 +345,7 @@
             .nav-links li { width: 100%; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-wrapper.dark .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.05); }
             .nav-links a { display: block; padding: 16px 10px; font-size: 15px; width: 100%; }
-            .nav-links li:has(.academy-link), .nav-links li:has(.ask-expert) { display: none; } /* Üst barda sabitlendikleri için menüden gizlendiler */
+            .nav-links li:has(.academy-link), .nav-links li:has(.ask-expert) { display: none; } 
 
             .hero { min-height: auto; padding: 110px 0 60px; text-align: center; }
             .hero-content { padding: 0 15px; }
@@ -355,17 +358,18 @@
             .section-title { font-size: 26px; }
             .section-subtitle { font-size: 14px; }
 
-            .academy-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 10px; }
+            .academy-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5px; }
             .calendar-container { padding: 15px 10px; }
             
             /* Dikey Esnek Tablo Çözümü */
             .academy-table, .academy-table tbody, .academy-table tr, .academy-table td { display: block; width: 100%; }
             .academy-table th { display: none; } 
             .academy-table tr { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; margin-bottom: 15px; padding: 12px; }
-            .academy-table td { padding: 6px 0; text-align: center; border: none; }
+            .academy-table td { padding: 4px 0; text-align: center; border: none; }
             .academy-table td br { display: none; }
+            .academy-table td:has(.btn-select-trigger) { display: none; } /* Mobilde koltuk seç tuş satırı komple imha edildi usta */
             
-            /* Mobilde inline şema düzeni açılır */
+            /* Mobilde inline şema hazır açık gelir */
             .mobile-inline-seat-wrapper { display: block; }
 
             .bullet-grid { grid-template-columns: 1fr; gap: 8px; }
@@ -395,8 +399,8 @@
             </a>
             
             <div class="mobile-direct-links">
-                <a href="#akademi" class="m-academy">🎓 Akademi</a>
-                <a href="#teknisyen-bolumu" class="m-expert">🟢 Sor</a>
+                <a href="#akademi" class="m-academy">🎓 Academy</a>
+                <a href="#teknisyen-bolumu" class="m-expert">❓ Sor</a>
             </div>
 
             <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -564,7 +568,7 @@
                                 </td>
                                 <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Ptesi Sabahı)</small></td>
                                 <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="handleSeatSelectionTrigger('Haziran')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
+                                <td class="btn-select-trigger"><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
                             </tr>
                             <tr>
                                 <td>
@@ -573,13 +577,13 @@
                                 </td>
                                 <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Ptesi Sabahı)</small></td>
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="handleSeatSelectionTrigger('Temmuz')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
+                                <td class="btn-select-trigger"><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
                             </tr>
                         </tbody>
                     </table>
 
                     <div class="mobile-inline-seat-wrapper" id="mobileInlineSeatPanel">
-                        <h4 id="mInlineTitle" style="color: white; text-align: center; margin-bottom: 20px; font-size: 15px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px;"></h4>
+                        <h4 style="color: var(--primary-orange); text-align: center; margin-bottom: 15px; font-size: 15px; font-weight: 700;">➔ HAZİRAN DÖNEMİ OTURMA PLANI</h4>
                         <div class="screen" style="width:90%; margin-bottom: 20px;">VİZYON PERDESİ</div>
                         <div class="cinema-room" id="mobileInlineRoom"></div>
                         <div class="seat-legend">
@@ -730,31 +734,17 @@
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
         };
 
-        // Akıllı Tetikleyici: Cihaz mobildeyse direkt alta açar, PC'deyse modal açar
-        function handleSeatSelectionTrigger(period) {
-            if (window.innerWidth <= 768) {
-                openMobileInlineSeats(period);
-            } else {
-                openSeatModal(period);
-            }
-        }
-
-        // 📱 MOBİL: Direkt Açık Gelen Akordeon Koltuk İnşası
-        function openMobileInlineSeats(period) {
-            selectedPeriod = period;
+        // 📱 MOBİL: Sayfa yüklendiğinde Haziran koltuk şemasını doğrudan açık getirir (Altın Kural)
+        function initMobileInlineSeats() {
+            if (window.innerWidth > 768) return;
+            selectedPeriod = 'Haziran';
             selectedSeats = [];
             
-            const panel = document.getElementById('mobileInlineSeatPanel');
-            const title = document.getElementById('mInlineTitle');
             const room = document.getElementById('mobileInlineRoom');
-            const confirmBtn = document.getElementById('mInlineConfirmBtn');
-
-            title.innerText = `📅 VIP CEP Academy — ${period} Dönemi Oturma Planı`;
-            confirmBtn.style.display = 'none';
             room.innerHTML = '';
 
             const rows = ['A', 'B', 'C'];
-            const occupiedSeats = occupiedSeatsData[period] || [];
+            const occupiedSeats = occupiedSeatsData['Haziran'] || [];
 
             rows.forEach(rowName => {
                 const rowDiv = document.createElement('div');
@@ -780,12 +770,6 @@
                 }
                 room.appendChild(rowDiv);
             });
-
-            panel.style.display = 'block';
-            
-            setTimeout(() => {
-                window.scrollTo({ top: panel.offsetTop - 80, behavior: 'smooth' });
-            }, 150);
         }
 
         function toggleMobileSeatSelection(seatId) {
@@ -958,6 +942,9 @@
                 });
                 phoneShowcase.addEventListener('mouseleave', function() { this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)'; });
             }
+            
+            // Sayfa açılır açılmaz mobil inline koltukları hazır et
+            initMobileInlineSeats();
         });
 
         window.addEventListener('scroll', () => {
