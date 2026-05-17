@@ -328,7 +328,7 @@
         }
         .academy-btn-table:hover { color: white; text-decoration: underline; }
 
-        /* 🎬 MODAL (SİNEMA SALONU PENCERESİ) */
+        /* 🎬 APPLE STYLE MODALLAR (PENCERELER) */
         .seat-modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -343,10 +343,7 @@
             transition: all 0.4s ease;
         }
 
-        .seat-modal-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
+        .seat-modal-overlay.open { opacity: 1; visibility: visible; }
 
         .seat-modal-window {
             background: #1c1c1e;
@@ -359,6 +356,8 @@
             transform: scale(0.9);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .seat-modal-overlay.open .seat-modal-window { transform: scale(1); }
@@ -373,6 +372,7 @@
             font-size: 18px; font-weight: bold;
             display: flex; align-items: center; justify-content: center;
             transition: 0.2s;
+            z-index: 10;
         }
         .close-modal-btn:hover { background: rgba(255, 77, 77, 0.2); color: #ff4d4d; }
 
@@ -400,11 +400,61 @@
         }
         .seat:hover:not(.occupied) { transform: scale(1.15); background-color: var(--primary-green); color: white; box-shadow: 0 0 12px rgba(52, 199, 89, 0.4); }
         .seat.selected { background-color: var(--primary-orange) !important; border-color: #ff8c00 !important; color: white !important; box-shadow: 0 0 12px rgba(255, 107, 53, 0.5); }
-        .seat.occupied { background-color: #2c2c2e !important; border-color: #48484a !important; color: #636366 !important; cursor: not-allowed; }
+        .seat.occupied { background-color: #2c2c2e !important; border-color: #48484a !important; color: #48484a !important; cursor: not-allowed; }
 
-        /* Parlayan Koltuk Göstergeleri */
         .seat-legend { display: flex; gap: 25px; justify-content: center; margin-top: 25px; font-size: 13px; }
         .legend-item { display: flex; align-items: center; gap: 8px; color: #eaeaea; font-weight: 500; }
+
+        /* 📋 MÜFREDAT AKORDEON PANELİ STİLLERİ */
+        .curriculum-accordion {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-item {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.01);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .accordion-header:hover { background: rgba(255, 255, 255, 0.04); }
+
+        .accordion-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            color: #b3b3b3;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .accordion-content ul {
+            list-style: none;
+            padding: 15px 0;
+        }
+
+        .accordion-content ul li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .accordion-content ul li::before { content: "•"; color: var(--primary-orange); font-weight: bold; }
 
         .portal-container {
             background: linear-gradient(145deg, #1c1c1e 0%, #0a0a0c 100%);
@@ -446,14 +496,6 @@
         .fab::before { content: ''; position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); width: 24px; height: 8px; background: rgba(255, 255, 255, 0.9); border-radius: 0 0 8px 8px; z-index: 2; animation: fab-glow 3s ease-in-out infinite; }
         .fab:hover { transform: scale(1.1); box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5); background: linear-gradient(135deg, #764ba2 0%, #667eea 50%, #f093fb 100%); }
         .fab:hover::after { animation: fab-morph-hover 0.8s ease-in-out infinite; transform: translate(-50%, -50%) rotate(90deg) scale(1.1); }
-
-        @keyframes fab-glow { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.2); } }
-        @keyframes fab-morph {
-            0%, 100% { clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 25%, 100% 0%); transform: translate(-50%, -50%) rotate(45deg); }
-            25% { clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 50% 30%, 80% 60%, 100% 40%); transform: translate(-50%, -50%) rotate(60deg); }
-            50% { clip-path: polygon(0% 40%, 20% 0%, 60% 30%, 40% 60%, 80% 80%, 60% 100%); transform: translate(-50%, -50%) rotate(90deg); }
-            75% { clip-path: polygon(30% 20%, 50% 0%, 80% 40%, 60% 70%, 90% 90%, 70% 100%); transform: translate(-50%, -50%) rotate(120deg); }
-        }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
@@ -521,13 +563,13 @@
         <div class="section-content">
             <div class="section-header">
                 <h2 class="section-title">Servislerimiz</h2>
-                <p class="section-subtitle">Her model telefon - tablet için kapsamlı tamir og bakım hizmetleri sunuyoruz.</p>
+                <p class="section-subtitle">Her model telefon - tablet için kapsamlı tamir ve bakım hizmetleri sunuyoruz.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
-                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşanan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
+                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔋</span>
@@ -642,24 +684,30 @@
                     <table class="academy-table" id="academyTable">
                         <thead>
                             <tr>
-                                <th>Workshop</th>
+                                <th>Workshop Programı</th>
                                 <th>Tarih / Günler</th>
                                 <th>Kontenjan</th>
-                                <th>Seçim</th>
+                                <th>İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
+                                <td>
+                                    <strong>Konaklamalı İleri Seviye Anakart Onarımı</strong><br>
+                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Müfredatı İncele</span>
+                                </td>
                                 <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill urgent">Son 17 Koltuk</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')">Koltuk Seç</button></td>
+                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Haziran')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
                             </tr>
                             <tr>
-                                <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
+                                <td>
+                                    <strong>Konaklamalı İleri Seviye Anakart Onarımı</strong><br>
+                                    <span class="academy-btn-table" onclick="openCurriculumModal()" style="font-size: 13px; color: var(--primary-orange); margin-top: 5px; display: inline-block;">➔ Müfredatı İncele</span>
+                                </td>
                                 <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')">Koltuk Seç</button></td>
+                                <td><button type="button" class="academy-btn-table" onclick="openSeatModal('Temmuz')" style="color: var(--primary-blue); font-weight: bold;">Koltuk Seç</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -704,6 +752,58 @@
         </div>
     </div>
 
+    <div class="seat-modal-overlay" id="curriculumModalOverlay">
+        <div class="seat-modal-window" style="max-width: 600px;">
+            <button type="button" class="close-modal-btn" onclick="closeCurriculumModal()">✕</button>
+            <h3 style="color: white; text-align: center; margin-bottom: 10px; font-weight: 600; font-size: 22px;">🛠️ Workshop Eğitim Müfredatı</h3>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 25px;">Aşağıdaki aşamaları tıklayarak detaylı ders içeriğini inceleyebilirsiniz.</p>
+            
+            <div class="curriculum-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span style="color: var(--primary-green);">🟢 1. Aşama: Temel Seviye (Altyapı)</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Akım ve Voltaj Mantığı:</strong> Direnç, Kondansatör, Bobin ve Diyot elemanlarının hat üstündeki görevleri ve arıza tipleri.</li>
+                            <li><strong>Şematik ve Boardview Okuma:</strong> ZXW, JCID ve JC Repair Assistant programlarını laboratuvar standardında kullanma.</li>
+                            <li><strong>Ekipman Kalibrasyonu:</strong> JBC ve Quick 861DW istasyonlarında karta zarar vermeden çalışma kuralları.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span style="color: #FFC107;">🟡 2. Aşama: Orta Seviye (Arıza Teşhis)</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Diyot Değeri Ölçümü:</strong> Multimetre ile hatların sağlamlık kontrolü, kısa devre ve açık devre ayırımı.</li>
+                            <li><strong>Akım Enjeksiyon Metodu:</strong> Isınmayan ama sinsi akım çeken kısa devre arızalarını Termal Kamera ile yakalama teknikleri.</li>
+                            <li><strong>Besleme Entegresi (PMIC) Analizi:</strong> Cihazın start alma (boot) aşamalarındaki voltaj döngüleri.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span style="color: #FF4D4d;">🔴 3. Aşama: İleri Seviye (Mühendislik)</span>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li><strong>Katmanlı Anakart (Sandwich) Teknolojisi:</strong> İki katmanlı kartları ayırma, alt kart onarımları ve orta katman hat çekme işlemleri.</li>
+                            <li><strong>Entegre Altı Yol Restorasyonu:</strong> Kopuk yolları mikroskop altında mikro-tellerle yeniden inşa etme.</li>
+                            <li><strong>İşlemci (CPU) & RAM Swap Mühendisliği:</strong> İşlemcileri ısı hasarı vermeden hatasız kalıplama (reballing) ve aktarma teknikleri.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section id="teknisyen-bolumu" class="section" style="background: #0a0a0a; padding: 200px 0; margin-top: 100px;">
         <div class="section-content">
             <div class="section-header">
@@ -742,14 +842,11 @@
         </div>
     </section>
 
-    <a href="tel:+905317493693" class="fab"></a>
-
     <script>
         // --- 🎬 JAVASCRIPT REZERVASYON VE ÇOKLU KOLTUK PANELİ ---
         let selectedPeriod = '';
         let selectedSeats = [];
 
-        // 17 Boş koltuk simülasyonu için Haziran'a 13 dolu koordinat tanımlandı
         const occupiedSeatsData = {
             'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10', 'A10'],
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
@@ -838,7 +935,38 @@
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- 📱 EFECTLER VE TEMEL SİTE MOTİFLERİ ---
+        // --- 📚 MÜFREDAT MODAL VE AKORDEON FONKSİYONLARI ---
+        function openCurriculumModal() {
+            document.getElementById('curriculumModalOverlay').classList.add('open');
+        }
+
+        function closeCurriculumModal() {
+            document.getElementById('curriculumModalOverlay').classList.remove('open');
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                content.style.padding = '0 25px';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Önce diğer açık akordeonları kapat
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    c.style.maxHeight = '0px';
+                    c.style.padding = '0 25px';
+                });
+                document.querySelectorAll('.accordion-header .arrow').forEach(a => a.style.transform = 'rotate(0deg)');
+
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.padding = '15px 25px';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // --- 📱 ANİMASYONLAR VE TEMEL SİTE MOTİFLERİ ---
         const mouseFollower = document.querySelector('.mouse-follower');
         let mouseX = 0, mouseY = 0;
         let followerX = 0, followerY = 0;
@@ -913,7 +1041,6 @@
                     const rect = this.getBoundingClientRect();
                     const tiltX = ((e.clientY - rect.top - (rect.height / 2)) / (rect.height / 2)) * -20;
                     const tiltY = ((e.clientX - rect.left - (rect.width / 2)) / (rect.width / 2)) * 20;
-                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)';`;
                     this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.1)`;
                 });
                 phoneShowcase.addEventListener('mouseleave', function() { this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)'; });
