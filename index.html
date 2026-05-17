@@ -130,7 +130,7 @@
             width: 100%;
         }
 
-        /* Special styling for "USTAMA SOR?" link */
+        /* "USTAMA SOR?" Link Stili */
         .nav-links a.ask-expert {
             background: linear-gradient(135deg, var(--primary-green), #30D158);
             color: white !important;
@@ -150,7 +150,6 @@
             box-shadow: 0 8px 25px rgba(52, 199, 89, 0.4);
         }
 
-        /* Rotating question mark animation */
         .nav-links a.ask-expert::before {
             content: '';
             position: absolute;
@@ -565,55 +564,55 @@
             font-weight: 600;
             transition: 0.3s;
             cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
         }
 
-        /* 🎬 SİNEMA TARZI KOLTUK PANEL STİLLERİ */
-        .seat-selection-wrapper {
-            grid-column: 1 / -1;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 25px;
-            padding: 40px;
-            margin-top: 20px;
-            display: none;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s ease;
+        .academy-btn-table:hover {
+            color: white;
+            text-decoration: underline;
         }
 
-        .seat-selection-wrapper.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
+        /* 🎬 TABLO İÇİ DİNAMİK SİNEMA PANELİ */
+        .seat-dropdown-row {
+            display: none; /* JS ile dinamik açılacak */
+            background: rgba(255, 255, 255, 0.01) !important;
+        }
+
+        .seat-dropdown-container {
+            padding: 30px !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .screen {
             width: 70%;
-            height: 8px;
+            height: 6px;
             background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
             border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 122, 255, 0.4);
             text-align: center;
             color: var(--gray-medium);
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 5px;
-            line-height: 35px;
+            line-height: 25px;
             text-transform: uppercase;
         }
 
         .cinema-room {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
-            max-width: 650px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .seat-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
             width: 100%;
             justify-content: center;
@@ -622,23 +621,23 @@
         .row-label {
             font-weight: bold;
             color: var(--primary-orange);
-            width: 25px;
-            font-size: 16px;
+            width: 20px;
+            font-size: 14px;
         }
 
         .seat {
-            width: 32px;
-            height: 30px;
-            background-color: rgba(52, 199, 89, 0.2);
-            border: 1px solid var(--primary-green);
-            border-radius: 6px 6px 0 0;
+            width: 28px;
+            height: 26px;
+            background-color: rgba(52, 199, 89, 0.15);
+            border: 1px solid rgba(52, 199, 89, 0.4);
+            border-radius: 5px 5px 0 0;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.5);
             font-weight: 600;
         }
 
@@ -646,36 +645,35 @@
             transform: scale(1.15);
             background-color: var(--primary-green);
             color: white;
-            box-shadow: 0 0 15px rgba(52, 199, 89, 0.5);
+            box-shadow: 0 0 12px rgba(52, 199, 89, 0.4);
         }
 
         .seat.selected {
             background-color: var(--primary-orange) !important;
             border-color: #ff8c00 !important;
             color: white !important;
-            box-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
-            animation: pulse 1s infinite;
+            box-shadow: 0 0 12px rgba(255, 107, 53, 0.5);
         }
 
         .seat.occupied {
             background-color: #2c2c2e !important;
             border-color: #48484a !important;
-            color: #636366 !important;
+            color: #48484a !important;
             cursor: not-allowed;
         }
 
         .seat-legend {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             justify-content: center;
-            margin-top: 30px;
-            font-size: 14px;
+            margin-top: 25px;
+            font-size: 13px;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .portal-container {
@@ -895,11 +893,7 @@
                 white-space: nowrap;
             }
 
-            .nav-links a.ask-expert {
-                font-size: 11px;
-                padding: 6px 10px;
-            }
-
+            .nav-links a.ask-expert { font-size: 11px; padding: 6px 10px; }
             .hero-headline { font-size: 42px; }
             .hero-subheadline { font-size: 18px; }
             .hero-buttons { flex-direction: column; align-items: center; }
@@ -916,8 +910,8 @@
             #teknisyen-bolumu .divider { display: none !important; }
 
             .seat {
-                width: 24px;
-                height: 22px;
+                width: 22px;
+                height: 20px;
                 font-size: 8px;
             }
         }
@@ -996,14 +990,14 @@
                     <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
-                    <span class="service-icon">💧</span>
+                    <span class="service-icon">📷</span>
                     <h3 class="service-title">Su Hasarı Tamiri</h3>
                     <p class="service-description">Su ve diğer sıvı temasları sonucu oluşan hasarlar için özel temizlik ve komponent değişimi hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">⚡</span>
                     <h3 class="service-title">Şarj Soketi</h3>
-                    <p class="service-description">Lightning port temizliği, değişimi ve kablosuz şarj sorunları için uzman müdahale og çözüm.</p>
+                    <p class="service-description">Lightning port temizliği, değişimi ve kablosuz şarj sorunları için uzman müdahale ve çözüm.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔊</span>
@@ -1051,7 +1045,7 @@
             <div class="academy-grid">
                 <div class="calendar-container">
                     <h3 style="color: white; margin-bottom: 20px; font-weight: 600;">📅 2026 Workshop Takvimi</h3>
-                    <table class="academy-table">
+                    <table class="academy-table" id="academyTable">
                         <thead>
                             <tr>
                                 <th>Workshop</th>
@@ -1065,13 +1059,42 @@
                                 <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
                                 <td>19 - 22 Haziran 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill urgent">Son 3 Koltuk</span></td>
-                                <td><span class="academy-btn-table" onclick="initSeatSelection('Haziran')">Koltuk Seç</span></td>
+                                <td><button type="button" class="academy-btn-table" onclick="toggleSeatDropdown('Haziran', 'row-juni')">Koltuk Seç</button></td>
                             </tr>
+                            <tr id="dropdown-juni" class="seat-dropdown-row">
+                                <td colspan="4" class="seat-dropdown-container">
+                                    <div class="screen">LABORATUVAR / VİZYON PERDESİ (HAZİRAN)</div>
+                                    <div class="cinema-room" id="room-Haziran"></div>
+                                    <div class="seat-legend">
+                                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15);"></div> <span>Müsait</span></div>
+                                        <div class="legend-item"><div class="seat selected"></div> <span>Seçiminiz</span></div>
+                                        <div class="legend-item"><div class="seat occupied"></div> <span>Dolu</span></div>
+                                    </div>
+                                    <div style="text-align: center; margin-top: 25px;">
+                                        <button class="btn btn-primary ws-confirm-btn" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 20px rgba(37,211,102,0.3); border: none; padding: 12px 35px; font-size: 15px; display: none;">Onayla ve WhatsApp'tan Bildir</button>
+                                    </div>
+                                </td>
+                            </tr>
+
                             <tr id="row-july">
                                 <td><strong>Konaklamalı İleri Seviye Anakart Onarımı</strong></td>
                                 <td>17 - 20 Temmuz 2026 <br><small style="color: var(--gray-medium);">(Cuma - Pazartesi Sabahı)</small></td>
                                 <td><span class="status-pill open">Kayıt Açık</span></td>
-                                <td><span class="academy-btn-table" onclick="initSeatSelection('Temmuz')">Koltuk Seç</span></td>
+                                <td><button type="button" class="academy-btn-table" onclick="toggleSeatDropdown('Temmuz', 'row-july')">Koltuk Seç</button></td>
+                            </tr>
+                            <tr id="dropdown-july" class="seat-dropdown-row">
+                                <td colspan="4" class="seat-dropdown-container">
+                                    <div class="screen">LABORATUVAR / VİZYON PERDESİ (TEMMUZ)</div>
+                                    <div class="cinema-room" id="room-Temmuz"></div>
+                                    <div class="seat-legend">
+                                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.15);"></div> <span>Müsait</span></div>
+                                        <div class="legend-item"><div class="seat selected"></div> <span>Seçiminiz</span></div>
+                                        <div class="legend-item"><div class="seat occupied"></div> <span>Dolu</span></div>
+                                    </div>
+                                    <div style="text-align: center; margin-top: 25px;">
+                                        <button class="btn btn-primary ws-confirm-btn" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 8px 20px rgba(37,211,102,0.3); border: none; padding: 12px 35px; font-size: 15px; display: none;">Onayla ve WhatsApp'tan Bildir</button>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -1080,38 +1103,15 @@
                 <div class="portal-container">
                     <div>
                         <h3 style="color: white; font-weight: 600; margin-bottom: 15px;">🎓 Ön Hazırlık Portalı</h3>
-                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara ve şematik okuma notlarına erişebilirler.</p>
+                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara og şematik okuma notlarına erişebilirler.</p>
                         <ul class="portal-list">
                             <li>Temel elektroniğe giriş</li>
                             <li>Devre elemanları ve bağlantı şekilleri</li>
-                            <li>Şema okuma ve arıza tespit mantığı</li>
+                            <li>Şema okuma og arıza tespit mantığı</li>
                         </ul>
                     </div>
                     <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, var(--primary-orange), #ff8c00); box-shadow: 0 10px 30px rgba(255,107,53,0.3); text-align: center; margin-top: 15px;">Öğrenci Girişi</a>
                 </div>
-
-                <div class="seat-selection-wrapper" id="seatPanel">
-                    <h3 id="panelTitle" style="color: white; text-align: center; margin-bottom: 5px; font-weight: 600;"></h3>
-                    <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Lütfen oturmak istediğiniz boş koltuğu seçin.</p>
-                    
-                    <div class="screen">LABORATUVAR / VİZYON PERDESİ</div>
-                    
-                    <div class="cinema-room" id="cinemaRoom">
-                        </div>
-
-                    <div class="seat-legend">
-                        <div class="legend-item"><div class="seat" style="background: rgba(52, 199, 89, 0.2);"></div> <span>Müsait</span></div>
-                        <div class="legend-item"><div class="seat selected" style="animation:none;"></div> <span>Seçiminiz</span></div>
-                        <div class="legend-item"><div class="seat occupied"></div> <span>Dolu Ustalar</span></div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 40px;">
-                        <button id="wsConfirmBtn" class="btn btn-primary" onclick="redirectToWhatsApp()" style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 10px 30px rgba(37,211,102,0.3); border: none; padding: 18px 45px; font-size: 18px; display: none;">
-                            Seçilen Koltuğu Rezerved Et
-                        </button>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -1210,39 +1210,45 @@
     <a href="tel:+905317493693" class="fab"></a>
 
     <script>
-        // --- 🎬 JAVASCRIPT WORKSHOP VE SALON YÖNETİMİ ---
+        // --- 🎬 JAVASCRIPT WORKSHOP DİNAMİK SATIR ALTI AKORDREON SİSTEMİ ---
         let selectedPeriod = '';
         let selectedSeatNumber = '';
 
-        // Sabit Dolu Koltuk Senaryosu (Dinamik görünüm için koordinatlar)
         const occupiedSeatsData = {
             'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10'],
             'Temmuz': ['A1', 'A5', 'B4', 'C3', 'C8']
         };
 
-        function initSeatSelection(period) {
+        function toggleSeatDropdown(period, parentRowId) {
+            const dropdownId = period === 'Haziran' ? 'dropdown-juni' : 'dropdown-july';
+            const dropdownRow = document.getElementById(dropdownId);
+            
+            // Eğer tıklanan zaten açıksa, kapat ve çık
+            if (dropdownRow.style.display === 'table-row') {
+                dropdownRow.style.display = 'none';
+                document.getElementById(parentRowId).classList.remove('active-row');
+                return;
+            }
+
+            // Önce tüm dropdown satırlarını ve aktif arka planları temizle
+            document.querySelectorAll('.seat-dropdown-row').forEach(row => row.style.display = 'none');
+            document.querySelectorAll('.academy-table tbody tr').forEach(tr => tr.classList.remove('active-row'));
+
+            // Değişkenleri eşitle
             selectedPeriod = period;
             selectedSeatNumber = '';
+
+            // İlgili satırı renklendir ve dropdown'ı aç
+            document.getElementById(parentRowId).classList.add('active-row');
+            dropdownRow.style.display = 'table-row';
+
+            // Salonu oluştur
+            const roomContainer = document.getElementById(`room-${period}`);
+            roomContainer.innerHTML = '';
             
-            document.querySelectorAll('.academy-table tbody tr').forEach(tr => tr.classList.remove('active-row'));
-            if(period === 'Haziran') document.getElementById('row-juni').classList.add('active-row');
-            if(period === 'Temmuz') document.getElementById('row-july').classList.add('active-row');
-
-            const panel = document.getElementById('seatPanel');
-            const title = document.getElementById('panelTitle');
-            const room = document.getElementById('cinemaRoom');
-            const confirmBtn = document.getElementById('wsConfirmBtn');
-
-            // Başlıkta tam tarih ve süreç doğrulaması
-            const dateDetail = period === 'Haziran' ? '19-22 Haziran (Cuma-Ptesi)' : '17-20 Temmuz (Cuma-Ptesi)';
-            title.innerText = `🎬 VIP CEP Academy — ${dateDetail} Oturma Planı`;
-            confirmBtn.style.display = 'none';
-            room.innerHTML = '';
-
             const rows = ['A', 'B', 'C'];
             const occupiedSeats = occupiedSeatsData[period] || [];
 
-            // 3 Sıra x 10 Koltuk Üretimi
             rows.forEach(rowName => {
                 const rowDiv = document.createElement('div');
                 rowDiv.className = 'seat-row';
@@ -1263,33 +1269,32 @@
                         seat.classList.add('occupied');
                     } else {
                         seat.addEventListener('click', function() {
-                            selectSeat(seatId);
+                            selectSeat(seatId, dropdownRow);
                         });
                     }
                     rowDiv.appendChild(seat);
                 }
-                room.appendChild(rowDiv);
+                roomContainer.appendChild(rowDiv);
             });
 
-            panel.className = 'seat-selection-wrapper show';
-            
+            // Akıcı kaydırma efekti
             setTimeout(() => {
                 window.scrollTo({
-                    top: panel.offsetTop - 80,
+                    top: document.getElementById(parentRowId).offsetTop - 80,
                     behavior: 'smooth'
                 });
-            }, 200);
+            }, 100);
         }
 
-        function selectSeat(seatId) {
-            document.querySelectorAll('.cinema-room .seat').forEach(s => s.classList.remove('selected'));
+        function selectSeat(seatId, containerContext) {
+            containerContext.querySelectorAll('.seat').forEach(s => s.classList.remove('selected'));
             
-            const targetSeat = document.querySelector(`[data-seat-id="${seatId}"]`);
+            const targetSeat = containerContext.querySelector(`[data-seat-id="${seatId}"]`);
             targetSeat.classList.add('selected');
             
             selectedSeatNumber = seatId;
             
-            const confirmBtn = document.getElementById('wsConfirmBtn');
+            const confirmBtn = containerContext.querySelector('.ws-confirm-btn');
             confirmBtn.innerText = `Koltuk ${seatId} Rezervasyonunu WhatsApp ile Onayla`;
             confirmBtn.style.display = 'inline-block';
         }
@@ -1304,7 +1309,7 @@
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- 📱 EFECTLER VE TEMEL SİTE MOTİFLERİ ---
+        // --- 📱 APLE/VIP STYLE ARKA PLAN VE ANİMASYON EFECTLERİ ---
         const mouseFollower = document.querySelector('.mouse-follower');
         let mouseX = 0, mouseY = 0;
         let followerX = 0, followerY = 0;
@@ -1332,7 +1337,7 @@
         function callService() { window.location.href = 'tel:+905317493693'; }
 
         const navbar = document.getElementById('navbar');
-        const sections = document.querySelectorAll('.section, .academy-section');
+        const themeSections = document.querySelectorAll('.section, .academy-section');
         
         function updateTheme() {
             const scrollY = window.scrollY;
@@ -1341,7 +1346,7 @@
             if (scrollY > windowHeight * 0.8) navbar.classList.add('dark');
             else navbar.classList.remove('dark');
             
-            sections.forEach((section) => {
+            themeSections.forEach((section) => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
                 
