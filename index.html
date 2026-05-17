@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VIP CEP SERVİS - telefon & tablet servisi </title>
-    <meta name="description" content="telefon - tablet tamir ve teknik servis hizmetleri. Uzman teknisyen, kaliteli parçalar, hızlı çözüm.">
+    <meta name="description" content="telefon - tablet tamir og teknik servis hizmetleri. Uzman teknisyen, kaliteli parçalar, hızlı çözüm.">
     <link rel="icon" type="image/png" href="logo.png">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T69WBEE9W"></script>
@@ -126,7 +126,7 @@
             100% { transform: translateY(-50%) translateY(0) rotate(0deg); }
         }
 
-        /* ❓ "USTAMA SOR?" Soru İşareti Dönen Animasyon (Kırmızı Tamamen Kazındı) */
+        /* ❓ "USTAMA SOR?" Soru İşareti Dönen Animasyon */
         .nav-links a.ask-expert, .mobile-direct-links a.m-expert {
             position: relative;
             display: inline-flex;
@@ -171,6 +171,11 @@
 
         .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.08); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.15); }
         .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; gap: 4px; }
+
+        /* Mobil arka plan kırmızı çapak hatası zorla ezildi */
+        .mobile-direct-links .m-expert::before {
+            background-color: transparent !important;
+        }
 
         .mobile-menu-btn {
             display: none;
@@ -238,7 +243,7 @@
         .features-visual { display: flex; justify-content: center; position: relative; }
         .phone-showcase { width: 100%; max-width: 450px; height: 380px; background-image: url('backpro1.png'); background-size: contain; background-position: center; background-repeat: no-repeat; }
 
-        /* 📅 MİNİMALİST KARE KART TAKVİM DÜZENİ */
+        /* 📅 KARE KART TAKVİM DÜZENİ */
         .academy-section { background-color: var(--academy-dark); color: white; border-top: 2px solid rgba(255,255,255,0.05); }
         .academy-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
         .calendar-container { background: #1c1c1e; border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 30px; width: 100%; }
@@ -269,8 +274,8 @@
         .month-card h4 { font-size: 20px; font-weight: 800; color: white; margin-bottom: 4px; }
         .month-card .status-txt { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        /* Aktif / Pasif Ay Kartı Renk Tanımlamaları */
-        .month-card.urgent-card .status-txt { color: #ff4d4d; }
+        /* 🔴 SON 17 KOLTUK YAZISI GERÇEK KIRMIZI TONUNA MODİFİYE EDİLDİ usta */
+        .month-card.urgent-card .status-txt { color: #ff3b30 !important; font-weight: 800; text-shadow: 0 0 10px rgba(255,59,48,0.2); }
         .month-card.open-card .status-txt { color: var(--primary-green); }
         .month-card.disabled-card { opacity: 0.25; cursor: not-allowed; border-style: dashed; }
         .month-card.disabled-card .status-txt { color: var(--gray-medium); font-weight: 500; }
@@ -288,14 +293,15 @@
         .modal-huge-date { font-size: 28px; font-weight: 800; color: #ff7a45; letter-spacing: 0.5px; margin-bottom: 2px; }
         .modal-sub-title { font-size: 18px; font-weight: 700; color: white; }
 
-        /* YEŞİL PREMIUM REZERVASYON BUTONU */
+        /* 🟢 USTA STİLİ BÜYÜK NET YEŞİL REZERVASYON BUTONU */
         .btn-select-green {
             color: #34C759 !important; font-weight: 700 !important;
             border: 1px solid rgba(52, 199, 89, 0.5) !important;
             padding: 12px 35px !important; border-radius: 50px !important;
             background: rgba(52, 199, 89, 0.04) !important;
-            transition: 0.3s; cursor: pointer; font-family: inherit; font-size: 15px;
+            transition: 0.3s; cursor: pointer; font-family: inherit; font-size: 16px;
             width: 100%; max-width: 320px; margin-top: 10px;
+            text-transform: uppercase; letter-spacing: 0.5px;
         }
         .btn-select-green:hover { background: var(--primary-green) !important; color: white !important; box-shadow: 0 6px 20px rgba(52, 199, 89, 0.3); }
 
@@ -489,7 +495,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📱</span>
                     <h3 class="service-title">Ekran Değişimi</h3>
-                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD og OLED değişimi hizmeti.</p>
+                    <p class="service-description">Kırık, çatlak veya dokunmatik sorunu yaşayan ekranlar için orijinal kalitede LCD ve OLED değişimi hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">🔋</span>
@@ -499,7 +505,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📷</span>
                     <h3 class="service-title">Kamera Tamiri</h3>
-                    <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
+                    <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri og lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">💧</span>
@@ -650,7 +656,7 @@
                 
                 <div class="id-modal-pill-status" style="margin-top: 5px;"></div>
                 
-                <button type="button" class="btn-select-green" onclick="triggerSeatMapFromMonth()">Koltuk Seçimine İlerle ➔</button>
+                <button type="button" class="btn-select-green" onclick="triggerSeatMapFromMonth()">Koltuk Seç</button>
             </div>
         </div>
     </div>
@@ -676,7 +682,7 @@
         <div class="seat-modal-window" style="max-width: 750px;">
             <button type="button" class="close-modal-btn" onclick="closeCurriculumModal()">✕</button>
             <h3 style="color: white; text-align: center; margin-bottom: 5px; font-weight: 700; font-size: 24px;">WORKSHOP İÇERİĞİ VE YOL HARİTASI</h3>
-            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma og aktarım uzmanlığına giden süreç.</p>
+            <p style="color: var(--gray-medium); text-align: center; font-size: 14px; margin-bottom: 30px;">Başlangıç seviyesinden parça uyarısı kaldırma ve aktarım uzmanlığına giden süreç.</p>
             
             <div class="curriculum-container">
                 <div class="curriculum-card border-orange">
@@ -706,7 +712,7 @@
                 <div class="curriculum-card border-blue">
                     <span class="card-tag bg-blue">İleri Seviye</span>
                     <h4>İşlemci Onarımı ve Swap Mühendisliği</h4>
-                    <p class="desc">En yüksek riskli onarımlarda, karmaşık işlemci yollarını ve sistem aktarımını (swap) profesyonel bir endüstri standardına taşıyacağınız zirve aşama.</p>
+                    <p class="desc">En yüksek riskli onarımlarda, karmaşık işlemci yollarını og sistem aktarımını (swap) profesyonel bir endüstri standardına taşıyacağınız zirve aşama.</p>
                     <h5>🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
                         <li>İşlemci sökme, takma ve kalıplama</li>
@@ -779,7 +785,6 @@
         let selectedPeriod = '';
         let selectedSeats = [];
 
-        // 🟢 Tüm gelecek dönemlerin koltuk hafızaları kilitlendi (Ağustos ve Ekim tamamen bomboş usta)
         const occupiedSeatsData = {
             'Haziran': ['A3', 'A4', 'A7', 'B2', 'B3', 'B8', 'B9', 'C1', 'C4', 'C5', 'C6', 'C10', 'A10'],
             'Agustos': [],
@@ -796,7 +801,8 @@
 
             if(period === 'Haziran') {
                 hugeDateDiv.innerText = "19 - 22 Haziran 2026";
-                pillStatusDiv.innerHTML = `<span class="status-pill urgent">Son 17 Koltuk</span>`;
+                // 🔴 Gerçek kırmızı uyarısı detay paneline de çakıldı usta
+                pillStatusDiv.innerHTML = `<span class="status-pill urgent" style="color:#ff3b30 !important; border-color:#ff3b30 !important; font-weight:800;">Son 17 Koltuk</span>`;
             } else if(period === 'Agustos') {
                 hugeDateDiv.innerText = "21 - 24 Ağustos 2026";
                 pillStatusDiv.innerHTML = `<span class="status-pill open">Kayıt Açık (30 Boş)</span>`;
