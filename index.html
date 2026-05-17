@@ -193,24 +193,28 @@
         .features-visual { display: flex; justify-content: center; position: relative; }
         .phone-showcase { width: 100%; max-width: 450px; height: 380px; background-image: url('backpro1.png'); background-size: contain; background-position: center; background-repeat: no-repeat; }
 
-        /* 🌐 YENİ TAM EKRAN MODAL SİSTEMİ (Academy & Ustama Sor İçin) */
+        /* 🌐 YENİ TAM EKRAN MODAL SİSTEMİ */
         .main-fullscreen-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(25px);
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(25px);
             z-index: 10000; opacity: 0; visibility: hidden;
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             display: flex; align-items: center; justify-content: center;
         }
         .main-fullscreen-modal.open { opacity: 1; visibility: visible; }
+        
         .modal-scroll-container {
-            width: 100%; max-height: 100vh; overflow-y: auto; padding: 60px 20px;
+            width: 100%; height: 100%; overflow-y: auto; padding: 60px 20px;
             display: flex; justify-content: center; align-items: flex-start;
         }
+        
         .modal-content-wrapper {
             width: 100%; max-width: 1100px; background: #111113;
             border: 1px solid rgba(255,255,255,0.08); border-radius: 24px;
             padding: 50px 40px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
         }
+        
         .main-close-btn {
             position: absolute; top: 20px; right: 20px; width: 40px; height: 40px;
             background: rgba(255,255,255,0.06); border: none; border-radius: 50%;
@@ -235,7 +239,7 @@
 
         .portal-container { background: #1c1c1e; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
         .portal-list { list-style: none; margin: 20px 0; }
-        .portal-list li { padding: 8px 0; font-size: 14px; color: #cbd5e1; display: flex; align-items: center; gap: 10px; }
+        .portal-list li { padding: 8px 0; font-size: 14px; color: #cbd5e1; display: flex; align-items: center; gap: 10px; text-align: left; }
         .portal-list li::before { content: "✓"; color: var(--primary-orange); font-weight: bold; }
         .btn-student-portal-blue { display: inline-block; width: 100%; padding: 14px 28px; background: linear-gradient(135deg, #007AFF 0%, #0056b3 100%); color: white !important; font-weight: 700; font-size: 15px; text-align: center; border-radius: 50px; text-decoration: none !important; box-shadow: 0 8px 25px rgba(0, 122, 255, 0.25); border: none; transition: 0.3s; }
 
@@ -272,8 +276,14 @@
         .bullet-grid li { font-size: 13px; color: #e2e8f0; display: flex; align-items: center; gap: 8px; }
         .bullet-grid li::before { content: "➔"; color: var(--primary-orange); font-size: 11px; }
 
-        /* Ustama Sor İç Tasarımlar */
-        .container { display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; margin-top: 30px; }
+        /* 🛠️ ÇAKIŞMASI DÜZELTİLEN MODAL İÇİ GRID SİSTEMİ */
+        .modal-expert-grid { 
+            display: grid; 
+            grid-template-columns: 1fr auto 1fr; 
+            gap: 40px; 
+            align-items: center; 
+            margin-top: 30px; 
+        }
         .platform { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 40px 30px; border-radius: 24px; text-align: center; }
         .info-modal-clean-layout { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 10px 0; }
         .modal-huge-date { font-size: 28px; font-weight: 800; color: #ff7a45; letter-spacing: 0.5px; margin-bottom: 2px; }
@@ -296,8 +306,6 @@
         .fab::after { content: ''; width: 24px; height: 24px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36(1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
         .mouse-follower { position: fixed; width: 20px; height: 20px; background: var(--primary-blue); border-radius: 50%; pointer-events: none; opacity: 0.6; transition: transform 0.1s ease; z-index: 999999; mix-blend-mode: difference; }
-
-        /* Screen text for seat map */
         .screen { background: rgba(255,255,255,0.05); padding: 5px; text-align: center; color: #86868b; font-size: 11px; letter-spacing: 2px; margin-bottom: 20px; border-radius: 4px; width: 100%; max-width: 380px; margin-left: auto; margin-right: auto; }
 
         /* 📱 RESPONSIVE MOBİL KATMAN AYARLARI */
@@ -345,7 +353,7 @@
             .portal-container { padding: 20px 15px; gap: 15px; }
 
             .features-grid, .services-grid, .contact-grid { grid-template-columns: 1fr; gap: 15px; }
-            .container { grid-template-columns: 1fr; gap: 20px; }
+            .modal-expert-grid { grid-template-columns: 1fr; gap: 20px; }
             .platform { padding: 25px 15px; }
 
             .seat-modal-window { padding: 25px 10px; width: 94%; }
@@ -574,7 +582,8 @@
                     <h2 class="section-title" style="color: white;">USTAMA SOR?</h2>
                     <p class="section-subtitle" style="color: #999;">teknisyenlere özel görüntülü, sesli ve ekran paylaşımlı teknik destek uygulaması.</p>
                 </div>
-                <div class="container">
+                <!-- CSS İsmi modal-expert-grid olarak güncellendi (Masaüstü bozulmasını çözen kısım) -->
+                <div class="modal-expert-grid">
                     <div class="platform">
                         <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 25px; color: white;">mobil / web</h2>
                         <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #2196F3, #1976D2);">TIKLA</a>
@@ -601,7 +610,7 @@
     </div>
 
 
-    <!-- ALT REZERVASYON MODALLARI (İç içe açılan alt pencereler) -->
+    <!-- ALT REZERVASYON MODALLARI (Koltuk seçimi ve müfredat) -->
     <div id="monthDetailModalOverlay" class="seat-modal-overlay" onclick="closeModalOnOverlay(event, 'monthDetailModalOverlay')">
         <div class="seat-modal-window" style="max-width: 480px; border-radius: 20px;">
             <button type="button" class="close-modal-btn" onclick="closeMonthDetailModal()">✕</button>
@@ -696,24 +705,23 @@
     <a href="tel:+905317493693" class="fab"></a>
 
     <script>
-        // --- 🌐 YENİ MODAL YÖNETİM FONKSİYONLARI ---
+        // --- 🌐 MODAL YÖNETİM FONKSİYONLARI ---
         function openFullscreenModal(modalId) {
             document.getElementById(modalId).classList.add('open');
-            document.body.style.overflow = 'hidden'; // Arka planın kaymasını engeller
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeFullscreenModal(modalId) {
             document.getElementById(modalId).classList.remove('open');
-            // Eğer açık başka ana modal kalmadıysa kaydırmayı aç
             if(!document.querySelector('.main-fullscreen-modal.open')) {
                 document.body.style.overflow = '';
             }
         }
 
-        // Boşluğa (Overlay) tıklayınca kapatma fonksiyonu
+        // Dış Boşluğa (Overlay) tıklayınca kapatma fonksiyonu
         function closeModalOnOverlay(event, modalId) {
-            // Tıklanan eleman modalın dış siyah arka planı (overlay) veya kaydırma kabı ise kapat
-            if (event.target.classList.contains('main-fullscreen-modal') || event.target.classList.contains('modal-scroll-container') || event.target.classList.contains('seat-modal-overlay')) {
+            // Tıklanan yer tam olarak arka plan veya kaydırma kapsayıcısı ise kapat
+            if (event.target.id === modalId || event.target.classList.contains('modal-scroll-container') || event.target.classList.contains('seat-modal-overlay')) {
                 if(modalId === 'monthDetailModalOverlay') closeMonthDetailModal();
                 else if(modalId === 'seatModalOverlay') closeSeatModal();
                 else if(modalId === 'curriculumModalOverlay') closeCurriculumModal();
