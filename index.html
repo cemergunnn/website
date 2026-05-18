@@ -156,7 +156,20 @@
         .hero-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('backpro.webp'); background-size: cover; background-position: center; opacity: 0.15; z-index: 1; }
         .hero-content { max-width: 1200px; margin: 0 auto; padding: 0 40px; z-index: 3; position: relative; }
         .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.15); padding: 6px 16px; border-radius: 25px; font-size: 13px; font-weight: 600; margin-bottom: 20px; backdrop-filter: blur(10px); color: var(--primary-orange); border: 1px solid rgba(255,255,255,0.1); }
-        .hero-headline { font-size: 64px; font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
+        
+        /* ✨ APPLE TARZI GEÇİŞLİ BAŞLIK (DÜZELTİLEN KISIM) */
+        .hero-headline { 
+            font-size: 64px; 
+            font-weight: 800; 
+            line-height: 1.15; 
+            margin-bottom: 20px; 
+            background: linear-gradient(135deg, #ff7a45 0%, #f05a28 35%, #2196F3 70%, #1976D2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
         .hero-subheadline { font-size: 24px; font-weight: 400; color: #cbd5e1; margin-bottom: 35px; max-width: 600px; }
         .hero-buttons { display: flex; gap: 15px; }
 
@@ -193,7 +206,7 @@
         .features-visual { display: flex; justify-content: center; position: relative; }
         .phone-showcase { width: 100%; max-width: 450px; height: 380px; background-image: url('backpro1.png'); background-size: contain; background-position: center; background-repeat: no-repeat; }
 
-        /* 🌐 YENİ TAM EKRAN MODAL SİSTEMİ */
+        /* 🌐 TAM EKRAN MODAL SİSTEMİ */
         .main-fullscreen-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(25px);
@@ -276,7 +289,7 @@
         .bullet-grid li { font-size: 13px; color: #e2e8f0; display: flex; align-items: center; gap: 8px; }
         .bullet-grid li::before { content: "➔"; color: var(--primary-orange); font-size: 11px; }
 
-        /* 🛠️ ÇAKIŞMASI DÜZELTİLEN MODAL İÇİ GRID SİSTEMİ */
+        /* Modal İçi Grid Sistemi */
         .modal-expert-grid { 
             display: grid; 
             grid-template-columns: 1fr auto 1fr; 
@@ -315,7 +328,7 @@
             .logo { order: 1; }
             
             .mobile-direct-links { display: flex; order: 2; margin-left: auto; gap: 4px; }
-            .mobile-direct-links a { font-size: 9px; padding: 5px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; }
+            .mobile-direct-links a { font-size: 9px; padding: 5px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; cursor: pointer; }
             .mobile-direct-links .m-academy { padding-right: 16px; } 
             
             .nav-links {
@@ -331,7 +344,7 @@
 
             .hero { min-height: auto; padding: 110px 0 60px; text-align: center; }
             .hero-content { padding: 0 15px; }
-            .hero-headline { font-size: 32px; }
+            .hero-headline { font-size: 36px; } /* Mobil için bir tık büyütüldü gradient netleşsin diye */
             .hero-subheadline { font-size: 15px; margin-bottom: 25px; }
             .hero-buttons { flex-direction: column; gap: 10px; align-items: center; width: 100%; }
             .btn { width: 100%; max-width: 280px; padding: 12px 15px; }
@@ -397,6 +410,7 @@
         <div class="hero-background"></div>
         <div class="hero-content">
             <div class="hero-badge">VIP CEP SERVİS</div>
+            <!-- ✨ YENİ NESİL GEÇİŞLİ BAŞLIK YAPISI -->
             <h1 class="hero-headline">telefon'unuz için<br>profesyonel çözümler</h1>
             <p class="hero-subheadline">Uzman teknisyen. Kaliteli parçalar. Hızlı teslimat. Güvenilir servis.</p>
             <div class="hero-buttons">
@@ -427,7 +441,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📷</span>
                     <h3 class="service-title">Kamera Tamiri</h3>
-                    <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
+                    <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleriและ lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">💧</span>
@@ -582,7 +596,6 @@
                     <h2 class="section-title" style="color: white;">USTAMA SOR?</h2>
                     <p class="section-subtitle" style="color: #999;">teknisyenlere özel görüntülü, sesli ve ekran paylaşımlı teknik destek uygulaması.</p>
                 </div>
-                <!-- CSS İsmi modal-expert-grid olarak güncellendi (Masaüstü bozulmasını çözen kısım) -->
                 <div class="modal-expert-grid">
                     <div class="platform">
                         <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 25px; color: white;">mobil / web</h2>
@@ -610,7 +623,7 @@
     </div>
 
 
-    <!-- ALT REZERVASYON MODALLARI (Koltuk seçimi ve müfredat) -->
+    <!-- ALT REZERVASYON MODALLARI -->
     <div id="monthDetailModalOverlay" class="seat-modal-overlay" onclick="closeModalOnOverlay(event, 'monthDetailModalOverlay')">
         <div class="seat-modal-window" style="max-width: 480px; border-radius: 20px;">
             <button type="button" class="close-modal-btn" onclick="closeMonthDetailModal()">✕</button>
@@ -718,9 +731,7 @@
             }
         }
 
-        // Dış Boşluğa (Overlay) tıklayınca kapatma fonksiyonu
         function closeModalOnOverlay(event, modalId) {
-            // Tıklanan yer tam olarak arka plan veya kaydırma kapsayıcısı ise kapat
             if (event.target.id === modalId || event.target.classList.contains('modal-scroll-container') || event.target.classList.contains('seat-modal-overlay')) {
                 if(modalId === 'monthDetailModalOverlay') closeMonthDetailModal();
                 else if(modalId === 'seatModalOverlay') closeSeatModal();
