@@ -2,14 +2,10 @@
   "public": ".",
   "rewrites": [
     { "source": "/ustama-sor", "destination": "/ustama-sor.html" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
     { "source": "/servisler", "destination": "/index.html" },
     { "source": "/hakkimizda", "destination": "/index.html" },
     { "source": "/iletisim", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "**/*.{txt,xml}",
-      "headers": [{ "key": "Content-Type", "value": "text/plain" }]
-    }
   ]
 }
