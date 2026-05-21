@@ -1,11 +1,21 @@
+// serve.json
 {
-  "public": ".",
   "rewrites": [
     { "source": "/ustama-sor", "destination": "/ustama-sor.html" },
-    { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/ustama-sor/", "destination": "/ustama-sor.html" },
+    { "source": "/anasayfa", "destination": "/index.html" },
     { "source": "/servisler", "destination": "/index.html" },
     { "source": "/hakkimizda", "destination": "/index.html" },
     { "source": "/iletisim", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/robots.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain" }]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [{ "key": "Content-Type", "value": "application/xml" }]
+    }
   ]
 }
