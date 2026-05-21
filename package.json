@@ -1,15 +1,14 @@
 {
-  "name": "iphone-repair-site",
+  "name": "vipcep-website",
   "version": "1.0.0",
-  "description": "iPhone tamiri sitesi",
-  "main": "index.html",
+  "description": "VIP CEP SERVİS Resmi Web Sitesi",
+  "main": "server.js",
   "scripts": {
-    "start": "serve -s . -p $PORT"
+    "start": "node server.js"
   },
   "dependencies": {
-    "serve": "^14.2.0"
+    "express": "^4.19.2"
   },
-  "keywords": ["iphone", "repair", "website"],
-  "author": "Your Name",
+  "author": "Cem Ergün",
   "license": "MIT"
 }
