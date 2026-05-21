@@ -1,10 +1,11 @@
+// package.json
 {
-  "name": "vipcep-servis",
+  "name": "vipcepservis",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve . -l $PORT -c serve.json"
+    "start": "serve -s . -p $PORT -c serve.json"
   },
   "dependencies": {
-    "serve": "^14.2.0"
+    "serve": "^14.2.3"
   }
 }
