@@ -100,17 +100,17 @@
 
         .nav-wrapper.dark .nav-links a { color: var(--text-light); }
 
-        .nav-links a:not(.ask-expert):not(.academy-link)::after {
+        .nav-links a:not(.academy-link)::after {
             content: '';
             position: absolute;
             bottom: -5px; left: 0; width: 0; height: 2px;
             background: var(--primary-orange);
             transition: width 0.3s ease;
         }
-        .nav-links a:not(.ask-expert):not(.academy-link):hover::after { width: 100%; }
+        .nav-links a:not(.academy-link):hover::after { width: 100%; }
 
         /* 🎓 Akademi Kep Animasyonu */
-        .nav-links a.academy-link, .mobile-direct-links a.m-academy { padding-right: 22px; position: relative; }
+        .nav-links a.academy-link, .mobile-direct-links a.m-academy { padding-right: 22px; position: relative; font-weight: 600; }
         .nav-links a.academy-link::before, .mobile-direct-links a.m-academy::before {
             content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
             width: 16px; height: 16px;
@@ -123,18 +123,11 @@
             50% { transform: translateY(-50%) translateY(-5px) rotate(10deg); }
         }
 
-        /* ❓ "USTAMA SOR?" Soru İşareti Animasyonu */
-        .nav-links a.ask-expert, .mobile-direct-links a.m-expert {
-            position: relative; display: inline-flex; align-items: center;
-        }
-        .nav-links a.ask-expert {
-            background: linear-gradient(135deg, var(--primary-green), #30D158);
-            color: white !important; padding: 8px 16px; border-radius: 20px; font-weight: 600; gap: 6px;
-        }
-        .nav-links a.ask-expert::before, .mobile-direct-links a.m-expert::before {
-            content: ''; width: 14px; height: 14px; display: inline-block;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E") center/contain no-repeat;
-            animation: spin 3s linear infinite !important; 
+        /* ❓ "USTAMA SOR?" Akademi İçi Dönen Soru İşareti Stili */
+        .academy-expert-badge::before {
+            content: ''; width: 16px; height: 16px; display: inline-block; vertical-align: middle; margin-right: 6px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2334C759'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z'/%3E%3C/svg%3E") center/contain no-repeat;
+            animation: spin 3s linear infinite; 
         }
 
         @keyframes spin {
@@ -142,11 +135,10 @@
             to { transform: rotate(360deg); }
         }
 
-        /* 📱 Mobil Üst Kısım Sabit İkon Barı */
+        /* 📱 Mobil Üst Kısım Sabit İkon Barı (Sadece Akademi Kaldı!) */
         .mobile-direct-links { display: none; gap: 4px; align-items: center; }
-        .mobile-direct-links a { text-decoration: none !important; font-size: 9px; font-weight: 700; padding: 5px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; }
+        .mobile-direct-links a { text-decoration: none !important; font-size: 10px; font-weight: 700; padding: 6px 12px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; }
         .mobile-direct-links .m-academy { background: rgba(240, 90, 40, 0.08); color: var(--primary-orange) !important; border: 1px solid rgba(240, 90, 40, 0.15); }
-        .mobile-direct-links .m-expert { background: linear-gradient(135deg, var(--primary-green), #30D158); color: white !important; gap: 2px; border: none !important; }
 
         .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--text-dark); cursor: pointer; }
         .nav-wrapper.dark .mobile-menu-btn { color: var(--text-light); }
@@ -197,21 +189,30 @@
         .features-visual { display: flex; justify-content: center; position: relative; }
         .phone-showcase { width: 100%; max-width: 450px; height: 380px; background-image: url('backpro1.png'); background-size: contain; background-position: center; background-repeat: no-repeat; }
 
-        /* Academy Section */
+        /* Academy Section (Yenilenen 3'lü Modüler Düzen) usta */
         .academy-section { background-color: var(--academy-dark); color: white; border-top: 2px solid rgba(255,255,255,0.05); }
-        .academy-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
-        .calendar-container { background: #1c1c1e; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; width: 100%; }
-
-        .months-display-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
-        .month-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 25px 15px; text-align: center; cursor: pointer; transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+        .academy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        
+        .calendar-container { background: #1c1c1e; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; }
+        .months-display-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+        .month-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 22px 12px; text-align: center; cursor: pointer; transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
         .month-card:hover:not(.disabled-card) { transform: translateY(-4px); background: rgba(240, 90, 40, 0.06); border-color: var(--primary-orange); box-shadow: 0 8px 20px rgba(240, 90, 40, 0.15); }
-        .month-card h4 { font-size: 20px; font-weight: 800; color: white; margin-bottom: 4px; }
+        .month-card h4 { font-size: 18px; font-weight: 800; color: white; margin-bottom: 4px; }
         
         .status-pill { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
         .status-pill.urgent { background: rgba(255, 59, 48, 0.15) !important; color: #ff3b30 !important; border: 1px solid #ff3b30 !important; box-shadow: 0 0 10px rgba(255, 59, 48, 0.15); }
         .status-pill.open { background: rgba(52, 199, 89, 0.12) !important; color: var(--primary-green) !important; border: 1px solid var(--primary-green) !important; }
         .month-card.disabled-card { opacity: 0.25; cursor: not-allowed; border-style: dashed; }
         .month-card.disabled-card .status-txt { color: var(--gray-medium); font-weight: 500; font-size: 11px; }
+
+        /* 📋 USTAMA SOR? AKADEMİ İÇİ ENTEGRASYON KART STİLLERİ */
+        .expert-container { background: #1c1c1e; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; text-align: center; }
+        .expert-btn-row { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .expert-btn { display: inline-block; padding: 10px 20px; font-size: 13px; font-weight: 700; border-radius: 30px; text-decoration: none !important; transition: 0.3s; color: white; text-transform: uppercase; }
+        .expert-btn.blue { background: linear-gradient(135deg, #2196F3, #1976D2); }
+        .expert-btn.green { background: linear-gradient(135deg, #4CAF50, #388E3C); }
+        .expert-btn.orange { background: linear-gradient(135deg, #FF9800, #F57C00); }
+        .expert-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,255,255,0.05); }
 
         /* Modallar */
         .info-modal-clean-layout { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 15px; padding: 10px 0; }
@@ -263,34 +264,18 @@
 
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
         .contact-card { background: white; padding: 35px 20px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02); }
-        .container { display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; }
-        .platform { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 40px 30px; border-radius: 24px; text-align: center; }
 
-        /* Footer */
-        .footer { background: #0e0e10; color: #636366; padding: 50px 0; text-align: center; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.02); }
-        .footer-logo img { height: 26px; margin-bottom: 15px; opacity: 0.5; }
-
-        /* 📞 MÜŞTERİYİ TETİKLEYEN NABIZ (PULSE) ANİMASYONLU YENİ NESİL ARMA BUTONU usta */
+        /* 📞 PULSE ARMA BUTONU */
         .fab { 
-            position: fixed; 
-            bottom: 25px; 
-            right: 25px; 
-            width: 65px; 
-            height: 65px; 
+            position: fixed; bottom: 25px; right: 25px; width: 65px; height: 65px; 
             background: linear-gradient(135deg, #1b437c 0%, #f05a28 100%); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            z-index: 999; 
-            border: 1px solid rgba(255,255,255,0.15); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            z-index: 999; border: 1px solid rgba(255,255,255,0.15); 
             box-shadow: 0 8px 30px rgba(240, 90, 40, 0.4); 
             animation: fab-pulse 2s infinite ease-in-out;
         }
         .fab::after { 
-            content: ''; 
-            width: 24px; 
-            height: 24px; 
+            content: ''; width: 24px; height: 24px; 
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") center/contain no-repeat; 
         }
 
@@ -307,7 +292,7 @@
             .logo { order: 1; }
             
             .mobile-direct-links { display: flex; order: 2; margin-left: auto; gap: 4px; }
-            .mobile-direct-links a { font-size: 9px; padding: 5px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; }
+            .mobile-direct-links a { font-size: 10px; padding: 6px 12px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.2px; }
             .mobile-direct-links .m-academy { padding-right: 16px; } 
             
             .nav-links {
@@ -319,7 +304,7 @@
             .nav-links.open { transform: translateX(-100%); }
             .nav-links li { width: 100%; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.05); }
             .nav-links a { display: block; padding: 16px 10px; font-size: 15px; width: 100%; }
-            .nav-links li:has(.academy-link), .nav-links li:has(.ask-expert) { display: none; } 
+            .nav-links li:has(.academy-link) { display: none; } 
 
             .hero { min-height: auto; padding: 110px 0 60px; text-align: center; }
             .hero-content { padding: 0 15px; }
@@ -333,7 +318,7 @@
             .section-subtitle { font-size: 14px; }
 
             .academy-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5px; }
-            .calendar-container { padding: 20px 15px; }
+            .calendar-container, .portal-container, .expert-container { padding: 20px 15px; }
             .months-display-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .month-card { padding: 15px 10px; }
             .month-card h4 { font-size: 15px; }
@@ -341,12 +326,8 @@
 
             .bullet-grid { grid-template-columns: 1fr; gap: 8px; }
             .curriculum-card { padding: 18px; }
-            .portal-container { padding: 20px 15px; gap: 15px; }
 
             .features-grid, .services-grid, .contact-grid { grid-template-columns: 1fr; gap: 15px; }
-            .container { grid-template-columns: 1fr; gap: 20px; }
-            .platform { padding: 25px 15px; }
-
             .seat-modal-window { padding: 25px 10px; width: 94%; }
             .seat { width: 28px; height: 26px; font-size: 9px; }
             .row-label { font-size: 12px; width: 15px; }
@@ -367,7 +348,6 @@
             
             <div class="mobile-direct-links">
                 <a href="#akademi" class="m-academy">🎓 VIP CEP ACADEMY</a>
-                <a href="#teknisyen-bolumu" class="m-expert">❓ USTAMA SOR</a>
             </div>
 
             <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -378,7 +358,6 @@
                 <li><a href="#hakkimizda" onclick="closeMobileMenu()">Hakkımızda</a></li>
                 <li><a href="#iletisim" onclick="closeMobileMenu()">İletişim</a></li>
                 <li><a href="#akademi" class="academy-link" onclick="closeMobileMenu()">VIP CEP Academy</a></li>
-                <li><a href="#teknisyen-bolumu" class="ask-expert" onclick="closeMobileMenu()">USTAMA SOR?</a></li>
             </ul>
         </nav>
     </div>
@@ -416,7 +395,7 @@
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">📷</span>
                     <h3 class="service-title">Kamera Tamiri</h3>
-                    <p class="service-description">Ön ve arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
+                    <p class="service-description">Ön og arka kamera sorunları, odaklama problemleri ve lens hasarları için profesyonel tamir hizmeti.</p>
                 </div>
                 <div class="service-card" onclick="callService()">
                     <span class="service-icon">💧</span>
@@ -544,11 +523,26 @@
                         <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Kayıt yaptıran teknisyenlerimiz, workshop katılımından önce sisteme giriş yaparak teknik dökümanlara ve şematik okuma notlarına erişebilirler.</p>
                         <ul class="portal-list">
                             <li>Temel elektroniğe giriş</li>
-                            <li>Devre elemanları ve bağlantı şekilleri</li>
+                            <li>Devre elemanları og bağlantı şekilleri</li>
                             <li>Şema okuma ve arıza tespit mantığı</li>
                         </ul>
                     </div>
                     <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn-student-portal-blue">Öğrenci Girişi</a>
+                </div>
+
+                <div class="expert-container">
+                    <div>
+                        <h3 class="academy-expert-badge" style="color: white; font-weight: 600; margin-bottom: 15px;">USTAMA SOR?</h3>
+                        <p style="color: #86868b; font-size: 14px; line-height: 1.5;">Teknisyen og eğitim mezunlarımıza özel; görüntülü, sesli ve mikroskop ekran paylaşımlı uzaktan canlı uzman destek altyapısı.</p>
+                        <div style="text-align: left; margin-top: 15px; font-size: 13px; color: #cbd5e1;">
+                            <span style="color:#FFD700; font-weight:700;">🖥️ PC Sürümü İçin:</span> Mikrofon ve Hoparlör/Kulaklık gereksinimi vardır.
+                        </div>
+                    </div>
+                    <div class="expert-btn-row">
+                        <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="expert-btn blue">Mobil / Web Giriş</a>
+                        <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" target="_blank" class="expert-btn green">Windows PC İndir</a>
+                        <a onclick="openWhatsApp()" class="expert-btn orange">Bağlantı ID Oluştur</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -593,7 +587,7 @@
             <div class="curriculum-container">
                 <div class="curriculum-card border-orange">
                     <span class="card-tag bg-orange">Başlangıç Seviyesi</span>
-                    <h4>Temel Elektronik ve Anakart İşçiliği</h4>
+                    <h4>Temel Elektronik og Anakart İşçiliği</h4>
                     <p class="desc">Temel elektronik prensiplerini ve anakart üzerindeki en kritik fiziksel müdahale tekniklerini kavrayacağınız aşama.</p>
                     <h5 style="color: var(--primary-orange) !important;">🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
@@ -605,7 +599,7 @@
                 </div>
                 <div class="curriculum-card border-purple">
                     <span class="card-tag bg-purple">Orta Seviye</span>
-                    <h4>Yazılım Desteği, Teşhis og Donanım Programlama</h4>
+                    <h4>Yazılım Desteği, Teşhis ve Donanım Programlama</h4>
                     <p class="desc">Şema okuma süreçlerine odaklanarak arıza bulmayı, güncel BOX yazılımlarını ve iki katmanlı kart işçiliğini öğreneceğiniz aşama.</p>
                     <h5 style="color: var(--primary-orange) !important;">🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
@@ -620,7 +614,7 @@
                 </div>
                 <div class="curriculum-card border-blue">
                     <span class="card-tag bg-blue">İleri Seviye</span>
-                    <h4>İşlemci Onarımı ve Swap Mühendisliği</h4>
+                    <h4>İşlemci Onarımı og Swap Mühendisliği</h4>
                     <p class="desc">En yüksek riskli onarımlarda, karmaşık işlemci hatlarını ve şematik üzerindeki sinyal yollarını profesyonel endüstri standardında çözeceğiniz zirve aşama.</p>
                     <h5 style="color: var(--primary-orange) !important;">🎯 Hedeflenen Kazanımlar:</h5>
                     <ul class="bullet-grid">
@@ -635,37 +629,6 @@
             </div>
         </div>
     </div>
-
-    <section id="teknisyen-bolumu" class="section" style="background: #0a0a0a; padding: 100px 0;">
-        <div class="section-content">
-            <div class="section-header">
-                <h2 class="section-title" style="color: white;">USTAMA SOR?</h2>
-                <p class="section-subtitle" style="color: #999;">teknisyenlere özel görüntülü, sesli ve ekran paylaşımlı teknik destek uygulaması.</p>
-            </div>
-            <div class="container">
-                <div class="platform">
-                    <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 25px; color: white;">mobil / web</h2>
-                    <a href="https://vipcep-server-production.up.railway.app/customer-app.html" target="_blank" class="btn btn-primary" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #2196F3, #1976D2);">TIKLA</a>
-                    <a href="#" class="btn btn-id" onclick="openWhatsApp('mobile')" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; display: inline-block; border-radius: 50px; text-decoration: none; padding: 14px 28px; font-weight: 600; font-size: 15px;">ID oluştur</a>
-                </div>
-                <div style="width: 2px; height: 300px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent); justify-content: center; position: relative;" class="divider">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 10px; height: 10px; background: white; border-radius: 50%;"></div>
-                </div>
-                <div class="platform">
-                    <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 25px; color: white;">windows Pc</h2>
-                    <a href="https://github.com/cemergunnn/ustama-sor/releases/download/v1.0.10/USTAMA-SOR-Setup.exe" target="_blank" class="btn btn-secondary" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #4CAF50, #388E3C);">İNDİR</a>
-                    <a href="#" class="btn btn-id" onclick="openWhatsApp('desktop')" style="margin: 10px; width: 100%; max-width: 200px; background: linear-gradient(135deg, #FF9800, #F57C00); color: white; display: inline-block; border-radius: 50px; text-decoration: none; padding: 14px 28px; font-weight: 600; font-size: 15px;">ID oluştur</a>
-                    <div style="margin-top: 20px; text-align: left; font-size: 14px; color: white;">
-                        <h4 style="color: #FFD700; margin-bottom: 10px; font-size: 15px;">Gereksinimler:</h4>
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li style="padding: 4px 0; position: relative; padding-left: 18px;"><span style="position: absolute; left: 0; color: #4CAF50;">•</span>Mikrofon</li>
-                            <li style="padding: 4px 0; position: relative; padding-left: 18px;"><span style="position: absolute; left: 0; color: #4CAF50;">•</span>Hoparlör/Kulaklık</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="section-content">
@@ -751,6 +714,7 @@
             overlay.classList.add('open');
         }
 
+        // --- 🎬 KOLTUK SEÇİM KAPATMA VE REDIRECT VE WHATSAPP ---
         function closeSeatModal() { document.getElementById('seatModalOverlay').classList.remove('open'); }
         function toggleModalSeat(seatId) {
             const targetSeat = document.querySelector(`#modalCinemaRoom [data-seat-id="${seatId}"]`);
@@ -784,7 +748,7 @@
         }
         animateFollower();
 
-        function openWhatsApp(platform) { window.open('https://wa.me/905374792403?text=ID%20ve%20Kullan%C4%B1c%C4%B1%20ad%C4%B1%20olu%C5%9fturmak%20istiyorum', '_blank'); }
+        function openWhatsApp() { window.open('https://wa.me/905374792403?text=ID%20ve%20Kullan%C4%B1c%C4%B1%20ad%C4%B1%20olu%C5%9fturmak%20istiyorum', '_blank'); }
         function callService() { window.location.href = 'tel:+905317493693'; }
 
         const navbar = document.getElementById('navbar');
@@ -807,7 +771,7 @@
             });
         });
 
-        const cards = document.querySelectorAll('.service-card, .contact-card, .calendar-container, .portal-container, .month-card');
+        const cards = document.querySelectorAll('.service-card, .contact-card, .calendar-container, .portal-container, .month-card, .expert-container');
         cards.forEach(card => {
             card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-5px) scale(1.02)'; });
             card.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0) scale(1)'; });
