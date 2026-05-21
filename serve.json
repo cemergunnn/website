@@ -5,5 +5,11 @@
     { "source": "/servisler", "destination": "/index.html" },
     { "source": "/hakkimizda", "destination": "/index.html" },
     { "source": "/iletisim", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "**/*.{txt,xml}",
+      "headers": [{ "key": "Content-Type", "value": "text/plain" }]
+    }
   ]
 }
