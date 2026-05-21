@@ -1,11 +1,5 @@
 [phases.build]
-cmds = ["echo 'Building static site...'"]
+cmds = ["npm install"]
 
 [phases.start]
-cmd = "serve -s . -p $PORT"
-
-[variables]
-NODE_VERSION = "18"
-
-[providers]
-node = "18"
+cmd = "npm start"
