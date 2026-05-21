@@ -1,6 +1,0 @@
-{
-  "public": ".",
-  "rewrites": [
-    { "source": "/ustama-sor", "destination": "/ustama-sor.html" }
-  ]
-}
