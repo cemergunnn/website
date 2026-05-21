@@ -1,11 +1,15 @@
-// package.json
 {
-  "name": "vipcepservis",
+  "name": "iphone-repair-site",
   "version": "1.0.0",
+  "description": "iPhone tamiri sitesi",
+  "main": "index.html",
   "scripts": {
-    "start": "serve -s . -p $PORT -c serve.json"
+    "start": "serve -s . -p $PORT"
   },
   "dependencies": {
-    "serve": "^14.2.3"
-  }
+    "serve": "^14.2.0"
+  },
+  "keywords": ["iphone", "repair", "website"],
+  "author": "Your Name",
+  "license": "MIT"
 }
